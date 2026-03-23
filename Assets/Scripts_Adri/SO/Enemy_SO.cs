@@ -9,7 +9,7 @@ public class Enemy_SO : ScriptableObject
     public float speed;
     public float damage;
     public float attackRate;
-    public bool flier;
+    public bool flying;
     public float attackRange;
     public int coins;
 
