@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Vector3 _tamanioCaja;
     [SerializeField] Vector3 _offSet;
     [SerializeField] float _cantidadReparacion;
-    bool _reparacion = false;
+    public float _reparacionCantidad;
     #endregion
 
 
@@ -95,11 +95,11 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            _reparacion = true;
+            _reparacionCantidad = 10f;
         }
         else if (context.canceled)
         {
-            _reparacion = false;
+            _reparacionCantidad = 0f;
         }
     }
     public void OnShoot(InputAction.CallbackContext context)
@@ -124,8 +124,6 @@ public class PlayerController : MonoBehaviour
         //Actualitzamos el estado de _grounded
         _grounded = colliderBuffer[0] != null;
     }
-
-
     private void Movimiento()
     {
         //Calcula la direccion a la que se esta dirigiendo el player
@@ -169,23 +167,15 @@ public class PlayerController : MonoBehaviour
         foreach (var other in colliders)
         {
             if (other == null) return;
-            if ((_interacteables & (1 << other.gameObject.layer)) != 0)
-            {
-                if (_reparacion)
-                {
-                    if (other.TryGetComponent(out DoorObstacle doorObstacle))
-                    {
-                        doorObstacle.RepairDoor(_cantidadReparacion);
-                    }
-                }
 
-            }
         }
     }
     private void Disparo()
     {
         PoolManager.Instance.Pull("Bullet", _disparo.position, _disparo.rotation);
     }
+
+
 
 
 
