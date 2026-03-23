@@ -27,7 +27,6 @@ public class EnemyController : PoolEntity
         {
             indexPoint = 0;
             SetTargetForCurrentIndex();
-            SetTargetForCurrentIndex();
         }
     }
 

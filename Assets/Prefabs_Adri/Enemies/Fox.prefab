@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2533904310865343385}
   - component: {fileID: 3231952618323134285}
   - component: {fileID: 1204679790868885783}
-  m_Layer: 6
+  - component: {fileID: -6543481274212852505}
+  m_Layer: 8
   m_Name: Fox
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,12 +98,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ada25f699328b4594efc46462f4b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _poolID: 
+  _renderers: []
+  _isActive: 0
   data: {fileID: 11400000, guid: 82805edabf852d4489d9c9ad621a039f, type: 2}
   rotationSpeed: 720
   wanderRadius: 1.5
   arrivalThreshold: 0.8
   swayAmplitude: 0.5
   swayFrequency: 1
+--- !u!114 &-6543481274212852505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537829161276467367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ac158bae1fa3c145945d49bed822a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 6d0457430253d884f9c8ac4130be1570, type: 2}
 --- !u!1 &4925153410849697811
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +131,7 @@ GameObject:
   - component: {fileID: 5876245087682383190}
   - component: {fileID: 136949047018360105}
   - component: {fileID: 8542301796022198851}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8102993395524470495}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

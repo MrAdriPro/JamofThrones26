@@ -59,9 +59,12 @@ public class WaveManager : MonoBehaviour
                 {
                     GameObject newEnemy = Instantiate(prefabToSpawn, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
 
+                    newEnemy.SetActive(true);
+
                     if (newEnemy.TryGetComponent<EnemyController>(out var controller))
                     {
                         controller.data = entry.enemyType;
+                        controller.Initialize();
                     }
                 }
 

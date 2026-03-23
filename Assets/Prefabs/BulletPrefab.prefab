@@ -155,9 +155,10 @@ MonoBehaviour:
   _isActive: 0
   _rb: {fileID: -8910192844566555595}
   _collider: {fileID: 4059519340039945668}
-  _damage: 10
+  _damage: 1
   _velocidad: 10
   _lifeTime: 10
   _disparables:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 256
+  objetivo: {fileID: 0}

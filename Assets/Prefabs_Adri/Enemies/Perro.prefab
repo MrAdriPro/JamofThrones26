@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5263869324432626933}
   - component: {fileID: 3081629177379001242}
   - component: {fileID: 9088750208711630692}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,9 +98,10 @@ GameObject:
   - component: {fileID: 318501647293096766}
   - component: {fileID: 6787556894810212891}
   - component: {fileID: 9152821438218950551}
-  m_Layer: 6
+  - component: {fileID: 8003375836542969192}
+  m_Layer: 8
   m_Name: Perro
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,12 +184,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ada25f699328b4594efc46462f4b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _poolID: 
+  _renderers: []
+  _isActive: 0
   data: {fileID: 11400000, guid: 343f763044ec8a94f84b5eac2b4e03bd, type: 2}
   rotationSpeed: 720
   wanderRadius: 1.5
   arrivalThreshold: 0.8
   swayAmplitude: 0.5
   swayFrequency: 1
+--- !u!114 &8003375836542969192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5469933790799975592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ac158bae1fa3c145945d49bed822a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 343f763044ec8a94f84b5eac2b4e03bd, type: 2}
 --- !u!1 &8798754196985906009
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6689773316262567681}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
