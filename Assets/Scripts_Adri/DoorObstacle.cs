@@ -3,19 +3,28 @@ using UnityEngine;
 public class DoorObstacle : MonoBehaviour
 {
     public float maxHealth = 100f;
-    private float currentHealth;
+    [SerializeField] float currentHealth;
     public bool destroyed = false;
     public GameObject doorPrefab;
+    [Header("Contacto")]
+    [SerializeField] LayerMask _interacteables;
+    [SerializeField] Vector3 _tamanioCaja;
+    [SerializeField] Vector3 _offSet;
     private void Start()
     {
         currentHealth = maxHealth;
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Tab))
-        {
-            RepairDoor(2);
-        }
+        Contacto();
+    }
+    void OnDrawGizmos()
+    {
+        //Gizmos para la caja de contacto
+        Gizmos.color = Color.yellow;
+        Matrix4x4 rotationMatrix = Matrix4x4.TRS(transform.TransformPoint(_offSet), transform.rotation, _tamanioCaja);
+        Gizmos.matrix = rotationMatrix;
+        Gizmos.DrawWireCube(Vector3.zero, Vector3.one);
     }
     //this is for the enemies to call when they attack the door
     public void TakeDamage(float damage)
@@ -48,5 +57,28 @@ public class DoorObstacle : MonoBehaviour
         print("Door destroyed");
         GetComponent<Collider>().enabled = false;
         
+    }
+
+    private void Contacto()
+    {
+        Vector3 centro = transform.TransformPoint(_offSet);
+
+        Collider[] colliders = new Collider[5];
+
+        Physics.OverlapBoxNonAlloc(centro, _tamanioCaja / 2, colliders, transform.rotation, _interacteables);
+
+        foreach (var other in colliders)
+        {
+            if (other == null) return;
+            if ((_interacteables & (1 << other.gameObject.layer)) != 0)
+            {
+                if(other.TryGetComponent(out PlayerController playerController))
+                {
+                    RepairDoor(playerController._reparacionCantidad);
+                }
+                
+            }
+
+        }
     }
 }

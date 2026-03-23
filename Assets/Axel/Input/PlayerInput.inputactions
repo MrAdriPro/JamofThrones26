@@ -23,6 +23,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Acccion",
+                    "type": "Button",
+                    "id": "06c02d05-1536-4b7b-8b55-30242735663c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Reparar",
+                    "type": "Button",
+                    "id": "9971834b-9afe-4514-b647-38308ebd53da",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -133,6 +151,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Raton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7e23a6a6-52f4-4f4e-b66b-00d1e75e6650",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Acccion",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6e15abd5-f2c9-4924-9cf3-ead8aa371664",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reparar",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

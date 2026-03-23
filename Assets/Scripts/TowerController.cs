@@ -52,10 +52,14 @@ public class TowerController : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); 
-        BulletController scriptBala = bullet.GetComponent<BulletController>();
+        //Ahora para llamar a las balas tienes que hacer esto : PoolManager.Instance.Pull("Bullet", _disparo.position, _disparo.rotation), es como el instantiate,pero mas optimizado
+        //Te explico, "Bullet" es el PoolID que encuentras en el prefabs del bullet, no en el script, _disparo.position, es el transform desde donde quieres
+        //que se dispare la bala, _dispar.rotation es la rotacion con la que sale la bala.
+    
+        // GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); 
+        // BulletController scriptBala = bullet.GetComponent<BulletController>();
 
-        scriptBala.objetivo = target;
+        //scriptBala.objetivo = target;
     }
 
     // --- DETECCIÓN ---
