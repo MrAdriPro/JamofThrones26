@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a26d268019b83244abf217e81962e517, type: 3}
   m_Name: Dog
   m_EditorClassIdentifier: 
-  enemyName: 
-  enemyPrefab: {fileID: 0}
+  enemyName: Dog
+  enemyPrefab: {fileID: 5469933790799975592, guid: 3a6652096c4bd3c4db18d9024aa38cb3, type: 3}
   health: 10
   speed: 5
   damage: 40
   attackRate: 1
   flier: 0
   attackRange: 1.06
+  coins: 5

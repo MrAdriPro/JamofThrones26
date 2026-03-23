@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,6 +26,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _rotMultiplicador;
     Vector2 _posicionRaton;
     Vector3 _objetivoRaton;
+
+    [Header("Contacto")]
+    [SerializeField] LayerMask _interacteables;
+    [SerializeField] Vector3 _tamanioCaja;
+    [SerializeField] Vector3 _offSet;
     #endregion
 
 
@@ -39,15 +45,24 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GroundCheck();
+        Contacto();
         Movimiento();
 
         Rotacion();
     }
+
     void OnDrawGizmos()
     {
-        //Cambiamos el color del Gizmos
+        //Gizmos para el Groundcheck
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, _groundCheckSize);
+
+        //Gizmos para la caja de contacto
+        Gizmos.color = Color.yellow;
+        Matrix4x4 rotationMatrix = Matrix4x4.TRS(transform.TransformPoint(_offSet), transform.rotation, _tamanioCaja);
+        Gizmos.matrix = rotationMatrix;
+        Gizmos.DrawWireCube(Vector3.zero, Vector3.one);
     }
     #endregion
 
@@ -84,18 +99,17 @@ public class PlayerController : MonoBehaviour
         //Solo vamos a comprobar si es mayor que 0, asi que no necesitamos mas capacida de buffer
         Collider[] colliderBuffer = new Collider[1];
         //Comprobamos si hay contacto con el suelo
-        Physics.OverlapBoxNonAlloc(transform.position,
-                                    _groundCheckSize / 2f,
-                                    colliderBuffer,
-                                    transform.rotation,
-                                    _groundLayer);
+        Physics.OverlapBoxNonAlloc(transform.position, _groundCheckSize / 2f, colliderBuffer, transform.rotation, _groundLayer);
         //Actualitzamos el estado de _grounded
         _grounded = colliderBuffer[0] != null;
     }
+
+
     private void Movimiento()
     {
         //Calcula la direccion a la que se esta dirigiendo el player
         Vector3 direccion = new Vector3(_horizontal, 0, _vertical);
+        //Aplicamos gravedad si no estamos tocando el suelo
         if (!_grounded)
         {
             vectorGravity = Vector3.down * 9.81f;
@@ -105,20 +119,44 @@ public class PlayerController : MonoBehaviour
     }
     private void Rotacion()
     {
+        //Creamos un plano donde impacta el ray del raton
         Plane playerPlane = new Plane(Vector3.up, new Vector3(0, transform.position.y, 0));
+        //Desplegamos el Ray desde la camara a la posicion del raton
         Ray ray = _mainCamera.ScreenPointToRay(_posicionRaton);
-
+        //Si chocamos con el plano ,sacammos la distancia a la que esta para pasarcela al point para saber la posicion
         if (playerPlane.Raycast(ray, out float hitDist))
         {
             _objetivoRaton = ray.GetPoint(hitDist);
         }
-
+        //Calculamos la posicion del raton con respecto al player
         Vector3 direccionRaton = _objetivoRaton - transform.position;
+        //Eliminar la y para que no gire hacia arriba
         direccionRaton.y = 0;
-
+        //Calculamos la dirrecion a la que tiene que mirar el objeto
         Quaternion targetRot = Quaternion.LookRotation(direccionRaton);
-
+        //Aplicamos la direcion al transform del player con un pequenio retraso para que quede mas bonito
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, Time.deltaTime * _rotMultiplicador);
     }
+    private void Contacto()
+    {
+        Vector3 centro = transform.TransformPoint(_offSet);
+
+        Collider[] colliders = new Collider[5];
+
+        Physics.OverlapBoxNonAlloc(centro, _tamanioCaja / 2, colliders, transform.rotation, _interacteables);
+
+        foreach (var other in colliders)
+        {
+            if (other == null) return;
+            if ((_interacteables & (1 << other.gameObject.layer)) != 0)
+            {
+                Debug.Log(other.name);
+            }
+        }
+    }
+
+
+
+
     #endregion
 }
