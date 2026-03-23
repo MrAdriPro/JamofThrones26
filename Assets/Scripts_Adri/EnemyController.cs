@@ -32,6 +32,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    // This method handles the movement of the enemy along the path. It calculates the direction to the next point, rotates the enemy towards that direction, and moves it forward. If the enemy is close enough to the next point, it advances to the next point in the path.
     void Move()
     {
         if (indexPoint >= path.Length) return;
@@ -54,7 +55,7 @@ public class EnemyController : MonoBehaviour
             indexPoint++;
         }
     }
-
+    // This method uses a raycast to detect if there is a door obstacle in front of the enemy within its attack range. If it detects a door, it checks if the door is not already destroyed and sets it as the current target for attacking.
     void DettectDoor()
     {
         RaycastHit hit;

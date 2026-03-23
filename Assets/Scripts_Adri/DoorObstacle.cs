@@ -17,6 +17,7 @@ public class DoorObstacle : MonoBehaviour
             RepairDoor(2);
         }
     }
+    //this is for the enemies to call when they attack the door
     public void TakeDamage(float damage)
     {
         if (destroyed) return;
@@ -27,6 +28,7 @@ public class DoorObstacle : MonoBehaviour
             DestroyDoor();
         }
     }
+    //this is for the player to call when they want to repair the door
     public void RepairDoor(float repairAmount)
     {
         if (destroyed) return;
@@ -37,12 +39,13 @@ public class DoorObstacle : MonoBehaviour
         }
         print("Door repaired: " + repairAmount + ", current health: " + currentHealth);
     }
+    //this is called when the door is destroyed
     void DestroyDoor()
     {
         destroyed = true;
         currentHealth = 0;
         doorPrefab.SetActive(false);
-        print("Door destroyed!");
+        print("Door destroyed");
         GetComponent<Collider>().enabled = false;
         
     }
