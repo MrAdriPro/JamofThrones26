@@ -16,7 +16,6 @@ public class EnemyController : MonoBehaviour
     }
     private void OnValidate()
     {
-        
     }
 
     void Update()
