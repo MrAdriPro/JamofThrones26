@@ -185,6 +185,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 343f763044ec8a94f84b5eac2b4e03bd, type: 2}
   rotationSpeed: 720
+  wanderRadius: 1.5
+  arrivalThreshold: 0.8
+  swayAmplitude: 0.5
+  swayFrequency: 1
 --- !u!1 &8798754196985906009
 GameObject:
   m_ObjectHideFlags: 0

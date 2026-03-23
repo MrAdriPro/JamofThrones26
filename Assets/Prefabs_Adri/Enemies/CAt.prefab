@@ -217,3 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 82805edabf852d4489d9c9ad621a039f, type: 2}
   rotationSpeed: 720
+  wanderRadius: 1.5
+  arrivalThreshold: 0.8
+  swayAmplitude: 0.5
+  swayFrequency: 1
