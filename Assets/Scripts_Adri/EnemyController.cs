@@ -98,5 +98,6 @@ public class EnemyController : MonoBehaviour
             Gizmos.DrawRay(transform.position, transform.forward * data.attackRange);
         }
     }
+    //Enemy died Fuction
 
 }
