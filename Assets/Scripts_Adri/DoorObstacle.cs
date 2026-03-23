@@ -14,7 +14,7 @@ public class DoorObstacle : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Tab))
         {
-            RepairDoor(20f);
+            RepairDoor(2);
         }
     }
     public void TakeDamage(float damage)

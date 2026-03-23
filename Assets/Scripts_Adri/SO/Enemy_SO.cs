@@ -10,6 +10,7 @@ public class Enemy_SO : ScriptableObject
     public float damage;
     public float attackRate;
     public bool flier;
+    public float attackRange;
 
 
 }
