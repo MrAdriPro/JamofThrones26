@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : PoolEntity
 {
     public Enemy_SO data;
     public float rotationSpeed = 720f; 
@@ -21,6 +21,8 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        if(!IsActive) return;
+        
         if (actualDoor != null)
         {
             AttackDoor();
@@ -35,6 +37,7 @@ public class EnemyController : MonoBehaviour
     // This method handles the movement of the enemy along the path. It calculates the direction to the next point, rotates the enemy towards that direction, and moves it forward. If the enemy is close enough to the next point, it advances to the next point in the path.
     void Move()
     {
+        
         if (indexPoint >= path.Length) return;
 
         Vector3 destine = path[indexPoint].position;
@@ -99,5 +102,14 @@ public class EnemyController : MonoBehaviour
         }
     }
     //Enemy died Fuction
-
+ #region Pool Entity
+    public override void Initialize()
+    {
+        base.Initialize();
+    }
+    public override void Deactivate()
+    {
+        base.Deactivate();
+    }
+    #endregion
 }

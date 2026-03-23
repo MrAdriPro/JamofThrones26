@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform _playerTransform;
     [SerializeField] Camera _mainCamera;
     [SerializeField] CharacterController _cC;
+    [SerializeField] Transform _disparo;
 
     [Header("Grounded")]
     [SerializeField] Vector3 _groundCheckSize;
@@ -31,6 +32,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask _interacteables;
     [SerializeField] Vector3 _tamanioCaja;
     [SerializeField] Vector3 _offSet;
+    [SerializeField] float _cantidadReparacion;
+    bool _reparacion = false;
     #endregion
 
 
@@ -87,6 +90,24 @@ public class PlayerController : MonoBehaviour
     public void OnMouse(InputAction.CallbackContext context)
     {
         _posicionRaton = context.ReadValue<Vector2>();
+    }
+    public void OnRepair(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _reparacion = true;
+        }
+        else if (context.canceled)
+        {
+            _reparacion = false;
+        }
+    }
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Disparo();
+        }
     }
     #endregion
 
@@ -150,11 +171,21 @@ public class PlayerController : MonoBehaviour
             if (other == null) return;
             if ((_interacteables & (1 << other.gameObject.layer)) != 0)
             {
-                Debug.Log(other.name);
+                if (_reparacion)
+                {
+                    if (other.TryGetComponent(out DoorObstacle doorObstacle))
+                    {
+                        doorObstacle.RepairDoor(_cantidadReparacion);
+                    }
+                }
+
             }
         }
     }
-
+    private void Disparo()
+    {
+        PoolManager.Instance.Pull("Bullet", _disparo.position, _disparo.rotation);
+    }
 
 
 
