@@ -49,6 +49,7 @@ public class WaveManager : MonoBehaviour
     {
         spawning = true;
         Wave_SO dataWave = waves[actualRound];
+        bool hasBoss = dataWave.enemiesInWave.Any(e => e.enemyType != null && e.enemyType.isBoss);
         print($"Iniciando Ronda: {actualRound + 1}");
 
         if (spawnPoints == null || spawnPoints.Length == 0)
@@ -84,9 +85,15 @@ public class WaveManager : MonoBehaviour
             }
         }
 
-        while (GameObject.FindGameObjectsWithTag("Enemy").Length > 0)
+        if (hasBoss)
         {
-            yield return new WaitForSeconds(1f); 
+            while (GameObject.FindGameObjectsWithTag("Enemy")
+                .Any(e => e.GetComponent<EnemyController>()?.data.isBoss == true))
+            {
+                yield return new WaitForSeconds(0.5f);
+            }
+
+            Debug.Log("puto negro muere");
         }
 
         print($"Ronda {actualRound + 1} despejada.");

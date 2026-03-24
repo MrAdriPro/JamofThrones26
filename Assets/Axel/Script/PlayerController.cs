@@ -103,10 +103,14 @@ public class PlayerController : MonoBehaviour
     public void OnRepair(InputAction.CallbackContext context)
     {
         if (timer > 0 || _aguantandoLaPuerta) return;
-        if (context.started)
+        if (context.performed)
         {
             _reparacionCantidad = 10f;
             timer = time;
+        }
+        else if (context.canceled)
+        {
+            _reparacionCantidad = 0f;
         }
     }
     public void OnHoldingDoor(InputAction.CallbackContext context)

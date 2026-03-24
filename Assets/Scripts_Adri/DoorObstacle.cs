@@ -27,7 +27,7 @@ public class DoorObstacle : MonoBehaviour
     private void Update()
     {
         Contacto();
-        TakeDamage(0.001f);
+        //TakeDamage(0.001f);
 
     }
     void OnDrawGizmos()
@@ -52,7 +52,7 @@ public class DoorObstacle : MonoBehaviour
         if (destroyed || _currentEscudo > 0) return;
 
         currentHealth -= damage;
-        print("Door took damage: " + damage + ", current health: " + currentHealth);
+        //print("Door took damage: " + damage + ", current health: " + currentHealth);
         if (currentHealth <= 0)
         {
             DestroyDoor();

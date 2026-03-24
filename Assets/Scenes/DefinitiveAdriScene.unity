@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 152512316}
   - component: {fileID: 152512315}
   - component: {fileID: 152512314}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1741,7 +1741,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - {fileID: 11400000, guid: b53f9f392f5cb994a9db51dc8306462b, type: 2}
-  - {fileID: 11400000, guid: 8bfefd4989baa5142b726a75f944b58d, type: 2}
+  - {fileID: 11400000, guid: 98ad4def8ff08d44c98d0298465f92cf, type: 2}
+  - {fileID: 11400000, guid: 795a0b582b00c814bace8ec97ca5f86c, type: 2}
+  - {fileID: 11400000, guid: 9dc98dde5a5b1b440ba69f9e3fa348bd, type: 2}
   spawnPoints:
   - {fileID: 2060600056}
   - {fileID: 1856431004}
@@ -1863,9 +1865,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 491045986486882415, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 671034103925787445, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028592237173962391, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4866269010793412649, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
       propertyPath: m_Name
       value: PlayerController
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866269010793412649, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4866269010793412649, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
       propertyPath: m_TagString
@@ -2683,6 +2701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  _currentEscudo: 0
   destroyed: 0
   doorPrefab: {fileID: 1924512825}
   _interacteables:
@@ -2777,7 +2796,7 @@ GameObject:
   - component: {fileID: 2049352438}
   - component: {fileID: 2049352437}
   - component: {fileID: 2049352441}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2887,13 +2906,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  _currentEscudo: 0
   destroyed: 0
   doorPrefab: {fileID: 2049352435}
   _interacteables:
     serializedVersion: 2
-    m_Bits: 0
-  _tamanioCaja: {x: 0, y: 0, z: 0}
-  _offSet: {x: 0, y: 0, z: 0}
+    m_Bits: 256
+  _tamanioCaja: {x: 2, y: 2, z: 2}
+  _offSet: {x: -0.06, y: 0, z: 2.03}
 --- !u!1 &2059127340
 GameObject:
   m_ObjectHideFlags: 0
