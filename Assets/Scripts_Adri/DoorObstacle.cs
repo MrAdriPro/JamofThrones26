@@ -4,7 +4,7 @@ public class DoorObstacle : MonoBehaviour
 {
     #region Variables
     public float maxHealth = 100f;
-    [SerializeField] float currentHealth;
+    public float currentHealth;
     [SerializeField] float _currentEscudo;
     float _damageEscudo;
     public bool destroyed = false;
