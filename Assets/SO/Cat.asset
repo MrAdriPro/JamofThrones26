@@ -18,6 +18,7 @@ MonoBehaviour:
   speed: 2
   damage: 1
   attackRate: 1
-  flying: 1
+  flying: 0
   attackRange: 1.06
   coins: 5
+  isBoss: 0
