@@ -5,6 +5,7 @@ using System.Linq;
 public class TowerController : MonoBehaviour
 {
     [SerializeField] public List<Transform> enemiesInRange = new List<Transform>();
+    public GameObject[] towerModels;
     public Transform target;
 
     [Header("Atributos de la Torre")]
@@ -15,6 +16,7 @@ public class TowerController : MonoBehaviour
 
     void Update()
     {
+        // Se ordena la lista para que los enemigos con la propiedad de flying en true estén siempre los primeros.
         enemiesInRange = enemiesInRange
         .OrderByDescending(e => e.GetComponent<EnemyController>()?.data?.flying ?? false)
         .ToList();
@@ -35,6 +37,7 @@ public class TowerController : MonoBehaviour
         }
 
         fireCountdown -= Time.deltaTime;
+
     }
 
     void LockOnTarget()
@@ -63,4 +66,25 @@ public class TowerController : MonoBehaviour
     {
         if (other.CompareTag("Enemy")) enemiesInRange.Remove(other.transform);
     }
+
+
+    private int currentLevel = 0;
+
+    public void Upgrade()
+    {
+        if (currentLevel < towerModels.Length - 1)
+        {
+            currentLevel++;
+            UpdateModel();
+        }
+    }
+
+    public void UpdateModel()
+    {
+        for (int i = 0; i < towerModels.Length; i++)
+        {
+            towerModels[i].SetActive(i == currentLevel);
+        }
+    }
 }
+
