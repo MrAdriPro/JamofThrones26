@@ -238,8 +238,8 @@ MonoBehaviour:
   _interacteables:
     serializedVersion: 2
     m_Bits: 0
-  _tamanioCaja: {x: 1.5, y: 1.5, z: 1.5}
-  _offSet: {x: 0, y: 1.09, z: 0}
+  _tamanioCaja: {x: 1.5, y: 1, z: 1.5}
+  _offSet: {x: 0, y: 1, z: 0}
   _reparacionCantidad: 0
 =======
 >>>>>>> parent of 4d340af (poniendo cosas)
@@ -333,12 +333,15 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9971834b-9afe-4514-b647-38308ebd53da
     m_ActionName: 'Player/Reparar[/Keyboard/r]'
+<<<<<<< HEAD
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 6a7c4430-62c5-467f-b780-a23449c3023a
     m_ActionName: 'Player/Holding[/Keyboard/e]'
 =======
 >>>>>>> parent of 4d340af (poniendo cosas)
+=======
+>>>>>>> parent of 273ea54 (i dont know)
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

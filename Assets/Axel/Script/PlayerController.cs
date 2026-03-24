@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour 
+public class PlayerController : MonoBehaviour
 {
     #region Variables
     [Header("Referencias")]
@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
 
         Rotacion();
 <<<<<<< HEAD
+<<<<<<< HEAD
         //if (repairTimer >= 0)
         //{
         //    repairTimer -= Time.deltaTime;
@@ -66,6 +67,13 @@ public class PlayerController : MonoBehaviour
             _reparacionCantidad = 0;
         }
 >>>>>>> parent of 4d340af (poniendo cosas)
+=======
+        if (repairTimer >= 0)
+        {
+            repairTimer -= Time.deltaTime;
+            _reparacionCantidad = 0;
+        }
+>>>>>>> parent of 273ea54 (i dont know)
     }
 
     void OnDrawGizmos()
@@ -107,6 +115,7 @@ public class PlayerController : MonoBehaviour
     public void OnRepair(InputAction.CallbackContext context)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         //if (repairTimer > 0) return;
         if (context.performed)
         {
@@ -124,6 +133,14 @@ public class PlayerController : MonoBehaviour
             _reparacionCantidad = 10f;
             timer = time;
 >>>>>>> parent of 4d340af (poniendo cosas)
+=======
+        if (repairTimer > 0) return;
+        if (context.started)
+        {
+            _reparacionCantidad = 1f;
+            
+            repairTimer = time;
+>>>>>>> parent of 273ea54 (i dont know)
         }
     }
     public void OnShoot(InputAction.CallbackContext context)
