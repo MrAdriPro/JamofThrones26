@@ -1,5 +1,10 @@
 fileFormatVersion: 2
-guid: 2a6e1613c5e0dfa4bbe934600e91784d
+<<<<<<<< Updated upstream:Assets/Scenes/SampleScene.unity.meta
+guid: 99c9720ab356a0642a771bea13969a05
+========
+guid: 31d28c1af27caaa42b43d0b6af785cfe
+folderAsset: yes
+>>>>>>>> Stashed changes:Assets/Scripts_Adri.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

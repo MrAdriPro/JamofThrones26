@@ -1,23 +1,22 @@
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : PoolEntity
 {
     public Enemy_SO data;
     public float rotationSpeed = 720f;
 
 
     [Header("Wander & movement")]
-    
     public float wanderRadius = 1f;           
     public float arrivalThreshold = 0.4f;     
     public float swayAmplitude = 0.2f;       
-    public float swayFrequency = 1f;          
+    public float swayFrequency = 1f;
 
+    //path following
     private int indexPoint = 0;
     private Transform[] path;
     private DoorObstacle actualDoor;
     private float timeNextAttack;
-
     private Vector3 currentTargetPos;
     private float swayTimer;
 
@@ -28,13 +27,12 @@ public class EnemyController : MonoBehaviour
         {
             indexPoint = 0;
             SetTargetForCurrentIndex();
-            SetTargetForCurrentIndex();
         }
     }
 
     private void OnValidate()
     {
-        //
+        //just to ensure the values are not negative or too small
         if (wanderRadius < 0f) wanderRadius = 0f;
         if (arrivalThreshold < 0.01f) arrivalThreshold = 0.01f;
         if (swayAmplitude < 0f) swayAmplitude = 0f;
@@ -43,6 +41,8 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        if(!IsActive) return;
+        
         if (actualDoor != null)
         {
             AttackDoor();
@@ -55,8 +55,7 @@ public class EnemyController : MonoBehaviour
     }
     /// <summary>
     /// this method calculates a random target position around the current path point. It takes the position of the current path point and adds a random offset within
-    /// a circle defined by the wanderRadius. If the enemy is a flier, it also adds a random vertical offset to allow for flying behavior.
-    /// This creates a more natural and less predictable movement pattern as the enemy wanders around the path points.
+    /// a circle defined by the wanderRadius.
     /// </summary>
     void SetTargetForCurrentIndex()
     {
@@ -66,11 +65,7 @@ public class EnemyController : MonoBehaviour
         Vector2 rnd = Random.insideUnitCircle * wanderRadius;
         Vector3 offset = new Vector3(rnd.x, 0f, rnd.y);
 
-        if (data != null && data.flier)
-        {
-            float yOffset = Random.Range(-wanderRadius * 0.5f, wanderRadius * 0.5f);
-            offset.y = yOffset;
-        }
+        
 
         currentTargetPos = basePos + offset;
     }
@@ -84,7 +79,7 @@ public class EnemyController : MonoBehaviour
         Vector3 destine = currentTargetPos;
         Vector3 direction = destine - transform.position;
 
-        Vector3 lookDirection = (data != null && data.flier) ? direction : new Vector3(direction.x, 0f, direction.z);
+        Vector3 lookDirection = (data != null ) ? direction : new Vector3(direction.x, 0f, direction.z);
 
         if (lookDirection.sqrMagnitude > 0.0001f)
         {
@@ -97,7 +92,7 @@ public class EnemyController : MonoBehaviour
 
         swayTimer += Time.deltaTime * swayFrequency;
         Vector3 lateral = transform.right * Mathf.Sin(swayTimer) * swayAmplitude;
-        if (data == null || !data.flier)
+        if (data == null || !data.flying)
         {
             lateral.y = 0f;
         }
@@ -176,5 +171,14 @@ public class EnemyController : MonoBehaviour
         }
     }
     //Enemy died Fuction
-
+ #region Pool Entity
+    public override void Initialize()
+    {
+        base.Initialize();
+    }
+    public override void Deactivate()
+    {
+        base.Deactivate();
+    }
+    #endregion
 }

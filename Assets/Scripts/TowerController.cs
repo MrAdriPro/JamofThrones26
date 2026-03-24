@@ -5,32 +5,23 @@ public class TowerController : MonoBehaviour
 {
     [SerializeField] public List<Transform> enemiesInRange = new List<Transform>();
     public Transform target;
-    
+
     [Header("Atributos de la Torre")]
     public float fireRate = 1f;
     private float fireCountdown = 0f;
-    public GameObject bulletPrefab;
     public Transform firePoint;
+    public GameObject bulletPrefab;
 
     void Update()
     {
         enemiesInRange.RemoveAll(e => e == null);
 
-        // Actualizar el target al primero de la lista
-        if (enemiesInRange.Count > 0)
-        {
-            target = enemiesInRange[0];
-        }
-        else
-        {
-            target = null;
-        }
+        if (enemiesInRange.Count > 0) target = enemiesInRange[0];
+        else target = null;
 
-        // Si tenemos un target, apuntar y disparar
         if (target != null)
         {
             LockOnTarget();
-
             if (fireCountdown <= 0f)
             {
                 Shoot();
@@ -43,7 +34,6 @@ public class TowerController : MonoBehaviour
 
     void LockOnTarget()
     {
-        // Rotación suave hacia el enemigo
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = lookRotation.eulerAngles;
@@ -52,28 +42,20 @@ public class TowerController : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); 
-        BulletController scriptBala = bullet.GetComponent<BulletController>();
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        
+        BulletController bulletController = bullet.GetComponent<BulletController>();
 
-        scriptBala.objetivo = target;
+        bulletController.bulletTarget = target;
     }
 
-    // --- DETECCIÓN ---
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
-        {
-            // Añadir al final de la lista
-            enemiesInRange.Add(other.transform);
-        }
+        if (other.CompareTag("Enemy")) enemiesInRange.Add(other.transform);
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Enemy"))
-        {
-            // Quitar de la lista cuando sale del rango
-            enemiesInRange.Remove(other.transform);
-        }
+        if (other.CompareTag("Enemy")) enemiesInRange.Remove(other.transform);
     }
 }
