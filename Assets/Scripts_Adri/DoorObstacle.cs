@@ -44,8 +44,7 @@ public class DoorObstacle : MonoBehaviour
     {
         if (destroyed) return;
         currentHealth += repairAmount;
-        print("Door repaired: " + repairAmount + ", current health: " + currentHealth);
-        if (currentHealth >= maxHealth)
+        if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
         }

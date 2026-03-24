@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
-using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour
 {
@@ -16,10 +14,15 @@ public class WaveManager : MonoBehaviour
     private int actualRound = 0;
     private bool spawning = false;
 
+<<<<<<< HEAD
 
     private void Start()
     {
         
+=======
+    private void Start()
+    {
+>>>>>>> parent of 7417b80 (intento interfaz wave)
         if (autoStart) StartCoroutine(DelayedStart(autoStartDelay));
     }
     /// <summary>
@@ -50,15 +53,6 @@ public class WaveManager : MonoBehaviour
         spawning = true;
         Wave_SO dataWave = waves[actualRound];
         print($"Iniciando Ronda: {actualRound + 1}");
-
-        if (spawnPoints == null || spawnPoints.Length == 0)
-        {
-            Debug.LogError("No spawn points assigned.");
-            spawning = false;
-            yield break;
-        }
-
-        List<GameObject> spawnedThisRound = new List<GameObject>();
 
         foreach (var entry in dataWave.enemiesInWave)
         {
@@ -104,7 +98,10 @@ public class WaveManager : MonoBehaviour
         if (dataWave.timeAfterWave > 0f) yield return new WaitForSeconds(dataWave.timeAfterWave);
 
         actualRound++;
+<<<<<<< HEAD
         
+=======
+>>>>>>> parent of 7417b80 (intento interfaz wave)
         spawning = false;
         if(actualRound < waves.Count)
         {
