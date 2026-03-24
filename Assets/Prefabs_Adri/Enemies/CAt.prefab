@@ -238,3 +238,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 82805edabf852d4489d9c9ad621a039f, type: 2}
+  coinObject: {fileID: 8060829633014351544, guid: af14a1c5f2bc9274b9d5adcaa0ca3570, type: 3}
