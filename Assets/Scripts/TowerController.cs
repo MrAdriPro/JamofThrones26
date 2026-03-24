@@ -5,7 +5,7 @@ public class TowerController : MonoBehaviour
 {
     [SerializeField] public List<Transform> enemiesInRange = new List<Transform>();
     public Transform target;
-
+    
     [Header("Atributos de la Torre")]
     public float fireRate = 1f;
     private float fireCountdown = 0f;
