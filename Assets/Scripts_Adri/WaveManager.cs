@@ -7,29 +7,46 @@ public class WaveManager : MonoBehaviour
 {
     public List<Wave_SO> waves = new List<Wave_SO>();
     public Transform[] spawnPoints;
-
     public EraProgresUI eraUI;
 
     private int actualRound = 0;
-    private bool spawning = false;
 
-    private List<int> eraChangeRounds = new List<int>();
-    private int currentPointIndex = 0;
+    private int currentEraIndex = 0;
+    private int totalEnemiesInCurrentEra = 0;
+    private int enemiesSpawnedInCurrentEra = 0;
 
     private void Start()
     {
         actualRound = 0;
-        currentPointIndex = 0;
+        currentEraIndex = 0;
 
-        for (int i = 0; i < waves.Count; i++)
-        {
-            if (waves[i].enemiesInWave.Any(e => e.enemyType != null && e.enemyType.isBoss))
-            {
-                eraChangeRounds.Add(i);
-            }
-        }
+        eraUI.cursor.position = eraUI.GetPoint(0);
 
+        CalculateEnemiesForCurrentEra();
         StartCoroutine(SpawnRound());
+    }
+
+    void CalculateEnemiesForCurrentEra()
+    {
+        totalEnemiesInCurrentEra = 0;
+        enemiesSpawnedInCurrentEra = 0;
+
+        for (int i = actualRound; i < waves.Count; i++)
+        {
+            Wave_SO wave = waves[i];
+
+            bool hasBoss = wave.enemiesInWave.Any(e => e.enemyType != null && e.enemyType.isBoss);
+
+            foreach (var entry in wave.enemiesInWave)
+            {
+                if (entry.enemyType != null && !entry.enemyType.isBoss)
+                {
+                    totalEnemiesInCurrentEra += entry.count;
+                }
+            }
+
+            if (hasBoss) break;
+        }
     }
 
     bool IsBossAlive()
@@ -41,25 +58,26 @@ public class WaveManager : MonoBehaviour
 
     IEnumerator SpawnRound()
     {
-        spawning = true;
+        if (actualRound >= waves.Count) yield break;
 
         Wave_SO dataWave = waves[actualRound];
+        bool hasBoss = false;
 
-        bool hasBoss = dataWave.enemiesInWave.Any(e =>
-            e.enemyType != null && e.enemyType.isBoss
-        );
-
-        Debug.Log("Ronda: " + actualRound);
+        Debug.Log("Iniciando Ronda: " + actualRound);
 
         foreach (var entry in dataWave.enemiesInWave)
         {
+            if (entry.enemyType != null && entry.enemyType.isBoss)
+            {
+                hasBoss = true;
+            }
+
             if (entry.initialDelay > 0f)
                 yield return new WaitForSeconds(entry.initialDelay);
 
             for (int i = 0; i < entry.count; i++)
             {
                 GameObject prefabToSpawn = entry.enemyType?.enemyPrefab;
-
                 if (prefabToSpawn != null)
                 {
                     GameObject newEnemy = Instantiate(
@@ -67,7 +85,6 @@ public class WaveManager : MonoBehaviour
                         spawnPoints[Random.Range(0, spawnPoints.Length)].position,
                         Quaternion.identity
                     );
-
                     newEnemy.SetActive(true);
 
                     if (newEnemy.TryGetComponent<EnemyController>(out var controller))
@@ -76,48 +93,69 @@ public class WaveManager : MonoBehaviour
                     }
                 }
 
+                if (entry.enemyType != null && !entry.enemyType.isBoss)
+                {
+                    enemiesSpawnedInCurrentEra++;
+                    UpdateUIProgress();
+                }
+
                 yield return new WaitForSeconds(entry.spawnInterval);
             }
         }
 
         if (hasBoss)
         {
-            Debug.Log("Boss activo, esperando...");
+            Debug.Log("boss spawning");
+            UpdateUIProgress(forceMax: true);
+
             yield return new WaitUntil(() => !IsBossAlive());
-            Debug.Log("Boss muerto, continuar...");
-        }
+            Debug.Log("boss negro muerto");
 
-        int nextPoint = currentPointIndex + 1;
+            currentEraIndex++;
 
-        Vector3 startPos = eraUI.GetPoint(currentPointIndex);
-        Vector3 endPos = eraUI.GetPoint(nextPoint);
-
-        int startRound = (currentPointIndex == 0) ? 0 : eraChangeRounds[currentPointIndex - 1] + 1;
-        int endRound = (currentPointIndex < eraChangeRounds.Count) ? eraChangeRounds[currentPointIndex] : waves.Count - 1;
-
-        float t = (float)(actualRound - startRound + 1) / (endRound - startRound + 1);
-        t = Mathf.Clamp01(t);
-
-        Vector3 targetPos = Vector3.Lerp(startPos, endPos, t);
-
-        eraUI.MoveCursorToPosition(targetPos, 0.3f);
-
-        if (hasBoss)
-        {
-            currentPointIndex++;
-
-            if (currentPointIndex > eraChangeRounds.Count)
+            if (currentEraIndex >= eraUI.eraPoints.Length)
             {
-                Debug.Log("FIN DEL JUEGO");
+                Debug.Log("nigger");
+                //win
+                yield break; 
             }
+
+            actualRound++;
+            CalculateEnemiesForCurrentEra();
+        }
+        else
+        {
+            actualRound++;
         }
 
-        actualRound++;
-        spawning = false;
+        yield return new WaitForSeconds(dataWave.timeAfterWave);
 
         if (actualRound < waves.Count)
         {
             StartCoroutine(SpawnRound());
         }
+    }
+
+    void UpdateUIProgress(bool forceMax = false)
+    {
+        Vector3 startPos = eraUI.GetPoint(currentEraIndex);
+
+        Vector3 endPos = (currentEraIndex + 1 < eraUI.eraPoints.Length)
+                         ? eraUI.GetPoint(currentEraIndex + 1)
+                         : eraUI.finalPoint.position;
+
+        float progress = 0f;
+
+        if (forceMax || totalEnemiesInCurrentEra == 0)
+        {
+            progress = 1f;
+        }
+        else
+        {
+            progress = (float)enemiesSpawnedInCurrentEra / totalEnemiesInCurrentEra;
+        }
+
+        Vector3 targetPos = Vector3.Lerp(startPos, endPos, progress);
+        eraUI.MoveCursorToPosition(targetPos, 1); 
     }
 }

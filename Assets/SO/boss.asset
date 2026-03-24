@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: boss
   m_EditorClassIdentifier: 
   enemyName: Fox
-  enemyPrefab: {fileID: 919132149155446097, guid: c6610221a55d4a3449d1cc8d4689ef3d, type: 3}
-  health: 50
-  speed: 5
-  damage: 5
+  enemyPrefab: {fileID: 1789427915326921529, guid: f206b30e6c2b6bc40aa622875d4a1bd7, type: 3}
+  health: 5
+  speed: 50
+  damage: 1
   attackRate: 1
   flying: 0
   attackRange: 1.06

@@ -7,6 +7,7 @@ public class EraProgresUI : MonoBehaviour
     public RectTransform[] eraPoints;
     public RectTransform finalPoint;
 
+
     private Coroutine moveCoroutine;
 
     public void MoveCursorToPosition(Vector3 targetPos, float duration)
