@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
     public float _reparacionCantidad = 0;
     float time = 10f;
     float timer = 0;
+    public bool _aguantandoLaPuerta;
+    public float stamina = 100;
     #endregion
 
 
@@ -59,6 +61,7 @@ public class PlayerController : MonoBehaviour
             timer -= Time.deltaTime;
             _reparacionCantidad = 0;
         }
+        StaminaRecuperacion();
     }
 
     void OnDrawGizmos()
@@ -99,18 +102,22 @@ public class PlayerController : MonoBehaviour
     }
     public void OnRepair(InputAction.CallbackContext context)
     {
-        if (timer > 0) return;
+        if (timer > 0 || _aguantandoLaPuerta) return;
         if (context.started)
         {
             _reparacionCantidad = 10f;
             timer = time;
         }
     }
-    public void OnShoot(InputAction.CallbackContext context)
+    public void OnHoldingDoor(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            Disparo();
+            _aguantandoLaPuerta = true;
+        }
+        else if (context.canceled)
+        {
+            _aguantandoLaPuerta = false;
         }
     }
     #endregion
@@ -174,13 +181,12 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-    private void Disparo()
+    private void StaminaRecuperacion()
     {
-        PoolManager.Instance.Pull("Bullet", _disparo.position, _disparo.rotation);
+        if (stamina >= 100 || _aguantandoLaPuerta) return;
+        else stamina += Time.deltaTime;
     }
-
-
-
+        
 
 
     #endregion

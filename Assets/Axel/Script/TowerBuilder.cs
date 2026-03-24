@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class TowerBuilder : MonoBehaviour
 {
+    #region Variables
     [SerializeField] GameObject[] _towers;
     [SerializeField] LayerMask _interacteables;
     [SerializeField] Vector3 _tamanioCaja;
@@ -13,7 +14,12 @@ public class TowerBuilder : MonoBehaviour
     [SerializeField] bool _torretaActivada = false;
     int _nTorreta;
     bool _isAtive = false;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    #endregion
+
+
+
+
+    #region Funciones de Unity
     void Start()
     {
         _posicion.x = transform.position.x;
@@ -29,13 +35,13 @@ public class TowerBuilder : MonoBehaviour
             _selecciondeTorretas.blocksRaycasts = false;
             _selecciondeTorretas.interactable = false;
             return;
-        } 
+        }
         if (_torretaActivada)
         {
             StartCoroutine(CrecerTorre(_nTorreta));
-            
+
         }
-        
+
         Contacto();
     }
     void OnDrawGizmos()
@@ -46,6 +52,12 @@ public class TowerBuilder : MonoBehaviour
         Gizmos.matrix = rotationMatrix;
         Gizmos.DrawWireCube(Vector3.zero, Vector3.one);
     }
+    #endregion
+
+
+
+
+    #region Funciones
     private void Contacto()
     {
         Vector3 centro = transform.TransformPoint(_offSet);
@@ -83,7 +95,12 @@ public class TowerBuilder : MonoBehaviour
         _torretaActivada = true;
     }
 
+    #endregion
 
+
+
+
+    #region Coroutine
     private IEnumerator CrecerTorre(int nTorre)
     {
         _towers[nTorre].transform.localScale = Vector3.zero;
@@ -102,7 +119,7 @@ public class TowerBuilder : MonoBehaviour
         _torretaActivada = true;
         _isAtive = true;
     }
-
+    #endregion
 }
 
 
