@@ -8,6 +8,6 @@ public class HealthbarController : MonoBehaviour
 
     private void Update()
     {
-        //healthbarImage.fillAmount = doorObstacle.currentHealth;
+        healthbarImage.fillAmount = doorObstacle.currentHealth / doorObstacle.maxHealth;
     }
 }

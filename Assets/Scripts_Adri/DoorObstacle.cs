@@ -3,7 +3,7 @@ using UnityEngine;
 public class DoorObstacle : MonoBehaviour
 {
     public float maxHealth = 100f;
-    [SerializeField] float currentHealth;
+    public float currentHealth;
     public bool destroyed = false;
     public GameObject doorPrefab;
     [Header("Contacto")]

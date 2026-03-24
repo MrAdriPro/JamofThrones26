@@ -577,6 +577,7 @@ GameObject:
   - component: {fileID: 566584149}
   - component: {fileID: 566584148}
   - component: {fileID: 566584151}
+  - component: {fileID: 566584152}
   m_Layer: 5
   m_Name: Healthbar canvas
   m_TagString: Untagged
@@ -593,7 +594,7 @@ RectTransform:
   m_GameObject: {fileID: 566584146}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.002, y: 0.002, z: 0.002}
+  m_LocalScale: {x: -0.002, y: -0.002, z: -0.002}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1586333396}
@@ -679,6 +680,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d865ab2af864f8243aea6620a6c743b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &566584152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566584146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a2d5f1fa4dce84586d8df400cf851f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorObstacle: {fileID: 2049352441}
+  healthbarImage: {fileID: 1621033153}
 --- !u!1 &812712433
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,8 +1761,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
   destroyed: 0
   doorPrefab: {fileID: 1924512825}
+  _interacteables:
+    serializedVersion: 2
+    m_Bits: 0
+  _tamanioCaja: {x: 0, y: 0, z: 0}
+  _offSet: {x: 0, y: 0, z: 0}
 --- !u!65 &1924512828
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1944,8 +1965,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
   destroyed: 0
   doorPrefab: {fileID: 2049352435}
+  _interacteables:
+    serializedVersion: 2
+    m_Bits: 0
+  _tamanioCaja: {x: 0, y: 0, z: 0}
+  _offSet: {x: 0, y: 0, z: 0}
 --- !u!1 &2060600055
 GameObject:
   m_ObjectHideFlags: 0
