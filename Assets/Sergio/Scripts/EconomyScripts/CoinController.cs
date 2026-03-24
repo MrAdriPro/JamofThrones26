@@ -44,5 +44,4 @@ public class CoinController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }
