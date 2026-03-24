@@ -110,7 +110,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - {fileID: 11400000, guid: b53f9f392f5cb994a9db51dc8306462b, type: 2}
-  - {fileID: 11400000, guid: 8bfefd4989baa5142b726a75f944b58d, type: 2}
   spawnPoints:
   - {fileID: 3862942299623399751}
   - {fileID: 7622135276675710912}

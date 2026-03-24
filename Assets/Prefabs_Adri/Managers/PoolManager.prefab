@@ -44,7 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 523b417b8bf9eb84f9ddb1f8875958fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pools:
-  - id: Bullet
-    prefab: {fileID: 5436047723488879388, guid: 7cf428128d1df8842b9bac9f781a467c, type: 3}
-    prewarm: 40
+  pools: []
