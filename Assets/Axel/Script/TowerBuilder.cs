@@ -12,8 +12,9 @@ public class TowerBuilder : MonoBehaviour
     [SerializeField] Vector3 _posicion;
     [SerializeField] float _velocidadCrecimiento;
     [SerializeField] bool _torretaActivada = false;
+    [SerializeField] Vector3 _localScale;
     int _nTorreta;
-    bool _isAtive = false;
+    bool _isActive = false;
     #endregion
 
 
@@ -24,12 +25,13 @@ public class TowerBuilder : MonoBehaviour
     {
         _posicion.x = transform.position.x;
         _posicion.z = transform.position.z;
+        _localScale = _towers[0].transform.localScale;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_isAtive)
+        if (_isActive)
         {
             _selecciondeTorretas.alpha = 0;
             _selecciondeTorretas.blocksRaycasts = false;
@@ -81,16 +83,19 @@ public class TowerBuilder : MonoBehaviour
 
     public void DesplegarTorre1()
     {
+        if (_towers[0] == null) return;
         _nTorreta = 0;
         _torretaActivada = true;
     }
     public void DesplegarTorre2()
     {
+        if (_towers[1] == null) return;
         _nTorreta = 1;
         _torretaActivada = true;
     }
     public void DesplegarTorre3()
     {
+        if (_towers[2] == null) return;
         _nTorreta = 2;
         _torretaActivada = true;
     }
@@ -112,12 +117,12 @@ public class TowerBuilder : MonoBehaviour
         {
             t += Time.deltaTime * _velocidadCrecimiento;
 
-            _towers[nTorre].transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, t);
+            _towers[nTorre].transform.localScale = Vector3.Lerp(Vector3.zero, _localScale, t);
             yield return null;
         }
-        _towers[nTorre].transform.localScale = Vector3.one;
+        _towers[nTorre].transform.localScale = _localScale;
         _torretaActivada = true;
-        _isAtive = true;
+        _isActive = true;
     }
     #endregion
 }

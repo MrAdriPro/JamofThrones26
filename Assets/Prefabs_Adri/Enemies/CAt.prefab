@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5889174175556347046}
-  m_Layer: 8
+  - component: {fileID: 7428933143334010982}
+  m_Layer: 0
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,6 +33,28 @@ Transform:
   - {fileID: 2567757288669463776}
   m_Father: {fileID: 25204303101731876}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &7428933143334010982
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688183450771228899}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1758729968813633256
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +66,7 @@ GameObject:
   - component: {fileID: 2567757288669463776}
   - component: {fileID: 2179402573563590934}
   - component: {fileID: 5497901714960650838}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,13 +154,13 @@ GameObject:
   - component: {fileID: 8933251586850869795}
   - component: {fileID: 4387617031925703551}
   - component: {fileID: -8535803558367516910}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: CAt
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &25204303101731876
 Transform:
   m_ObjectHideFlags: 0
@@ -216,15 +239,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ada25f699328b4594efc46462f4b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _poolID: 
-  _renderers: []
-  _isActive: 0
   data: {fileID: 11400000, guid: 82805edabf852d4489d9c9ad621a039f, type: 2}
   rotationSpeed: 720
   wanderRadius: 1.5
   arrivalThreshold: 0.8
   swayAmplitude: 0.5
   swayFrequency: 1
+  _animator: {fileID: 7428933143334010982}
+  timeNextAttack: 0
 --- !u!114 &-8535803558367516910
 MonoBehaviour:
   m_ObjectHideFlags: 0

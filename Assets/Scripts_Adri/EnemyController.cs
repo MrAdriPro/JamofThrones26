@@ -7,16 +7,17 @@ public class EnemyController : MonoBehaviour
 
 
     [Header("Wander & movement")]
-    public float wanderRadius = 1f;           
-    public float arrivalThreshold = 0.4f;     
-    public float swayAmplitude = 0.2f;       
+    public float wanderRadius = 1f;
+    public float arrivalThreshold = 0.4f;
+    public float swayAmplitude = 0.2f;
     public float swayFrequency = 1f;
 
     //path following
     private int indexPoint = 0;
     private Transform[] path;
     private DoorObstacle actualDoor;
-    private float timeNextAttack;
+    [SerializeField] Animator _animator;
+    [SerializeField] float timeNextAttack;
     private Vector3 currentTargetPos;
     private float swayTimer;
 
@@ -41,7 +42,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        
+
         if (actualDoor != null)
         {
             AttackDoor();
@@ -64,7 +65,7 @@ public class EnemyController : MonoBehaviour
         Vector2 rnd = Random.insideUnitCircle * wanderRadius;
         Vector3 offset = new Vector3(rnd.x, 0f, rnd.y);
 
-        
+
 
         currentTargetPos = basePos + offset;
     }
@@ -78,7 +79,7 @@ public class EnemyController : MonoBehaviour
         Vector3 destine = currentTargetPos;
         Vector3 direction = destine - transform.position;
 
-        Vector3 lookDirection = (data != null ) ? direction : new Vector3(direction.x, 0f, direction.z);
+        Vector3 lookDirection = (data != null) ? direction : new Vector3(direction.x, 0f, direction.z);
 
         if (lookDirection.sqrMagnitude > 0.0001f)
         {
@@ -141,6 +142,7 @@ public class EnemyController : MonoBehaviour
 
         if (Time.time >= timeNextAttack)
         {
+            _animator.SetTrigger("Atacar");
             actualDoor.TakeDamage(data.damage);
             timeNextAttack = Time.time + data.attackRate;
 
@@ -149,6 +151,7 @@ public class EnemyController : MonoBehaviour
                 actualDoor = null;
             }
         }
+        _animator.ResetTrigger("Atacar");
     }
 
     private void OnDrawGizmos()
@@ -165,11 +168,11 @@ public class EnemyController : MonoBehaviour
             Gizmos.DrawSphere(currentTargetPos, 0.1f);
 
             Gizmos.color = Color.red;
-            Gizmos.DrawCube(path[indexPoint].position, Vector3.one * 0.01f); 
+            Gizmos.DrawCube(path[indexPoint].position, Vector3.one * 0.01f);
             Gizmos.DrawWireSphere(path[indexPoint].position, wanderRadius);
         }
     }
     //Enemy died Fuction
- #region Pool Entity
+    #region Pool Entity
     #endregion
 }

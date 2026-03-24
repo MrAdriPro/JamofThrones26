@@ -37,6 +37,12 @@ public class PlayerController : MonoBehaviour
     float timer = 0;
     public bool _aguantandoLaPuerta;
     public float stamina = 100;
+
+    [Header("Cambio de Modelo")]
+    [SerializeField] GameObject playerModel;
+    [SerializeField] Sprite[] sprites;
+    [SerializeField] Animator[] animatorList;
+    public int currentSpriteIndex = 0;
     #endregion
 
 
@@ -47,12 +53,10 @@ public class PlayerController : MonoBehaviour
     {
         _mainCamera = Camera.main;
     }
-
-    // Update is called once per frame
     void Update()
     {
         GroundCheck();
-        Contacto();
+        //Contacto();
         Movimiento();
 
         Rotacion();
@@ -64,18 +68,18 @@ public class PlayerController : MonoBehaviour
         StaminaRecuperacion();
     }
 
-    void OnDrawGizmos()
-    {
-        //Gizmos para el Groundcheck
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, _groundCheckSize);
+    // void OnDrawGizmos()
+    // {
+    //     //Gizmos para el Groundcheck
+    //     Gizmos.color = Color.red;
+    //     Gizmos.DrawWireCube(transform.position, _groundCheckSize);
 
-        //Gizmos para la caja de contacto
-        Gizmos.color = Color.yellow;
-        Matrix4x4 rotationMatrix = Matrix4x4.TRS(transform.TransformPoint(_offSet), transform.rotation, _tamanioCaja);
-        Gizmos.matrix = rotationMatrix;
-        Gizmos.DrawWireCube(Vector3.zero, Vector3.one);
-    }
+    //     //Gizmos para la caja de contacto
+    //     Gizmos.color = Color.yellow;
+    //     Matrix4x4 rotationMatrix = Matrix4x4.TRS(transform.TransformPoint(_offSet), transform.rotation, _tamanioCaja);
+    //     Gizmos.matrix = rotationMatrix;
+    //     Gizmos.DrawWireCube(Vector3.zero, Vector3.one);
+    // }
     #endregion
 
 
@@ -190,8 +194,21 @@ public class PlayerController : MonoBehaviour
         if (stamina >= 100 || _aguantandoLaPuerta) return;
         else stamina += Time.deltaTime;
     }
-        
 
+    public void SwapModel()
+    {
+        if (currentSpriteIndex < sprites.Length - 1)
+        {
+            currentSpriteIndex += 1;
+
+            // Adquiere 
+            SpriteRenderer spriteRenderer = playerModel.GetComponent<SpriteRenderer>();
+            //Animator animator = playerModel.GetComponent<Animator>();
+
+            spriteRenderer.sprite = sprites[currentSpriteIndex];
+            //animator = animatorList[currentSpriteIndex];
+        }
+    }
 
     #endregion
 }
