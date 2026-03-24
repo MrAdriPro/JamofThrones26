@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 343f763044ec8a94f84b5eac2b4e03bd, type: 2}
+  coinObject: {fileID: 8060829633014351544, guid: c25b6146ac1ccaf4d8524fcd4972f8b7, type: 3}
 --- !u!1 &8798754196985906009
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,7 +37,6 @@ public class TowerController : MonoBehaviour
         }
 
         fireCountdown -= Time.deltaTime;
-
     }
 
     void LockOnTarget()
@@ -87,4 +86,3 @@ public class TowerController : MonoBehaviour
         }
     }
 }
-
