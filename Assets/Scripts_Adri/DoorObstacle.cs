@@ -49,6 +49,7 @@ public class DoorObstacle : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
+        print("Door repaired: " + repairAmount + ", current health: " + currentHealth);
     }
     //this is called when the door is destroyed
     void DestroyDoor()

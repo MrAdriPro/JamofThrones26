@@ -33,8 +33,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Vector3 _tamanioCaja;
     [SerializeField] Vector3 _offSet;
     public float _reparacionCantidad = 0;
-    float time = 0;
-    float repairTimer = 0;
+    float time = 10f;
+    float timer = 0;
     #endregion
 
 
@@ -54,10 +54,18 @@ public class PlayerController : MonoBehaviour
         Movimiento();
 
         Rotacion();
+<<<<<<< HEAD
         //if (repairTimer >= 0)
         //{
         //    repairTimer -= Time.deltaTime;
         //}
+=======
+        if (timer >= 0)
+        {
+            timer -= Time.deltaTime;
+            _reparacionCantidad = 0;
+        }
+>>>>>>> parent of 4d340af (poniendo cosas)
     }
 
     void OnDrawGizmos()
@@ -98,6 +106,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnRepair(InputAction.CallbackContext context)
     {
+<<<<<<< HEAD
         //if (repairTimer > 0) return;
         if (context.performed)
         {
@@ -108,6 +117,13 @@ public class PlayerController : MonoBehaviour
         else if (context.canceled)
         {
             _reparacionCantidad = 0f;
+=======
+        if (timer > 0) return;
+        if (context.started)
+        {
+            _reparacionCantidad = 10f;
+            timer = time;
+>>>>>>> parent of 4d340af (poniendo cosas)
         }
     }
     public void OnShoot(InputAction.CallbackContext context)
