@@ -1,11 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class TowerController : MonoBehaviour
 {
     [SerializeField] public List<Transform> enemiesInRange = new List<Transform>();
     public Transform target;
-    
+
     [Header("Atributos de la Torre")]
     public float fireRate = 1f;
     private float fireCountdown = 0f;
@@ -14,6 +15,10 @@ public class TowerController : MonoBehaviour
 
     void Update()
     {
+        enemiesInRange = enemiesInRange
+        .OrderByDescending(e => e.GetComponent<EnemyController>()?.data?.flying ?? false)
+        .ToList();
+
         enemiesInRange.RemoveAll(e => e == null);
 
         if (enemiesInRange.Count > 0) target = enemiesInRange[0];
