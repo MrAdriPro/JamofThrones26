@@ -82,8 +82,8 @@ MonoBehaviour:
   enemiesInRange: []
   target: {fileID: 0}
   fireRate: 1
-  firePoint: {fileID: 343828468388260147}
   bulletPrefab: {fileID: 3111212151778295405, guid: 7cf428128d1df8842b9bac9f781a467c, type: 3}
+  firePoint: {fileID: 343828468388260147}
 --- !u!135 &4877199371039758225
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -103,7 +103,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 4.15
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5273708711776376467
 GameObject:

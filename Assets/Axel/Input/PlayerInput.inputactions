@@ -41,15 +41,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Holding",
-                    "type": "Button",
-                    "id": "6a7c4430-62c5-467f-b780-a23449c3023a",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -182,17 +173,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Reparar",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ed3c6f49-61c7-4b6e-9c7c-103974e503ab",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Holding",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
