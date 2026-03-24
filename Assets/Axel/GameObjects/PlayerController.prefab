@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &491045986486882415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5461449444818538939}
+  m_Layer: 9
+  m_Name: PuntoDisparo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5461449444818538939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491045986486882415}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.013, z: 1.144}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7615857159758561904}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &671034103925787445
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1007184345014824653}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Modelo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3379487245258125828}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Efectos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +105,7 @@ GameObject:
   - component: {fileID: 8582490306367503966}
   - component: {fileID: 3905356964556533511}
   - component: {fileID: 8017523134426977079}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +193,7 @@ GameObject:
   - component: {fileID: 8908427497434348721}
   - component: {fileID: 4978291114777394804}
   - component: {fileID: 9197693522602634807}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,6 +215,7 @@ Transform:
   m_Children:
   - {fileID: 1007184345014824653}
   - {fileID: 3379487245258125828}
+  - {fileID: 5461449444818538939}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &8908427497434348721
@@ -227,6 +259,7 @@ MonoBehaviour:
   _playerTransform: {fileID: 7615857159758561904}
   _mainCamera: {fileID: 0}
   _cC: {fileID: 8908427497434348721}
+  _disparo: {fileID: 5461449444818538939}
   _groundCheckSize: {x: 1, y: 0, z: 1}
   _groundLayer:
     serializedVersion: 2
@@ -234,6 +267,12 @@ MonoBehaviour:
   _grounded: 0
   _velocidadMovimiento: 5
   _rotMultiplicador: 5
+  _interacteables:
+    serializedVersion: 2
+    m_Bits: 0
+  _tamanioCaja: {x: 1.5, y: 1, z: 1.5}
+  _offSet: {x: 0, y: 1, z: 0}
+  _reparacionCantidad: 0
 --- !u!114 &9197693522602634807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +330,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 325d7ffb-c585-4d7e-9b7a-e6b4d35a8af4
     m_ActionName: 'Player/Raton[/Mouse/position]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4978291114777394804}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnAccion
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 06c02d05-1536-4b7b-8b55-30242735663c
+    m_ActionName: 'Player/Acccion[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4978291114777394804}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnRepair
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9971834b-9afe-4514-b647-38308ebd53da
+    m_ActionName: 'Player/Reparar[/Keyboard/r]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -307,7 +378,7 @@ GameObject:
   - component: {fileID: 2102863877012525495}
   - component: {fileID: 6930943362908274114}
   - component: {fileID: 4307353211065777290}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

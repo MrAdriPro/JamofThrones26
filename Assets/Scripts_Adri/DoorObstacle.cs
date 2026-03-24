@@ -10,6 +10,7 @@ public class DoorObstacle : MonoBehaviour
     [SerializeField] LayerMask _interacteables;
     [SerializeField] Vector3 _tamanioCaja;
     [SerializeField] Vector3 _offSet;
+    
     private void Start()
     {
         currentHealth = maxHealth;
@@ -17,6 +18,7 @@ public class DoorObstacle : MonoBehaviour
     private void Update()
     {
         Contacto();
+        
     }
     void OnDrawGizmos()
     {
@@ -42,11 +44,11 @@ public class DoorObstacle : MonoBehaviour
     {
         if (destroyed) return;
         currentHealth += repairAmount;
-        if (currentHealth > maxHealth)
+        print("Door repaired: " + repairAmount + ", current health: " + currentHealth);
+        if (currentHealth >= maxHealth)
         {
             currentHealth = maxHealth;
         }
-        print("Door repaired: " + repairAmount + ", current health: " + currentHealth);
     }
     //this is called when the door is destroyed
     void DestroyDoor()
@@ -56,14 +58,14 @@ public class DoorObstacle : MonoBehaviour
         doorPrefab.SetActive(false);
         print("Door destroyed");
         GetComponent<Collider>().enabled = false;
-        
+
     }
 
     private void Contacto()
     {
         Vector3 centro = transform.TransformPoint(_offSet);
 
-        Collider[] colliders = new Collider[5];
+        Collider[] colliders = new Collider[1];
 
         Physics.OverlapBoxNonAlloc(centro, _tamanioCaja / 2, colliders, transform.rotation, _interacteables);
 
@@ -74,7 +76,9 @@ public class DoorObstacle : MonoBehaviour
             {
                 if(other.TryGetComponent(out PlayerController playerController))
                 {
+                    
                     RepairDoor(playerController._reparacionCantidad);
+                    
                 }
                 
             }
@@ -82,3 +86,10 @@ public class DoorObstacle : MonoBehaviour
         }
     }
 }
+
+
+
+
+
+
+

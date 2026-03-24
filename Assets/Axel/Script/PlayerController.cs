@@ -32,8 +32,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask _interacteables;
     [SerializeField] Vector3 _tamanioCaja;
     [SerializeField] Vector3 _offSet;
-    [SerializeField] float _cantidadReparacion;
-    public float _reparacionCantidad;
+    public float _reparacionCantidad = 0;
+    float time = 0;
+    float repairTimer = 0;
     #endregion
 
 
@@ -53,6 +54,11 @@ public class PlayerController : MonoBehaviour
         Movimiento();
 
         Rotacion();
+        if (repairTimer >= 0)
+        {
+            repairTimer -= Time.deltaTime;
+            _reparacionCantidad = 0;
+        }
     }
 
     void OnDrawGizmos()
@@ -93,13 +99,12 @@ public class PlayerController : MonoBehaviour
     }
     public void OnRepair(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (repairTimer > 0) return;
+        if (context.started)
         {
-            _reparacionCantidad = 10f;
-        }
-        else if (context.canceled)
-        {
-            _reparacionCantidad = 0f;
+            _reparacionCantidad = 1f;
+            
+            repairTimer = time;
         }
     }
     public void OnShoot(InputAction.CallbackContext context)
@@ -160,7 +165,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 centro = transform.TransformPoint(_offSet);
 
-        Collider[] colliders = new Collider[5];
+        Collider[] colliders = new Collider[1];
 
         Physics.OverlapBoxNonAlloc(centro, _tamanioCaja / 2, colliders, transform.rotation, _interacteables);
 
