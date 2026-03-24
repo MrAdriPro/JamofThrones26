@@ -63,7 +63,7 @@ public class DoorObstacle : MonoBehaviour
     {
         if (destroyed) return;
         currentHealth += repairAmount;
-        if (currentHealth > maxHealth)
+        if (currentHealth >= maxHealth)
         {
             currentHealth = maxHealth;
         }
