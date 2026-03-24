@@ -56,11 +56,11 @@ public class PlayerController : MonoBehaviour
         Movimiento();
 
         Rotacion();
-        if (timer >= 0)
-        {
-            timer -= Time.deltaTime;
-            _reparacionCantidad = 0;
-        }
+        //if (timer >= 0)
+        //{
+        //    timer -= Time.deltaTime;
+            //_reparacionCantidad = 0;
+        //}
         StaminaRecuperacion();
     }
 
@@ -102,11 +102,11 @@ public class PlayerController : MonoBehaviour
     }
     public void OnRepair(InputAction.CallbackContext context)
     {
-        if (timer > 0 || _aguantandoLaPuerta) return;
+        if (/*timer > 0 || */_aguantandoLaPuerta) return;
         if (context.performed)
         {
             _reparacionCantidad = 10f;
-            timer = time;
+            //timer = time;
         }
         else if (context.canceled)
         {

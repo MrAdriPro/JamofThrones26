@@ -1,72 +1,60 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour
 {
     public List<Wave_SO> waves = new List<Wave_SO>();
     public Transform[] spawnPoints;
 
-    [Header("Configuración")]
-    public bool autoStart = false;
-    public float autoStartDelay = 2f;
+    public EraProgresUI eraUI;
 
     private int actualRound = 0;
     private bool spawning = false;
-    public EraProgresUI eraUI;
-    private int totalBossWaves;
-    private int bossesDefeated = 0;
 
+    private List<int> eraChangeRounds = new List<int>();
+    private int currentPointIndex = 0;
 
     private void Start()
     {
-        totalBossWaves = waves.Count(w => w.enemiesInWave.Any(e => e.enemyType != null && e.enemyType.isBoss));
-        if (autoStart) StartCoroutine(DelayedStart(autoStartDelay));
-    }
-    /// <summary>
-    /// Just a simple method to delay the start of the first round if autoStart is enabled. It waits for the specified delay and then starts the first round if we are not already spawning.
-    /// </summary>
-    /// <param name="delay"></param>
-    /// <returns></returns>
-    private IEnumerator DelayedStart(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        if (!spawning) StartCoroutine(SpawnRound());
+        actualRound = 0;
+        currentPointIndex = 0;
+
+        for (int i = 0; i < waves.Count; i++)
+        {
+            if (waves[i].enemiesInWave.Any(e => e.enemyType != null && e.enemyType.isBoss))
+            {
+                eraChangeRounds.Add(i);
+            }
+        }
+
+        StartCoroutine(SpawnRound());
     }
 
-    private void Update()
+    bool IsBossAlive()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !spawning && actualRound < waves.Count)
-        {
-            StartCoroutine(SpawnRound());
-        }
+        return GameObject.FindGameObjectsWithTag("Enemy")
+            .Any(e => e.GetComponent<EnemyController>()?.data != null &&
+                      e.GetComponent<EnemyController>().data.isBoss);
     }
-    /// <summary>
-    /// Here we handle the spawning of enemies for each round. We iterate through the list of enemies defined in the current wave, spawn them at random spawn points, and wait for the specified intervals between spawns. 
-    /// After all enemies are spawned, we wait until all enemies are defeated before proceeding to the next round.
-    /// </summary>
-    /// <returns></returns>
+
     IEnumerator SpawnRound()
     {
         spawning = true;
+
         Wave_SO dataWave = waves[actualRound];
-        bool hasBoss = dataWave.enemiesInWave.Any(e => e.enemyType != null && e.enemyType.isBoss);
-        print($"Iniciando Ronda: {actualRound + 1}");
 
-        if (spawnPoints == null || spawnPoints.Length == 0)
-        {
-            Debug.LogError("No spawn points assigned.");
-            spawning = false;
-            yield break;
-        }
+        bool hasBoss = dataWave.enemiesInWave.Any(e =>
+            e.enemyType != null && e.enemyType.isBoss
+        );
 
-        List<GameObject> spawnedThisRound = new List<GameObject>();
+        Debug.Log("Ronda: " + actualRound);
 
         foreach (var entry in dataWave.enemiesInWave)
         {
-            if (entry.initialDelay > 0f) yield return new WaitForSeconds(entry.initialDelay);
+            if (entry.initialDelay > 0f)
+                yield return new WaitForSeconds(entry.initialDelay);
 
             for (int i = 0; i < entry.count; i++)
             {
@@ -74,7 +62,11 @@ public class WaveManager : MonoBehaviour
 
                 if (prefabToSpawn != null)
                 {
-                    GameObject newEnemy = Instantiate(prefabToSpawn, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
+                    GameObject newEnemy = Instantiate(
+                        prefabToSpawn,
+                        spawnPoints[Random.Range(0, spawnPoints.Length)].position,
+                        Quaternion.identity
+                    );
 
                     newEnemy.SetActive(true);
 
@@ -90,32 +82,42 @@ public class WaveManager : MonoBehaviour
 
         if (hasBoss)
         {
-            while (GameObject.FindGameObjectsWithTag("Enemy")
-                .Any(e => e.GetComponent<EnemyController>()?.data.isBoss == true))
-            {
-                yield return new WaitForSeconds(0.5f);
-            }
-            bossesDefeated++;
-
-            float progress = (float)bossesDefeated / totalBossWaves;
-
-            eraUI.UpdateProgress(progress);
-
-            Debug.Log("puto negro muere");
+            Debug.Log("Boss activo, esperando...");
+            yield return new WaitUntil(() => !IsBossAlive());
+            Debug.Log("Boss muerto, continuar...");
         }
 
-        print($"Ronda {actualRound + 1} despejada.");
+        int nextPoint = currentPointIndex + 1;
 
-        if (dataWave.timeAfterWave > 0f) yield return new WaitForSeconds(dataWave.timeAfterWave);
+        Vector3 startPos = eraUI.GetPoint(currentPointIndex);
+        Vector3 endPos = eraUI.GetPoint(nextPoint);
+
+        int startRound = (currentPointIndex == 0) ? 0 : eraChangeRounds[currentPointIndex - 1] + 1;
+        int endRound = (currentPointIndex < eraChangeRounds.Count) ? eraChangeRounds[currentPointIndex] : waves.Count - 1;
+
+        float t = (float)(actualRound - startRound + 1) / (endRound - startRound + 1);
+        t = Mathf.Clamp01(t);
+
+        Vector3 targetPos = Vector3.Lerp(startPos, endPos, t);
+
+        eraUI.MoveCursorToPosition(targetPos, 0.3f);
+
+        if (hasBoss)
+        {
+            currentPointIndex++;
+
+            if (currentPointIndex > eraChangeRounds.Count)
+            {
+                Debug.Log("FIN DEL JUEGO");
+            }
+        }
 
         actualRound++;
-        
         spawning = false;
-        if(actualRound < waves.Count)
+
+        if (actualRound < waves.Count)
         {
             StartCoroutine(SpawnRound());
-            print($"Preparando Ronda: {actualRound + 1}");
         }
     }
 }
-

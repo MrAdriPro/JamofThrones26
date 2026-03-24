@@ -1,24 +1,42 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class EraProgresUI : MonoBehaviour
 {
-    public RectTransform cursor; 
-    public RectTransform startPoint;
-    public RectTransform endPoint;
+    public RectTransform cursor;
+    public RectTransform[] eraPoints;
+    public RectTransform finalPoint;
 
-    [Range(0, 1)]
-    public float progress; 
+    private Coroutine moveCoroutine;
 
-    public void UpdateProgress(float value)
+    public void MoveCursorToPosition(Vector3 targetPos, float duration)
     {
-        progress = Mathf.Clamp01(value);
+        if (moveCoroutine != null)
+            StopCoroutine(moveCoroutine);
 
-        Vector3 pos = Vector3.Lerp(
-            startPoint.position,
-            endPoint.position,
-            progress
-        );
+        moveCoroutine = StartCoroutine(MoveSmooth(targetPos, duration));
+    }
 
-        cursor.position = pos;
+    IEnumerator MoveSmooth(Vector3 targetPos, float duration)
+    {
+        Vector3 startPos = cursor.position;
+        float time = 0f;
+
+        while (time < duration)
+        {
+            cursor.position = Vector3.Lerp(startPos, targetPos, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        cursor.position = targetPos;
+    }
+
+    public Vector3 GetPoint(int index)
+    {
+        if (index < eraPoints.Length)
+            return eraPoints[index].position;
+        else
+            return finalPoint.position;
     }
 }
