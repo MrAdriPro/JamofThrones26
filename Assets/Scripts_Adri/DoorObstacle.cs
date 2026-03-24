@@ -2,24 +2,15 @@ using UnityEngine;
 
 public class DoorObstacle : MonoBehaviour
 {
-    #region Variables
     public float maxHealth = 100f;
-    [SerializeField] float currentHealth;
-    [SerializeField] float _currentEscudo;
-    float _damageEscudo;
+    public float currentHealth;
     public bool destroyed = false;
     public GameObject doorPrefab;
     [Header("Contacto")]
     [SerializeField] LayerMask _interacteables;
     [SerializeField] Vector3 _tamanioCaja;
     [SerializeField] Vector3 _offSet;
-    Collider[] colliders = new Collider[1];
-    #endregion
-
-
-
-
-    #region Funciones de Unity
+    
     private void Start()
     {
         currentHealth = maxHealth;
@@ -27,8 +18,7 @@ public class DoorObstacle : MonoBehaviour
     private void Update()
     {
         Contacto();
-        TakeDamage(0.001f);
-
+        
     }
     void OnDrawGizmos()
     {
@@ -38,19 +28,10 @@ public class DoorObstacle : MonoBehaviour
         Gizmos.matrix = rotationMatrix;
         Gizmos.DrawWireCube(Vector3.zero, Vector3.one);
     }
-    #endregion
-
-
-
-
-    #region Funciones
     //this is for the enemies to call when they attack the door
     public void TakeDamage(float damage)
     {
-        _damageEscudo = damage;
-
-        if (destroyed || _currentEscudo > 0) return;
-
+        if (destroyed) return;
         currentHealth -= damage;
         print("Door took damage: " + damage + ", current health: " + currentHealth);
         if (currentHealth <= 0)
@@ -63,8 +44,7 @@ public class DoorObstacle : MonoBehaviour
     {
         if (destroyed) return;
         currentHealth += repairAmount;
-        print("Door repaired: " + repairAmount + ", current health: " + currentHealth);
-        if (currentHealth >= maxHealth)
+        if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
         }
@@ -84,55 +64,26 @@ public class DoorObstacle : MonoBehaviour
     {
         Vector3 centro = transform.TransformPoint(_offSet);
 
+        Collider[] colliders = new Collider[1];
 
+        Physics.OverlapBoxNonAlloc(centro, _tamanioCaja / 2, colliders, transform.rotation, _interacteables);
 
-        int cantidad = Physics.OverlapBoxNonAlloc(centro, _tamanioCaja / 2, colliders, transform.rotation, _interacteables);
-
-
-        if (cantidad == 0)
+        foreach (var other in colliders)
         {
-            _currentEscudo = 0f;
-
-            return;
-        }
-
-
-        for (int i = 0; i < cantidad; i++)
-        {
-            Collider other = colliders[i];
-            if (other == null) continue;
-
-            if (other.TryGetComponent(out PlayerController playerController))
+            if (other == null) return;
+            if ((_interacteables & (1 << other.gameObject.layer)) != 0)
             {
-                RepairDoor(playerController._reparacionCantidad);
-                ActivarScudo(playerController);
+                if(other.TryGetComponent(out PlayerController playerController))
+                {
+                    
+                    RepairDoor(playerController._reparacionCantidad);
+                    
+                }
+                
             }
-            else
-            {
-                _currentEscudo = 0f;
-            }
+
         }
     }
-
-
-
-    private void ActivarScudo(PlayerController _playerController)
-    {
-        if (!_playerController._aguantandoLaPuerta)
-        {
-            _currentEscudo = 0;
-            return;
-        }
-        _playerController.stamina -= _damageEscudo;
-        _currentEscudo = _playerController.stamina;
-    }
-        
-  
-        
-            
-
-
-    #endregion
 }
 
 
