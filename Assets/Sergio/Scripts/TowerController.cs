@@ -16,12 +16,12 @@ public class TowerController : MonoBehaviour
 
     void Update()
     {
+        enemiesInRange.RemoveAll(e => e == null);
         // Se ordena la lista para que los enemigos con la propiedad de flying en true estén siempre los primeros.
         enemiesInRange = enemiesInRange
         .OrderByDescending(e => e.GetComponent<EnemyController>()?.data?.flying ?? false)
         .ToList();
 
-        enemiesInRange.RemoveAll(e => e == null);
 
         if (enemiesInRange.Count > 0) target = enemiesInRange[0];
         else target = null;
