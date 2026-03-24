@@ -12,16 +12,21 @@ public class PlayerModelController : MonoBehaviour
 
     private void Update()
     {
-        SwapModel(currentSpriteIndex);
+        //SwapModel(currentSpriteIndex);
     }
 
-    void SwapModel(int currentIndex)
+    public void SwapModel()
     {
-        // Adquiere 
-        SpriteRenderer spriteRenderer = playerModel.GetComponent<SpriteRenderer>();
-        Animator animator = playerModel.GetComponent<Animator>();
+        if(currentSpriteIndex < sprites.Length - 1)
+        {
+            currentSpriteIndex += 1;
 
-        spriteRenderer.sprite = sprites[currentIndex];
-        animator = animatorList[currentIndex];
+            // Adquiere 
+            SpriteRenderer spriteRenderer = playerModel.GetComponent<SpriteRenderer>();
+            //Animator animator = playerModel.GetComponent<Animator>();
+
+            spriteRenderer.sprite = sprites[currentSpriteIndex];
+            //animator = animatorList[currentSpriteIndex];
+        }
     }
 }
