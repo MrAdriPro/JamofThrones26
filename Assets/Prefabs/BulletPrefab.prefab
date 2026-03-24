@@ -149,16 +149,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf25e9a083fbad45af711f117e204b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _poolID: Bullet
-  _renderers:
-  - {fileID: 4066990113077049310}
-  _isActive: 0
-  _rb: {fileID: -8910192844566555595}
-  _collider: {fileID: 4059519340039945668}
-  _damage: 1
-  _velocidad: 10
-  _lifeTime: 10
-  _disparables:
-    serializedVersion: 2
-    m_Bits: 256
-  objetivo: {fileID: 0}
+  bulletTarget: {fileID: 0}
+  bulletSpeed: 1

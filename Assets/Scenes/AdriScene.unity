@@ -641,7 +641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pools:
   - id: Bullet
-    prefab: {fileID: 5436047723488879388, guid: 7cf428128d1df8842b9bac9f781a467c, type: 3}
+    prefab: {fileID: 0}
     prewarm: 40
 --- !u!4 &1110183356
 Transform:

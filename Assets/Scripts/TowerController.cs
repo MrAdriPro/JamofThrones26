@@ -10,6 +10,7 @@ public class TowerController : MonoBehaviour
     public float fireRate = 1f;
     private float fireCountdown = 0f;
     public Transform firePoint;
+    public GameObject bulletPrefab;
 
     void Update()
     {
@@ -41,11 +42,11 @@ public class TowerController : MonoBehaviour
 
     void Shoot()
     {
-        var entity = PoolManager.Instance.Pull("Bullet", firePoint.position, firePoint.rotation);
-        if (entity is BulletController bullet)
-        {
-            bullet.objetivo = target;
-        }
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        
+        BulletController bulletController = bullet.GetComponent<BulletController>();
+
+        bulletController.bulletTarget = target;
     }
 
     void OnTriggerEnter(Collider other)
