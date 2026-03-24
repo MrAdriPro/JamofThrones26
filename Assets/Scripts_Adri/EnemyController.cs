@@ -45,19 +45,28 @@ public class EnemyController : MonoBehaviour
         if (swayFrequency < 0f) swayFrequency = 0f;
     }
 
-    void Update()
-    {
 
-        if (actualDoor != null)
+        void Update()
         {
-            AttackDoor();
+            if (actualDoor != null)
+            {
+                AttackDoor();
+            }
+            else
+            {
+                DettectDoor();
+
+                if (actualDoor == null)
+                {
+                    _animator.SetBool("Attacking", false); 
+                    Move();
+                }
+                else
+                {
+                    _animator.SetBool("Attacking", true);
+                }
+            }
         }
-        else
-        {
-            Move();
-            DettectDoor();
-        }
-    }
     /// <summary>
     /// this method calculates a random target position around the current path point. It takes the position of the current path point and adds a random offset within
     /// a circle defined by the wanderRadius.
@@ -142,26 +151,21 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     void AttackDoor()
     {
-        if (actualDoor == null) return;
-
-        if (actualDoor.destroyed)
+        if (actualDoor == null || actualDoor.destroyed)
         {
             actualDoor = null;
+            _animator.SetBool("Attacking", false);
             return;
         }
 
+        _animator.SetBool("Attacking", true);
+
+        // Lógica de daño por tiempo
         if (Time.time >= timeNextAttack)
         {
-            _animator.SetTrigger("Atacar");
             actualDoor.TakeDamage(data.damage);
             timeNextAttack = Time.time + data.attackRate;
-
-            if (actualDoor.destroyed)
-            {
-                actualDoor = null;
-            }
         }
-        _animator.ResetTrigger("Atacar");
     }
 
     private void OnDrawGizmos()
