@@ -15,9 +15,10 @@ MonoBehaviour:
   enemyName: Dog
   enemyPrefab: {fileID: 5469933790799975592, guid: 3a6652096c4bd3c4db18d9024aa38cb3, type: 3}
   health: 10
-  speed: 3
+  speed: 22.47
   damage: 1
   attackRate: 1
-  flier: 0
+  flying: 0
   attackRange: 1.06
   coins: 5
+  isBoss: 1

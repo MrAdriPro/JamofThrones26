@@ -27,7 +27,6 @@ public class EnemyController : MonoBehaviour
         {
             indexPoint = 0;
             SetTargetForCurrentIndex();
-            SetTargetForCurrentIndex();
         }
     }
 
@@ -42,6 +41,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        
         if (actualDoor != null)
         {
             AttackDoor();
@@ -170,5 +170,6 @@ public class EnemyController : MonoBehaviour
         }
     }
     //Enemy died Fuction
-
+ #region Pool Entity
+    #endregion
 }

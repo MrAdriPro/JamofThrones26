@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour
 {
@@ -13,9 +15,14 @@ public class WaveManager : MonoBehaviour
 
     private int actualRound = 0;
     private bool spawning = false;
+    public EraProgresUI eraUI;
+    private int totalBossWaves;
+    private int bossesDefeated = 0;
+
 
     private void Start()
     {
+        totalBossWaves = waves.Count(w => w.enemiesInWave.Any(e => e.enemyType != null && e.enemyType.isBoss));
         if (autoStart) StartCoroutine(DelayedStart(autoStartDelay));
     }
     /// <summary>
@@ -45,7 +52,17 @@ public class WaveManager : MonoBehaviour
     {
         spawning = true;
         Wave_SO dataWave = waves[actualRound];
+        bool hasBoss = dataWave.enemiesInWave.Any(e => e.enemyType != null && e.enemyType.isBoss);
         print($"Iniciando Ronda: {actualRound + 1}");
+
+        if (spawnPoints == null || spawnPoints.Length == 0)
+        {
+            Debug.LogError("No spawn points assigned.");
+            spawning = false;
+            yield break;
+        }
+
+        List<GameObject> spawnedThisRound = new List<GameObject>();
 
         foreach (var entry in dataWave.enemiesInWave)
         {
@@ -59,6 +76,8 @@ public class WaveManager : MonoBehaviour
                 {
                     GameObject newEnemy = Instantiate(prefabToSpawn, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
 
+                    newEnemy.SetActive(true);
+
                     if (newEnemy.TryGetComponent<EnemyController>(out var controller))
                     {
                         controller.data = entry.enemyType;
@@ -69,9 +88,20 @@ public class WaveManager : MonoBehaviour
             }
         }
 
-        while (GameObject.FindGameObjectsWithTag("Enemy").Length > 0)
+        if (hasBoss)
         {
-            yield return new WaitForSeconds(1f); 
+            while (GameObject.FindGameObjectsWithTag("Enemy")
+                .Any(e => e.GetComponent<EnemyController>()?.data.isBoss == true))
+            {
+                yield return new WaitForSeconds(0.5f);
+            }
+            bossesDefeated++;
+
+            float progress = (float)bossesDefeated / totalBossWaves;
+
+            eraUI.UpdateProgress(progress);
+
+            Debug.Log("puto negro muere");
         }
 
         print($"Ronda {actualRound + 1} despejada.");
@@ -79,6 +109,7 @@ public class WaveManager : MonoBehaviour
         if (dataWave.timeAfterWave > 0f) yield return new WaitForSeconds(dataWave.timeAfterWave);
 
         actualRound++;
+        
         spawning = false;
         if(actualRound < waves.Count)
         {

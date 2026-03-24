@@ -15,19 +15,7 @@ MonoBehaviour:
   waveNumber: 1
   enemiesInWave:
   - enemyType: {fileID: 11400000, guid: 343f763044ec8a94f84b5eac2b4e03bd, type: 2}
-    count: 5
+    count: 1
     spawnInterval: 0.5
     initialDelay: 0
-  - enemyType: {fileID: 11400000, guid: 82805edabf852d4489d9c9ad621a039f, type: 2}
-    count: 2
-    spawnInterval: 0.5
-    initialDelay: 0
-  - enemyType: {fileID: 11400000, guid: 6d0457430253d884f9c8ac4130be1570, type: 2}
-    count: 6
-    spawnInterval: 0.5
-    initialDelay: 0
-  - enemyType: {fileID: 11400000, guid: 82805edabf852d4489d9c9ad621a039f, type: 2}
-    count: 5
-    spawnInterval: 0.5
-    initialDelay: 0
-  timeAfterWave: 5
+  timeAfterWave: 2
