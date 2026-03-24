@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyController : PoolEntity
+public class EnemyController : MonoBehaviour
 {
     public Enemy_SO data;
     public float rotationSpeed = 720f;
@@ -41,7 +41,6 @@ public class EnemyController : PoolEntity
 
     void Update()
     {
-        if(!IsActive) return;
         
         if (actualDoor != null)
         {
@@ -172,13 +171,5 @@ public class EnemyController : PoolEntity
     }
     //Enemy died Fuction
  #region Pool Entity
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
-    public override void Deactivate()
-    {
-        base.Deactivate();
-    }
     #endregion
 }

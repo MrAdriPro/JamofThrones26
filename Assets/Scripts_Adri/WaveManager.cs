@@ -16,17 +16,10 @@ public class WaveManager : MonoBehaviour
     private int actualRound = 0;
     private bool spawning = false;
 
-    [Header("UI")]
-    public EraUIController eraUIController;
-    public List<string> eras = new List<string>() { "Prehistoria", "Medievo", "SteamPunk", "Futurista" };
 
     private void Start()
     {
-        if (eraUIController != null)
-        {
-            eraUIController.SetupEras(eras, waves.Count);
-            eraUIController.UpdateForRound(actualRound);
-        }
+        
         if (autoStart) StartCoroutine(DelayedStart(autoStartDelay));
     }
     /// <summary>
@@ -84,7 +77,6 @@ public class WaveManager : MonoBehaviour
                     if (newEnemy.TryGetComponent<EnemyController>(out var controller))
                     {
                         controller.data = entry.enemyType;
-                        controller.Initialize();
                     }
                 }
 
@@ -102,10 +94,7 @@ public class WaveManager : MonoBehaviour
         if (dataWave.timeAfterWave > 0f) yield return new WaitForSeconds(dataWave.timeAfterWave);
 
         actualRound++;
-        if (eraUIController != null)
-        {
-            eraUIController.UpdateForRound(actualRound);
-        }
+        
         spawning = false;
         if(actualRound < waves.Count)
         {

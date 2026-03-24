@@ -54,11 +54,11 @@ public class PlayerController : MonoBehaviour
         Movimiento();
 
         Rotacion();
-        if (repairTimer >= 0)
-        {
-            repairTimer -= Time.deltaTime;
-            _reparacionCantidad = 0;
-        }
+        //if (repairTimer >= 0)
+        //{
+        //    repairTimer -= Time.deltaTime;
+        //    _reparacionCantidad = 0;
+        //}
     }
 
     void OnDrawGizmos()
@@ -99,12 +99,16 @@ public class PlayerController : MonoBehaviour
     }
     public void OnRepair(InputAction.CallbackContext context)
     {
-        if (repairTimer > 0) return;
-        if (context.started)
+        //if (repairTimer > 0) return;
+        if (context.performed)
         {
             _reparacionCantidad = 1f;
             
-            repairTimer = time;
+            //repairTimer = time;
+        }
+        else if (context.canceled)
+        {
+            _reparacionCantidad = 0f;
         }
     }
     public void OnShoot(InputAction.CallbackContext context)
