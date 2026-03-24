@@ -184,7 +184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ada25f699328b4594efc46462f4b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 343f763044ec8a94f84b5eac2b4e03bd, type: 2}
   rotationSpeed: 720
   wanderRadius: 1.5
   arrivalThreshold: 0.8
@@ -192,6 +191,7 @@ MonoBehaviour:
   swayFrequency: 1
   _animator: {fileID: 4108304879177346876}
   timeNextAttack: 0
+  data: {fileID: 11400000, guid: 343f763044ec8a94f84b5eac2b4e03bd, type: 2}
 --- !u!114 &8003375836542969192
 MonoBehaviour:
   m_ObjectHideFlags: 0

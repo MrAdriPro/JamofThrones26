@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Wave_SO
   waveNumber: 1
   enemiesInWave:
-  - enemyType: {fileID: 11400000, guid: 6d0457430253d884f9c8ac4130be1570, type: 2}
-    count: 1
-    spawnInterval: 0.5
+  - enemyType: {fileID: 11400000, guid: 82805edabf852d4489d9c9ad621a039f, type: 2}
+    count: 10
+    spawnInterval: 1
     initialDelay: 0
   timeAfterWave: 2

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public Enemy_SO data;
     public float rotationSpeed = 720f;
 
 
@@ -21,6 +20,11 @@ public class EnemyController : MonoBehaviour
     private Vector3 currentTargetPos;
     private float swayTimer;
 
+    //references
+    public Enemy_SO data;
+    private SpriteRenderer _spriteRenderer;
+
+
     void Start()
     {
         path = PathManager.instance.pathPoints;
@@ -29,6 +33,7 @@ public class EnemyController : MonoBehaviour
             indexPoint = 0;
             SetTargetForCurrentIndex();
         }
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void OnValidate()
@@ -78,6 +83,11 @@ public class EnemyController : MonoBehaviour
 
         Vector3 destine = currentTargetPos;
         Vector3 direction = destine - transform.position;
+
+        if (Mathf.Abs(direction.normalized.x) > 0.10f)
+        {
+            _spriteRenderer.flipX = direction.x < 0f;
+        }
 
         Vector3 lookDirection = (data != null) ? direction : new Vector3(direction.x, 0f, direction.z);
 
