@@ -15,11 +15,14 @@ public class WaveManager : MonoBehaviour
 
     private int actualRound = 0;
     private bool spawning = false;
+    public EraProgresUI eraUI;
+    private int totalBossWaves;
+    private int bossesDefeated = 0;
 
 
     private void Start()
     {
-        
+        totalBossWaves = waves.Count(w => w.enemiesInWave.Any(e => e.enemyType != null && e.enemyType.isBoss));
         if (autoStart) StartCoroutine(DelayedStart(autoStartDelay));
     }
     /// <summary>
@@ -92,6 +95,11 @@ public class WaveManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.5f);
             }
+            bossesDefeated++;
+
+            float progress = (float)bossesDefeated / totalBossWaves;
+
+            eraUI.UpdateProgress(progress);
 
             Debug.Log("puto negro muere");
         }
