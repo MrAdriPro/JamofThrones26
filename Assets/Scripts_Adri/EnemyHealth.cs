@@ -24,7 +24,6 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
-
         Destroy(gameObject);
     }
 }

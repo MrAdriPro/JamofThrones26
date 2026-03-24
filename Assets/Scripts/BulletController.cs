@@ -3,8 +3,14 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
+    public EnemyHealth enemyHealth;
     public Transform bulletTarget;
     public float bulletSpeed;
+
+    void Start()
+    {
+        enemyHealth = bulletTarget.GetComponent<EnemyHealth>();
+    }
 
     void Update()
     {
@@ -20,6 +26,7 @@ public class BulletController : MonoBehaviour
 
         if (Vector3.Distance(transform.position, bulletTarget.position) < 0.2f)
         {
+            enemyHealth.TakeDamage(1);
             Destroy(gameObject);
         }
     }

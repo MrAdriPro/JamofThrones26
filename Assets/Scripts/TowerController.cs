@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class TowerController : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class TowerController : MonoBehaviour
 
     void Update()
     {
+        enemiesInRange = enemiesInRange
+        .OrderByDescending(e => e.GetComponent<EnemyController>()?.data?.flying ?? false)
+        .ToList();
+
         enemiesInRange.RemoveAll(e => e == null);
 
         if (enemiesInRange.Count > 0) target = enemiesInRange[0];
