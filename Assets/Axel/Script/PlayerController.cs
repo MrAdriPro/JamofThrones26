@@ -33,8 +33,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Vector3 _tamanioCaja;
     [SerializeField] Vector3 _offSet;
     public float _reparacionCantidad = 0;
-    float time = 10f;
-    float timer = 0;
+    float time = 0;
+    float repairTimer = 0;
     #endregion
 
 
@@ -54,9 +54,9 @@ public class PlayerController : MonoBehaviour
         Movimiento();
 
         Rotacion();
-        if (timer >= 0)
+        if (repairTimer >= 0)
         {
-            timer -= Time.deltaTime;
+            repairTimer -= Time.deltaTime;
             _reparacionCantidad = 0;
         }
     }
@@ -99,11 +99,12 @@ public class PlayerController : MonoBehaviour
     }
     public void OnRepair(InputAction.CallbackContext context)
     {
-        if (timer > 0) return;
+        if (repairTimer > 0) return;
         if (context.started)
         {
-            _reparacionCantidad = 10f;
-            timer = time;
+            _reparacionCantidad = 1f;
+            
+            repairTimer = time;
         }
     }
     public void OnShoot(InputAction.CallbackContext context)

@@ -409,6 +409,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
+--- !u!1 &740193488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5313973905878192999, guid: af8490b5cc664134181d72bec00682aa, type: 3}
+  m_PrefabInstance: {fileID: 1124902314215880901}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &758813566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -422,9 +427,29 @@ PrefabInstance:
       value: PlayerController
       objectReference: {fileID: 0}
     - target: {fileID: 4978291114777394804, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+      propertyPath: _offSet.y
+      value: 1.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978291114777394804, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
       propertyPath: _mainCamera
       value: 
       objectReference: {fileID: 1688740298}
+    - target: {fileID: 4978291114777394804, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+      propertyPath: _tamanioCaja.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978291114777394804, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+      propertyPath: _tamanioCaja.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978291114777394804, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+      propertyPath: _tamanioCaja.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978291114777394804, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+      propertyPath: _interacteables.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7615857159758561904, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.2692418
@@ -1142,7 +1167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1032321207300448286, guid: af8490b5cc664134181d72bec00682aa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5434474433529717772, guid: af8490b5cc664134181d72bec00682aa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1183,6 +1208,38 @@ PrefabInstance:
     - target: {fileID: 5434474433529717772, guid: af8490b5cc664134181d72bec00682aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365664652174818572, guid: af8490b5cc664134181d72bec00682aa, type: 3}
+      propertyPath: _offSet.x
+      value: -0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365664652174818572, guid: af8490b5cc664134181d72bec00682aa, type: 3}
+      propertyPath: _offSet.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365664652174818572, guid: af8490b5cc664134181d72bec00682aa, type: 3}
+      propertyPath: _offSet.z
+      value: 3.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365664652174818572, guid: af8490b5cc664134181d72bec00682aa, type: 3}
+      propertyPath: doorPrefab
+      value: 
+      objectReference: {fileID: 740193488}
+    - target: {fileID: 8365664652174818572, guid: af8490b5cc664134181d72bec00682aa, type: 3}
+      propertyPath: _tamanioCaja.x
+      value: 1.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365664652174818572, guid: af8490b5cc664134181d72bec00682aa, type: 3}
+      propertyPath: _tamanioCaja.y
+      value: 2.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365664652174818572, guid: af8490b5cc664134181d72bec00682aa, type: 3}
+      propertyPath: _tamanioCaja.z
+      value: 2.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365664652174818572, guid: af8490b5cc664134181d72bec00682aa, type: 3}
+      propertyPath: _interacteables.m_Bits
+      value: 512
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
