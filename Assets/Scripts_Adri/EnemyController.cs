@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+<<<<<<< HEAD
+=======
+    public Enemy_SO data;
+>>>>>>> parent of b2b8bd1 (Merge branch 'Adrian_DEV' into Sergio)
     public float rotationSpeed = 720f;
 
 
