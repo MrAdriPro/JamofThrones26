@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Boss Steampunk
   m_EditorClassIdentifier: 
   enemyName: 
-  enemyPrefab: {fileID: 387452794730468431, guid: 9b3084ddb1db27b45ad056b6b1ff89f4, type: 3}
-  health: 5
+  enemyPrefab: {fileID: 0}
+  health: 0
   speed: 0
   damage: 0
   attackRate: 0

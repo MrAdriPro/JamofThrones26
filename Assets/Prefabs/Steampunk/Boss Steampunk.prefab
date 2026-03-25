@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 615437485231557330}
   - component: {fileID: 1610126115837298164}
   - component: {fileID: 3573583101290368863}
-  - component: {fileID: 3815126259971902386}
   m_Layer: 0
   m_Name: Boss Steampunk
   m_TagString: Enemy
@@ -29,14 +28,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387452794730468431}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 9, y: 3.41, z: -3.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5890657345508787834}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!54 &8662622052907640249
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -119,18 +118,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: e34b64784799de447ad35b5f362feea1, type: 2}
   coinObject: {fileID: 8060829633014351544, guid: d25687e50010d8446a9ad9229e02c519, type: 3}
---- !u!114 &3815126259971902386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 387452794730468431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d3e7354800c31841a61728a75bad95d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3106923818652605927
 GameObject:
   m_ObjectHideFlags: 0
