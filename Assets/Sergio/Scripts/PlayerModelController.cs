@@ -2,37 +2,35 @@ using UnityEngine;
 
 public class PlayerModelController : MonoBehaviour
 {
-    [Header("Referencias Visuales")]
-    [SerializeField] GameObject playerModel; 
 
-    [Header("Assets")]
-    [SerializeField] Sprite[] sprites;
-    [SerializeField] RuntimeAnimatorController[] controllers; 
+    [Header("Configuración de Eras")]
+    [SerializeField] RuntimeAnimatorController[] controllers;
 
     public int currentSpriteIndex = 0;
 
-    private SpriteRenderer _spriteRenderer;
     private Animator _animator;
+    private PlayerController _playerController;
 
-    private void Awake()
+    private void Start()
     {
-        _spriteRenderer = playerModel.GetComponent<SpriteRenderer>();
-        _animator = playerModel.GetComponent<Animator>();
-
+        _animator = GetComponentInChildren<Animator>();
+        _playerController = GetComponent<PlayerController>();
     }
 
     public void SwapModel()
     {
-        currentSpriteIndex = (currentSpriteIndex + 1) % sprites.Length;
-
-        _spriteRenderer.sprite = sprites[currentSpriteIndex];
+        currentSpriteIndex = (currentSpriteIndex + 1) % controllers.Length;
 
         if (currentSpriteIndex < controllers.Length)
         {
             _animator.runtimeAnimatorController = controllers[currentSpriteIndex];
+
+            if (_playerController != null)
+            {
+                _playerController.RefreshAnimator(_animator);
+            }
         }
 
-        print("Modelo cambiado a: " + currentSpriteIndex);
+        Debug.Log("Era cambiada a: " + controllers[currentSpriteIndex].name);
     }
 }
-

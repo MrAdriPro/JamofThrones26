@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         //Contacto();
         Movimiento();
 
-        Rotacion();
+        //Rotacion();
         //if (timer >= 0)
         //{
         //    timer -= Time.deltaTime;
@@ -142,19 +142,44 @@ public class PlayerController : MonoBehaviour
         //Actualitzamos el estado de _grounded
         _grounded = colliderBuffer[0] != null;
     }
+    public void RefreshAnimator(Animator newAnimator)
+    {
+        _animator = newAnimator;
+        _animator.SetFloat("VerticalMove", 0);
+    }
     private void Movimiento()
     {
-        //Calcula la direccion a la que se esta dirigiendo el player
         Vector3 direccion = new Vector3(_horizontal, 0, _vertical);
-        //Aplicamos gravedad si no estamos tocando el suelo
-        if (!_grounded)
-        {
-            vectorGravity = Vector3.down * 9.81f;
-        }
-        //Aplicamos la direccion multiplicada por la velocidad a la que no movemos en el tiempo
+        if (!_grounded) vectorGravity = Vector3.down * 9.81f;
+
         _cC.Move((direccion + vectorGravity) * _velocidadMovimiento * Time.deltaTime);
-        
-            _animator.SetFloat("VerticalMove", _vertical);
+
+        if (_animator != null)
+        {
+            float verticalLimpio = Mathf.Abs(_vertical) < 0.1f ? 0f : _vertical;
+
+            if (Mathf.Abs(_horizontal) > 0.1f && Mathf.Abs(_vertical) < 0.1f)
+            {
+                _animator.SetFloat("VerticalMove", -1f); 
+            }
+            else
+            {
+                _animator.SetFloat("VerticalMove", verticalLimpio);
+            }
+
+            SpriteRenderer SpriteRendeerer = _animator.GetComponent<SpriteRenderer>();
+            if (SpriteRendeerer != null)
+            {
+                if (_horizontal < -0.1f) 
+                {
+                    SpriteRendeerer.flipX = true;
+                }
+                else if (_horizontal > 0.1f) 
+                {
+                    SpriteRendeerer.flipX = false;
+                }
+            }
+        }
     }
     private void Rotacion()
     {
