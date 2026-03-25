@@ -1327,8 +1327,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a2fb312a6d95d4ab199fa4fa30bd42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paintLayers: []
-  baseColors: []
+  grassLayer: {fileID: 8574412962073106934, guid: 453e72702dfff8e4b87fffccb3fb7938, type: 2}
+  pathLayer: {fileID: 8574412962073106934, guid: 52ac95edbf7eee648913352ff2720f59, type: 2}
+  baseColors:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   normalMaps: []
 --- !u!1001 &701728385
 PrefabInstance:

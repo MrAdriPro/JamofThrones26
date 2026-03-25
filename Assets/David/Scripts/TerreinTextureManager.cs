@@ -2,19 +2,21 @@ using UnityEngine;
 
 public class TerreinTextureManager : MonoBehaviour
 {
-    [SerializeField] TerrainLayer[] paintLayers;
-    [SerializeField] Texture2D[] baseColors;
-    [SerializeField] Texture2D[] normalMaps;
+    [SerializeField] TerrainLayer grassLayer;
+    [SerializeField] TerrainLayer pathLayer;
 
-    
-    
-    void Start()
+    [SerializeField] Texture2D[] baseColorsGrass;
+    [SerializeField] Texture2D[] normalMapsGrass;
+
+    [SerializeField] Texture2D[] baseColorsPath;
+    [SerializeField] Texture2D[] normalMapsPath;
+
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void TextureUpdater() 
     {
         
     }
