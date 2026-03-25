@@ -1283,53 +1283,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5392936193230661321, guid: 224171703b4151d40a1e316cedae4346, type: 3}
   m_PrefabInstance: {fileID: 6763790597364664443}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &689207931
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 689207932}
-  - component: {fileID: 689207933}
-  m_Layer: 0
-  m_Name: TerreinTextureManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &689207932
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 689207931}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &689207933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 689207931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1a2fb312a6d95d4ab199fa4fa30bd42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paintLayers: []
-  baseColors: []
-  normalMaps: []
 --- !u!1001 &701728385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4933,4 +4886,3 @@ SceneRoots:
   - {fileID: 1972854827}
   - {fileID: 2133780198}
   - {fileID: 270842172}
-  - {fileID: 689207932}
