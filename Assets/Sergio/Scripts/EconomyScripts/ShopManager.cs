@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
-{   
+{
     public static ShopManager shopInstance;
     [SerializeField] private TextMeshProUGUI coinText;
     [SerializeField] private TextMeshProUGUI costText;
@@ -37,21 +37,32 @@ public class ShopManager : MonoBehaviour
 
     void UpdateText()
     {
-        coinText.text = "Coins: " + actualCoins.ToString("F0"); 
+        coinText.text = "Coins: " + actualCoins.ToString("F0");
         costText.text = upgradeCost.ToString("F0");
     }
 
     public void BuyUpgrade()
     {
-        if(upgradeCost <= actualCoins) 
+        if (!playerModel.CanEvolve)
+        {
+            costText.text = "MAX"; 
+            return;
+        }
+
+        if (actualCoins >= upgradeCost)
         {
             playerModel.SwapModel();
             towerModel.UpgradeModels();
 
             actualCoins -= upgradeCost;
             upgradeCost *= costMult;
-        }
 
-        UpdateText();
+            UpdateText();
+
+            if (!playerModel.CanEvolve)
+            {
+                costText.text = "MAX";
+            }
+        }
     }
 }

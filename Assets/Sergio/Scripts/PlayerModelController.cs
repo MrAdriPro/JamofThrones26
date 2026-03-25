@@ -11,18 +11,21 @@ public class PlayerModelController : MonoBehaviour
     private Animator _animator;
     private PlayerController _playerController;
 
+    public bool CanEvolve => currentSpriteIndex < controllers.Length - 1;
+
+
     private void Start()
     {
         _animator = GetComponentInChildren<Animator>();
         _playerController = GetComponent<PlayerController>();
     }
 
+
     public void SwapModel()
     {
-        currentSpriteIndex = (currentSpriteIndex + 1) % controllers.Length;
-
-        if (currentSpriteIndex < controllers.Length)
+        if (CanEvolve)
         {
+            currentSpriteIndex++;
             _animator.runtimeAnimatorController = controllers[currentSpriteIndex];
 
             if (_playerController != null)
@@ -30,7 +33,10 @@ public class PlayerModelController : MonoBehaviour
                 _playerController.RefreshAnimator(_animator);
             }
         }
+    }
 
-        Debug.Log("Era cambiada a: " + controllers[currentSpriteIndex].name);
+    public bool IsMaxGrade()
+    {
+        return currentSpriteIndex >= controllers.Length - 1;
     }
 }
