@@ -619,6 +619,15 @@ MonoBehaviour:
   - {fileID: 3956753320679259879}
   - {fileID: 509477587234130217}
   finalPoint: {fileID: 5055193336114821666}
+  eraTexts:
+  - {fileID: 7085203570715942056}
+  - {fileID: 8251144786418561378}
+  - {fileID: 4937950465040483384}
+  - {fileID: 2363923188558648040}
+  - {fileID: 2854304879045694368}
+  completedColor: {r: 0, g: 0.5, b: 0, a: 1}
+  bossColor: {r: 1, g: 0, b: 0, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &5278486794607740851
 GameObject:
   m_ObjectHideFlags: 0
