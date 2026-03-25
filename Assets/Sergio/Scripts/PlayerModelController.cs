@@ -2,31 +2,37 @@ using UnityEngine;
 
 public class PlayerModelController : MonoBehaviour
 {
-    [SerializeField] GameObject playerModel;
+    [Header("Referencias Visuales")]
+    [SerializeField] GameObject playerModel; 
 
+    [Header("Assets")]
     [SerializeField] Sprite[] sprites;
-    [SerializeField] Animator[] animatorList;
-
+    [SerializeField] RuntimeAnimatorController[] controllers; 
 
     public int currentSpriteIndex = 0;
 
-    private void Update()
+    private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
+
+    private void Awake()
     {
-        //SwapModel(currentSpriteIndex);
+        _spriteRenderer = playerModel.GetComponent<SpriteRenderer>();
+        _animator = playerModel.GetComponentInChildren<Animator>();
+
     }
 
     public void SwapModel()
     {
-        if(currentSpriteIndex < sprites.Length - 1)
+        currentSpriteIndex = (currentSpriteIndex + 1) % sprites.Length;
+
+        _spriteRenderer.sprite = sprites[currentSpriteIndex];
+
+        if (currentSpriteIndex < controllers.Length)
         {
-            currentSpriteIndex += 1;
-
-            // Adquiere 
-            SpriteRenderer spriteRenderer = playerModel.GetComponent<SpriteRenderer>();
-            //Animator animator = playerModel.GetComponent<Animator>();
-
-            spriteRenderer.sprite = sprites[currentSpriteIndex];
-            //animator = animatorList[currentSpriteIndex];
+            _animator.runtimeAnimatorController = controllers[currentSpriteIndex];
         }
+
+        print("Modelo cambiado a: " + currentSpriteIndex);
     }
 }
+

@@ -2235,7 +2235,7 @@ GameObject:
   - component: {fileID: 1398371949}
   - component: {fileID: 1398371948}
   - component: {fileID: 1398371947}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2483,6 +2483,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1543072785179863897, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4866269010793412649, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
       propertyPath: m_Name
       value: PlayerController
@@ -2571,6 +2575,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7693073815601965544, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+      propertyPath: controllers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693073815601965544, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+      propertyPath: 'controllers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 9100000, guid: 79309e211e8700643b4b39936625ba6d, type: 2}
+    - target: {fileID: 7693073815601965544, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+      propertyPath: 'controllers.Array.data[1]'
+      value: 
+      objectReference: {fileID: 9100000, guid: 8f8eefc532f207348bdc03bb3785b877, type: 2}
+    - target: {fileID: 7693073815601965544, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+      propertyPath: 'controllers.Array.data[2]'
+      value: 
+      objectReference: {fileID: 9100000, guid: c41405c9d60c1f142a018806934e748f, type: 2}
+    - target: {fileID: 7693073815601965544, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+      propertyPath: 'controllers.Array.data[3]'
+      value: 
+      objectReference: {fileID: 9100000, guid: 33896246d2128654d8dfff8344f9774e, type: 2}
     - target: {fileID: 8908427497434348721, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2626,7 +2650,7 @@ MonoBehaviour:
   - {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   - {fileID: -712631045867808456, guid: b670ab75dde984907b8570040daa08c5, type: 3}
   - {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  animatorList: []
+  controllers: []
   currentSpriteIndex: 0
 --- !u!136 &1564258751
 CapsuleCollider:
@@ -2666,7 +2690,7 @@ Animator:
   m_GameObject: {fileID: 1564258752}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 33896246d2128654d8dfff8344f9774e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 79309e211e8700643b4b39936625ba6d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
