@@ -21,4 +21,4 @@ MonoBehaviour:
   flying: 0
   attackRange: 0.7
   coins: 5
-  isBoss: 1
+  isBoss: 0

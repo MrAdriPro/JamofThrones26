@@ -38,8 +38,6 @@ public class PlayerController : MonoBehaviour
     public bool _aguantandoLaPuerta;
     public float stamina = 100;
 
-    private Animator _animator;
-
    
     #endregion
 
@@ -50,7 +48,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _mainCamera = Camera.main;
-        _animator = GetComponentInChildren<Animator>();
     }
     void Update()
     {
@@ -153,8 +150,6 @@ public class PlayerController : MonoBehaviour
         }
         //Aplicamos la direccion multiplicada por la velocidad a la que no movemos en el tiempo
         _cC.Move((direccion + vectorGravity) * _velocidadMovimiento * Time.deltaTime);
-        
-            _animator.SetFloat("VerticalMove", _vertical);
     }
     private void Rotacion()
     {
