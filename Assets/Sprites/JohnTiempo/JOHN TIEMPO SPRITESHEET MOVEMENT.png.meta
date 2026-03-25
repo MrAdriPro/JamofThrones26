@@ -1,0 +1,1326 @@
+fileFormatVersion: 2
+guid: dbfac5f447bee614bac4f7f709c22475
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_0
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 3704
+        width: 206
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfb673ba7917dfc4fabd69b458671b27
+      internalID: 1213641982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_1
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 3704
+        width: 206
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10123b4e653d76c409e44c52f97594bd
+      internalID: -382351652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_2
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 3704
+        width: 206
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aef68d9ef5b3e3b4693d8190aceddbe8
+      internalID: -1665789175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_3
+      rect:
+        serializedVersion: 2
+        x: 1694
+        y: 3704
+        width: 206
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eabee5ae014e6848a45086c29050813
+      internalID: 903547296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_4
+      rect:
+        serializedVersion: 2
+        x: 2208
+        y: 3704
+        width: 206
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61d259f84702d834eb78b9c56e5bd4f6
+      internalID: 939855050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_5
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 3192
+        width: 197
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 788917bf5f429d141818aeffde6bfaa4
+      internalID: 941049606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_6
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 3192
+        width: 197
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aed4e04d7b31da48bbd57a230aab3ec
+      internalID: 738274571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_7
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 3192
+        width: 198
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a457d6bee5f2606478fae4882e88b720
+      internalID: -762996979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_8
+      rect:
+        serializedVersion: 2
+        x: 1686
+        y: 3192
+        width: 198
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a226ef34d342894cbe1b9fe41da3361
+      internalID: 327351465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_9
+      rect:
+        serializedVersion: 2
+        x: 2201
+        y: 3192
+        width: 198
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75502355a6c357442a8acdf825ec7a69
+      internalID: 1351629873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_10
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 2680
+        width: 240
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee452d3f29713624984b29f46c3419b9
+      internalID: 660941663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_11
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 2680
+        width: 241
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88c42e07aa9091b43bfeaec2a80072aa
+      internalID: -2050973729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_12
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 2680
+        width: 241
+        height: 281
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae7ef26521849a74e9f47f0d3f96d32b
+      internalID: 967343653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_13
+      rect:
+        serializedVersion: 2
+        x: 1651
+        y: 2680
+        width: 240
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c982f3e0065149e49b135e1c3167c371
+      internalID: 1903748594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_14
+      rect:
+        serializedVersion: 2
+        x: 2164
+        y: 2680
+        width: 240
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a69f8c938a5092f44af2c6f5ee04cf08
+      internalID: 964007488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_15
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 2181
+        width: 116
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f112fe0103b7cdc4a9290cd460c74d76
+      internalID: -853481281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_16
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 2181
+        width: 119
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b25001f263633c46b4bfa5cb397e7c2
+      internalID: -575529952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_17
+      rect:
+        serializedVersion: 2
+        x: 1219
+        y: 2175
+        width: 121
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a97a886b7729519449714c876e8369e9
+      internalID: 1474687639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_18
+      rect:
+        serializedVersion: 2
+        x: 1731
+        y: 2170
+        width: 120
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d10f9a41af36d64bbaaef5882563886
+      internalID: 943460519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_19
+      rect:
+        serializedVersion: 2
+        x: 2244
+        y: 2172
+        width: 117
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ef45ab7d493c28409c8d4f4f400f665
+      internalID: -983981872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_20
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 1666
+        width: 193
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eee456d2cd26c7d4a93e25cec58952ce
+      internalID: -148862044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_21
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 1675
+        width: 203
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b6c49ee5ca27a148935d0f6a3d0ef21
+      internalID: 572858742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_22
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 1645
+        width: 164
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3559a63f2a6ac343935768fe0f4f597
+      internalID: 985735882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_23
+      rect:
+        serializedVersion: 2
+        x: 1706
+        y: 1645
+        width: 163
+        height: 227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5920c695572c1c4392febd55def3a33
+      internalID: -405916600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_24
+      rect:
+        serializedVersion: 2
+        x: 2231
+        y: 1673
+        width: 205
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b69d45c802132fc45ac32e9ab1d06b9a
+      internalID: 1356226677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_25
+      rect:
+        serializedVersion: 2
+        x: 2741
+        y: 1700
+        width: 205
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60ce3f43eb02f8045856bed5dd55f1d2
+      internalID: 136469868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_26
+      rect:
+        serializedVersion: 2
+        x: 3262
+        y: 1656
+        width: 191
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a6df0b2443c3a245a140db2cc79445c
+      internalID: 1013697208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_27
+      rect:
+        serializedVersion: 2
+        x: 3773
+        y: 1656
+        width: 196
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b38c18114e73d55428ed17a389a51ed4
+      internalID: -1036205535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_28
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 1154
+        width: 208
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1f8ad35504b1ea4f9f3b872199f38da
+      internalID: -306407307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_29
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 1163
+        width: 214
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 543929a9a7ef74b4b9a576a18cddc6f4
+      internalID: -1835484644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_30
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 1133
+        width: 190
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ee4dfb1bb095cc44be2249810db07d2
+      internalID: 1674619910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_31
+      rect:
+        serializedVersion: 2
+        x: 1685
+        y: 1133
+        width: 191
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c40560b1e61d9864eaad8c2a8af1261d
+      internalID: 963020796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_32
+      rect:
+        serializedVersion: 2
+        x: 2231
+        y: 1161
+        width: 226
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82a50166bb2c4d64d937c48dfd33070e
+      internalID: 245373021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_33
+      rect:
+        serializedVersion: 2
+        x: 2741
+        y: 1188
+        width: 229
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0af89a2c5eba5e84794eae11d5a76c82
+      internalID: 1858812227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_34
+      rect:
+        serializedVersion: 2
+        x: 3262
+        y: 1144
+        width: 212
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 279b5d17ac5638b428377b09f541947c
+      internalID: 58565829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_35
+      rect:
+        serializedVersion: 2
+        x: 3773
+        y: 1144
+        width: 215
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3887160f9873aa4bb4bd1d97e1dc900
+      internalID: 395262072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_36
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 642
+        width: 227
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8b995f22a8d56146bc297de1a0af417
+      internalID: -282630076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_37
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 651
+        width: 233
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f2a0933c0b639a488ccb36e8805b9c1
+      internalID: -2063514682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_38
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 621
+        width: 221
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3a133e0dfe5db44aaba624c086fc258
+      internalID: 2070851568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_39
+      rect:
+        serializedVersion: 2
+        x: 1667
+        y: 621
+        width: 221
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 201e7fa71d3ada2418641cef05580b96
+      internalID: 1183237798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_40
+      rect:
+        serializedVersion: 2
+        x: 2231
+        y: 649
+        width: 194
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bd33cbdc4f949847ad55e18f852bb63
+      internalID: -1715119529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_41
+      rect:
+        serializedVersion: 2
+        x: 2741
+        y: 676
+        width: 196
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc349fc5cb3554a4e87fb0b5f056fd53
+      internalID: -373769590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_42
+      rect:
+        serializedVersion: 2
+        x: 3262
+        y: 632
+        width: 183
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21ca9acbe4ede7c488575d922e64dd5a
+      internalID: -344300082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_43
+      rect:
+        serializedVersion: 2
+        x: 3773
+        y: 632
+        width: 186
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdcfcca334a38674fb39584b591ffb9f
+      internalID: -969746311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_44
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 162
+        width: 120
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf237767d8a922e4c83d4ea77d2fbe35
+      internalID: 233891610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_45
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 162
+        width: 122
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31f0cb82e7a227243887848c2862843f
+      internalID: -1577080964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_46
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 158
+        width: 118
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ba6631de08ffa448b474dbf8879400b
+      internalID: -254219549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_47
+      rect:
+        serializedVersion: 2
+        x: 1745
+        y: 162
+        width: 117
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d632ebc65e508945a11f2a8daa22976
+      internalID: -1717222709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_48
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 155
+        width: 133
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538471f5126bcdb4a85e7fcb3ea48dfa
+      internalID: 1965466225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_49
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 157
+        width: 139
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7533d5372bc63384b9c51e7d159316b8
+      internalID: 164621655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_50
+      rect:
+        serializedVersion: 2
+        x: 3265
+        y: 142
+        width: 148
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 302e7070eefc2964e91e414cb6d51f39
+      internalID: 1226314052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JOHN TIEMPO SPRITESHEET MOVEMENT_51
+      rect:
+        serializedVersion: 2
+        x: 3778
+        y: 142
+        width: 142
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29e9ef8689c1a4f4a95b9790f71aaead
+      internalID: -2026735121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0fdc449cff2e28f4085721b54fb3d102
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      JOHN TIEMPO SPRITESHEET MOVEMENT_0: 1213641982
+      JOHN TIEMPO SPRITESHEET MOVEMENT_1: -382351652
+      JOHN TIEMPO SPRITESHEET MOVEMENT_10: 660941663
+      JOHN TIEMPO SPRITESHEET MOVEMENT_11: -2050973729
+      JOHN TIEMPO SPRITESHEET MOVEMENT_12: 967343653
+      JOHN TIEMPO SPRITESHEET MOVEMENT_13: 1903748594
+      JOHN TIEMPO SPRITESHEET MOVEMENT_14: 964007488
+      JOHN TIEMPO SPRITESHEET MOVEMENT_15: -853481281
+      JOHN TIEMPO SPRITESHEET MOVEMENT_16: -575529952
+      JOHN TIEMPO SPRITESHEET MOVEMENT_17: 1474687639
+      JOHN TIEMPO SPRITESHEET MOVEMENT_18: 943460519
+      JOHN TIEMPO SPRITESHEET MOVEMENT_19: -983981872
+      JOHN TIEMPO SPRITESHEET MOVEMENT_2: -1665789175
+      JOHN TIEMPO SPRITESHEET MOVEMENT_20: -148862044
+      JOHN TIEMPO SPRITESHEET MOVEMENT_21: 572858742
+      JOHN TIEMPO SPRITESHEET MOVEMENT_22: 985735882
+      JOHN TIEMPO SPRITESHEET MOVEMENT_23: -405916600
+      JOHN TIEMPO SPRITESHEET MOVEMENT_24: 1356226677
+      JOHN TIEMPO SPRITESHEET MOVEMENT_25: 136469868
+      JOHN TIEMPO SPRITESHEET MOVEMENT_26: 1013697208
+      JOHN TIEMPO SPRITESHEET MOVEMENT_27: -1036205535
+      JOHN TIEMPO SPRITESHEET MOVEMENT_28: -306407307
+      JOHN TIEMPO SPRITESHEET MOVEMENT_29: -1835484644
+      JOHN TIEMPO SPRITESHEET MOVEMENT_3: 903547296
+      JOHN TIEMPO SPRITESHEET MOVEMENT_30: 1674619910
+      JOHN TIEMPO SPRITESHEET MOVEMENT_31: 963020796
+      JOHN TIEMPO SPRITESHEET MOVEMENT_32: 245373021
+      JOHN TIEMPO SPRITESHEET MOVEMENT_33: 1858812227
+      JOHN TIEMPO SPRITESHEET MOVEMENT_34: 58565829
+      JOHN TIEMPO SPRITESHEET MOVEMENT_35: 395262072
+      JOHN TIEMPO SPRITESHEET MOVEMENT_36: -282630076
+      JOHN TIEMPO SPRITESHEET MOVEMENT_37: -2063514682
+      JOHN TIEMPO SPRITESHEET MOVEMENT_38: 2070851568
+      JOHN TIEMPO SPRITESHEET MOVEMENT_39: 1183237798
+      JOHN TIEMPO SPRITESHEET MOVEMENT_4: 939855050
+      JOHN TIEMPO SPRITESHEET MOVEMENT_40: -1715119529
+      JOHN TIEMPO SPRITESHEET MOVEMENT_41: -373769590
+      JOHN TIEMPO SPRITESHEET MOVEMENT_42: -344300082
+      JOHN TIEMPO SPRITESHEET MOVEMENT_43: -969746311
+      JOHN TIEMPO SPRITESHEET MOVEMENT_44: 233891610
+      JOHN TIEMPO SPRITESHEET MOVEMENT_45: -1577080964
+      JOHN TIEMPO SPRITESHEET MOVEMENT_46: -254219549
+      JOHN TIEMPO SPRITESHEET MOVEMENT_47: -1717222709
+      JOHN TIEMPO SPRITESHEET MOVEMENT_48: 1965466225
+      JOHN TIEMPO SPRITESHEET MOVEMENT_49: 164621655
+      JOHN TIEMPO SPRITESHEET MOVEMENT_5: 941049606
+      JOHN TIEMPO SPRITESHEET MOVEMENT_50: 1226314052
+      JOHN TIEMPO SPRITESHEET MOVEMENT_51: -2026735121
+      JOHN TIEMPO SPRITESHEET MOVEMENT_6: 738274571
+      JOHN TIEMPO SPRITESHEET MOVEMENT_7: -762996979
+      JOHN TIEMPO SPRITESHEET MOVEMENT_8: 327351465
+      JOHN TIEMPO SPRITESHEET MOVEMENT_9: 1351629873
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
