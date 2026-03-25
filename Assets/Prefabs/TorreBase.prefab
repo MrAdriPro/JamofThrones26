@@ -174,8 +174,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 633999505406463079}
   m_Father: {fileID: 0}
@@ -193,8 +193,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesInRange: []
+  towerModels:
+  - {fileID: 6390438585102769484}
+  - {fileID: 8765673425175199189}
+  - {fileID: 822157868210396543}
+  - {fileID: 4910791044498672522}
   target: {fileID: 0}
-  towerModel: {fileID: 0}
   fireRate: 1
   firePoint: {fileID: 343828468388260147}
   bulletPrefab: {fileID: 3111212151778295405, guid: 7cf428128d1df8842b9bac9f781a467c, type: 3}

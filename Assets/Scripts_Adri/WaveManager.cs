@@ -86,7 +86,7 @@ public class WaveManager : MonoBehaviour
                         Quaternion.identity
                     );
                     newEnemy.SetActive(true);
-
+                   
                     if (newEnemy.TryGetComponent<EnemyController>(out var controller))
                     {
                         controller.data = entry.enemyType;
@@ -106,16 +106,29 @@ public class WaveManager : MonoBehaviour
         if (hasBoss)
         {
             Debug.Log("boss spawning");
+            eraUI.SetShaking(true);
+            eraUI.StartBossFlash(currentEraIndex + 1);
             UpdateUIProgress(forceMax: true);
 
             yield return new WaitUntil(() => !IsBossAlive());
             Debug.Log("boss negro muerto");
+            eraUI.SetShaking(false);
+            eraUI.StopFlash();
+
+            eraUI.SetEraCompleted(currentEraIndex);
+
+            if (currentEraIndex + 1 < eraUI.eraTexts.Length)
+            {
+                eraUI.eraTexts[currentEraIndex + 1].color = eraUI.normalColor;
+            }
 
             currentEraIndex++;
 
             if (currentEraIndex >= eraUI.eraPoints.Length)
             {
                 Debug.Log("nigger");
+                eraUI.SetEraCompleted(currentEraIndex);
+
                 //win
                 yield break; 
             }

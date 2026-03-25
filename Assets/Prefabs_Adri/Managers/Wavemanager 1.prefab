@@ -85,8 +85,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 1651334902022213052}
   - {fileID: 5395342160704356113}
-  autoStart: 1
-  autoStartDelay: 2
+  eraUI: {fileID: 0}
 --- !u!1 &8564570185639301729
 GameObject:
   m_ObjectHideFlags: 0
