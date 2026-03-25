@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DoorObstacle : MonoBehaviour
 {
@@ -9,11 +10,20 @@ public class DoorObstacle : MonoBehaviour
     float _damageEscudo;
     public bool destroyed = false;
     public GameObject doorPrefab;
+    [SerializeField] Animator _animator;
+
+    [Header("Abrir/Cerrar")]
+    [SerializeField] Image _temporizadorPuerta;
+    [SerializeField] CanvasGroup _canvasGroupTemporizadorPuerta;
+    float _temporizadorAbrir = 3f;
+    float _temporizadorCerrar = 1f;
+
     [Header("Contacto")]
     [SerializeField] LayerMask _interacteables;
     [SerializeField] Vector3 _tamanioCaja;
     [SerializeField] Vector3 _offSet;
     Collider[] colliders = new Collider[1];
+
     #endregion
 
 
@@ -23,6 +33,7 @@ public class DoorObstacle : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
+
     }
     private void Update()
     {
@@ -84,10 +95,7 @@ public class DoorObstacle : MonoBehaviour
     {
         Vector3 centro = transform.TransformPoint(_offSet);
 
-
-
         int cantidad = Physics.OverlapBoxNonAlloc(centro, _tamanioCaja / 2, colliders, transform.rotation, _interacteables);
-
 
         if (cantidad == 0)
         {
@@ -95,8 +103,6 @@ public class DoorObstacle : MonoBehaviour
 
             return;
         }
-
-
         for (int i = 0; i < cantidad; i++)
         {
             Collider other = colliders[i];
@@ -105,6 +111,8 @@ public class DoorObstacle : MonoBehaviour
             if (other.TryGetComponent(out PlayerController playerController))
             {
                 RepairDoor(playerController._reparacionCantidad);
+                AbrirPuerta(playerController);
+                CerrarPuerta(playerController);
                 ActivarScudo(playerController);
             }
             else
@@ -113,9 +121,6 @@ public class DoorObstacle : MonoBehaviour
             }
         }
     }
-
-
-
     private void ActivarScudo(PlayerController _playerController)
     {
         if (!_playerController._aguantandoLaPuerta)
@@ -126,13 +131,72 @@ public class DoorObstacle : MonoBehaviour
         _playerController.stamina -= _damageEscudo;
         _currentEscudo = _playerController.stamina;
     }
+
+    private void AbrirPuerta(PlayerController _playerController)
+    {
+        if (_animator.GetBool("Abrir") == true) return;
         
-  
+        if (_playerController.abrirPuerta && _temporizadorAbrir > 0f)
+        {
+            _canvasGroupTemporizadorPuerta.alpha = 1;
+            _temporizadorAbrir -= Time.deltaTime;
+            _temporizadorPuerta.fillAmount = 1 - (_temporizadorAbrir / 3f);
+        }
+        else if (_temporizadorAbrir <= 0f)
+        {
+            _canvasGroupTemporizadorPuerta.alpha = 0;
+            _animator.SetBool("Abrir", true);
+            _temporizadorAbrir = 3f;
+        }
+        else
+        {
+            _temporizadorAbrir = 3f;;
+            _canvasGroupTemporizadorPuerta.alpha = 0;
+        }
+    }
+
+            
+            
+    private void CerrarPuerta(PlayerController _playerController)
+    {
+        if (_animator.GetBool("Abrir") == false) return;
         
+        if (_playerController.abrirPuerta && _temporizadorCerrar > 0f)
+        {
+            _canvasGroupTemporizadorPuerta.alpha = 1;
+            _temporizadorCerrar -= Time.deltaTime;
+            _temporizadorPuerta.fillAmount = 1 - _temporizadorCerrar;
+        }
+        else if (_temporizadorCerrar <= 0f)
+        {
+            _canvasGroupTemporizadorPuerta.alpha = 0;
+            _animator.SetBool("Abrir", false);
+            _temporizadorCerrar = 1f;
+        }
+        else
+        {
+            _temporizadorCerrar = 1f;;
+            _canvasGroupTemporizadorPuerta.alpha = 0;
+        }
+    }
             
 
 
+
+
+
+
     #endregion
+
+
+
+
+
+
+
+
+
+
 }
 
 
