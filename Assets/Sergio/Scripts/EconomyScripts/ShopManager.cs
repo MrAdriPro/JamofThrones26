@@ -11,8 +11,9 @@ public class ShopManager : MonoBehaviour
     public float upgradeCost = 100f;
     public float costMult = 2.5f;
 
+    public int tekLevel = 0;
+
     [SerializeField] PlayerModelController playerModel;
-    [SerializeField] TowerEvolutionController towerModel;
 
 
     private void Awake()
@@ -46,7 +47,7 @@ public class ShopManager : MonoBehaviour
         if(upgradeCost <= actualCoins) 
         {
             playerModel.SwapModel();
-            towerModel.UpgradeModels();
+            // towerModel.UpgradeAll();
 
             actualCoins -= upgradeCost;
             upgradeCost *= costMult;
