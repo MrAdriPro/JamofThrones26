@@ -37,12 +37,15 @@ public class PlayerController : MonoBehaviour
     float timer = 0;
     public bool _aguantandoLaPuerta;
     public float stamina = 100;
+<<<<<<< HEAD
 
     [Header("Cambio de Modelo")]
     [SerializeField] GameObject playerModel;
     [SerializeField] Sprite[] sprites;
     [SerializeField] Animator[] animatorList;
     public int currentSpriteIndex = 0;
+=======
+>>>>>>> parent of b2b8bd1 (Merge branch 'Adrian_DEV' into Sergio)
     #endregion
 
 
@@ -60,11 +63,19 @@ public class PlayerController : MonoBehaviour
         Movimiento();
 
         Rotacion();
+<<<<<<< HEAD
         //if (timer >= 0)
         //{
         //    timer -= Time.deltaTime;
             //_reparacionCantidad = 0;
         //}
+=======
+        if (timer >= 0)
+        {
+            timer -= Time.deltaTime;
+            _reparacionCantidad = 0;
+        }
+>>>>>>> parent of b2b8bd1 (Merge branch 'Adrian_DEV' into Sergio)
         StaminaRecuperacion();
     }
 
@@ -106,6 +117,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnRepair(InputAction.CallbackContext context)
     {
+<<<<<<< HEAD
         if (/*timer > 0 || */_aguantandoLaPuerta) return;
         if (context.performed)
         {
@@ -115,6 +127,13 @@ public class PlayerController : MonoBehaviour
         else if (context.canceled)
         {
             _reparacionCantidad = 0f;
+=======
+        if (timer > 0 || _aguantandoLaPuerta) return;
+        if (context.started)
+        {
+            _reparacionCantidad = 10f;
+            timer = time;
+>>>>>>> parent of b2b8bd1 (Merge branch 'Adrian_DEV' into Sergio)
         }
     }
     public void OnHoldingDoor(InputAction.CallbackContext context)
@@ -194,6 +213,7 @@ public class PlayerController : MonoBehaviour
         if (stamina >= 100 || _aguantandoLaPuerta) return;
         else stamina += Time.deltaTime;
     }
+<<<<<<< HEAD
 
     public void SwapModel()
     {
@@ -209,6 +229,10 @@ public class PlayerController : MonoBehaviour
             //animator = animatorList[currentSpriteIndex];
         }
     }
+=======
+        
+
+>>>>>>> parent of b2b8bd1 (Merge branch 'Adrian_DEV' into Sergio)
 
     #endregion
 }

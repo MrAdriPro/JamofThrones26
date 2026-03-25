@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Round 4
   m_EditorClassIdentifier: Assembly-CSharp::Wave_SO
+<<<<<<< HEAD
   waveNumber: 3
   enemiesInWave:
   - enemyType: {fileID: 11400000, guid: ddb7d8299f7009749913e05485f740a9, type: 2}
     count: 1
+=======
+  waveNumber: 4
+  enemiesInWave:
+  - enemyType: {fileID: 11400000, guid: 6d0457430253d884f9c8ac4130be1570, type: 2}
+    count: 6
+>>>>>>> parent of b2b8bd1 (Merge branch 'Adrian_DEV' into Sergio)
     spawnInterval: 0.6
     initialDelay: 0
   timeAfterWave: 2
