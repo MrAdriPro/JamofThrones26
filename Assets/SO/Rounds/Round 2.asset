@@ -22,4 +22,4 @@ MonoBehaviour:
     count: 1
     spawnInterval: 0.5
     initialDelay: 0
-  timeAfterWave: 5
+  timeAfterWave: 2

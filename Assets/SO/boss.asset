@@ -21,4 +21,8 @@ MonoBehaviour:
   flying: 0
   attackRange: 1.06
   coins: 5
+<<<<<<< HEAD:Assets/SO/boss.asset
   isBoss: 1
+=======
+  isBoss: 0
+>>>>>>> parent of b2b8bd1 (Merge branch 'Adrian_DEV' into Sergio):Assets/SO/Cat.asset

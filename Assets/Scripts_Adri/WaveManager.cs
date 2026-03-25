@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+<<<<<<< HEAD
+=======
+using UnityEngine.UI;
+>>>>>>> parent of b2b8bd1 (Merge branch 'Adrian_DEV' into Sergio)
 
 public class WaveManager : MonoBehaviour
 {
@@ -11,6 +15,7 @@ public class WaveManager : MonoBehaviour
 
     private int actualRound = 0;
 
+<<<<<<< HEAD
     private int currentEraIndex = 0;
     private int totalEnemiesInCurrentEra = 0;
     private int enemiesSpawnedInCurrentEra = 0;
@@ -24,6 +29,30 @@ public class WaveManager : MonoBehaviour
 
         CalculateEnemiesForCurrentEra();
         StartCoroutine(SpawnRound());
+=======
+    [Header("UI")]
+    public EraUIController eraUIController;
+    public List<string> eras = new List<string>() { "Prehistoria", "Medievo", "SteamPunk", "Futurista" };
+
+    private void Start()
+    {
+        if (eraUIController != null)
+        {
+            eraUIController.SetupEras(eras, waves.Count);
+            eraUIController.UpdateForRound(actualRound);
+        }
+        if (autoStart) StartCoroutine(DelayedStart(autoStartDelay));
+    }
+    /// <summary>
+    /// Just a simple method to delay the start of the first round if autoStart is enabled. It waits for the specified delay and then starts the first round if we are not already spawning.
+    /// </summary>
+    /// <param name="delay"></param>
+    /// <returns></returns>
+    private IEnumerator DelayedStart(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (!spawning) StartCoroutine(SpawnRound());
+>>>>>>> parent of b2b8bd1 (Merge branch 'Adrian_DEV' into Sergio)
     }
 
     void CalculateEnemiesForCurrentEra()
@@ -65,12 +94,25 @@ public class WaveManager : MonoBehaviour
 
         Debug.Log("Iniciando Ronda: " + actualRound);
 
+        if (spawnPoints == null || spawnPoints.Length == 0)
+        {
+            Debug.LogError("No spawn points assigned.");
+            spawning = false;
+            yield break;
+        }
+
+        List<GameObject> spawnedThisRound = new List<GameObject>();
+
         foreach (var entry in dataWave.enemiesInWave)
         {
+<<<<<<< HEAD
             if (entry.enemyType != null && entry.enemyType.isBoss)
             {
                 hasBoss = true;
             }
+=======
+            if (entry.initialDelay > 0f) yield return new WaitForSeconds(entry.initialDelay);
+>>>>>>> parent of b2b8bd1 (Merge branch 'Adrian_DEV' into Sergio)
 
             if (entry.initialDelay > 0f)
                 yield return new WaitForSeconds(entry.initialDelay);
@@ -143,7 +185,19 @@ public class WaveManager : MonoBehaviour
 
         yield return new WaitForSeconds(dataWave.timeAfterWave);
 
+<<<<<<< HEAD
         if (actualRound < waves.Count)
+=======
+        if (dataWave.timeAfterWave > 0f) yield return new WaitForSeconds(dataWave.timeAfterWave);
+
+        actualRound++;
+        if (eraUIController != null)
+        {
+            eraUIController.UpdateForRound(actualRound);
+        }
+        spawning = false;
+        if(actualRound < waves.Count)
+>>>>>>> parent of b2b8bd1 (Merge branch 'Adrian_DEV' into Sergio)
         {
             StartCoroutine(SpawnRound());
         }
