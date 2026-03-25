@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform _playerTransform;
     [SerializeField] Camera _mainCamera;
     [SerializeField] CharacterController _cC;
-    [SerializeField] Transform _disparo;
 
     [Header("Grounded")]
     [SerializeField] Vector3 _groundCheckSize;
@@ -37,6 +36,7 @@ public class PlayerController : MonoBehaviour
     float timer = 0;
     public bool _aguantandoLaPuerta;
     public float stamina = 100;
+    public bool abrirPuerta = false;
 
     [Header("Cambio de Modelo")]
     [SerializeField] GameObject playerModel;
@@ -59,13 +59,13 @@ public class PlayerController : MonoBehaviour
         //Contacto();
         Movimiento();
 
-        Rotacion();
+        //Rotacion();
         //if (timer >= 0)
         //{
         //    timer -= Time.deltaTime;
             //_reparacionCantidad = 0;
         //}
-        StaminaRecuperacion();
+        RecuperacionEstamina();
     }
 
     // void OnDrawGizmos()
@@ -126,6 +126,18 @@ public class PlayerController : MonoBehaviour
         else if (context.canceled)
         {
             _aguantandoLaPuerta = false;
+        }
+    }
+    public void OnOpeninDoor(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            abrirPuerta = true;
+            Debug.Log("tecla");
+        }
+        else if (context.canceled)
+        {
+            abrirPuerta =false;
         }
     }
     #endregion
@@ -189,12 +201,11 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-    private void StaminaRecuperacion()
+    private void RecuperacionEstamina()
     {
         if (stamina >= 100 || _aguantandoLaPuerta) return;
         else stamina += Time.deltaTime;
     }
-
     public void SwapModel()
     {
         if (currentSpriteIndex < sprites.Length - 1)
@@ -209,6 +220,7 @@ public class PlayerController : MonoBehaviour
             //animator = animatorList[currentSpriteIndex];
         }
     }
+
 
     #endregion
 }
