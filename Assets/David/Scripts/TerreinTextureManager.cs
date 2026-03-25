@@ -13,11 +13,15 @@ public class TerreinTextureManager : MonoBehaviour
 
     void Update()
     {
-        
+        TextureUpdater();
     }
 
     void TextureUpdater() 
     {
-        
+        grassLayer.diffuseTexture = baseColorsGrass[ShopManager.shopInstance.tekLevel];
+        //grassLayer.normalMapTexture = normalMapsGrass[ShopManager.shopInstance.tekLevel];
+
+        //pathLayer.diffuseTexture = baseColorsPath[ShopManager.shopInstance.tekLevel];
+        //pathLayer.normalMapTexture = normalMapsPath[ShopManager.shopInstance.tekLevel];
     }
 }

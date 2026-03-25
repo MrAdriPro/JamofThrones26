@@ -1329,12 +1329,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grassLayer: {fileID: 8574412962073106934, guid: 453e72702dfff8e4b87fffccb3fb7938, type: 2}
   pathLayer: {fileID: 8574412962073106934, guid: 52ac95edbf7eee648913352ff2720f59, type: 2}
-  baseColors:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  normalMaps: []
+  baseColorsGrass:
+  - {fileID: 2800000, guid: 82a31b4a09890ab4aa52243f221fe326, type: 3}
+  - {fileID: 2800000, guid: 482606d5705bb3a479082fe5c27ec611, type: 3}
+  - {fileID: 2800000, guid: 29fbe36d138818947af87b687288ddcc, type: 3}
+  - {fileID: 2800000, guid: d9dfed6314847d443b888ad648fb0fc3, type: 3}
+  normalMapsGrass: []
+  baseColorsPath: []
+  normalMapsPath: []
 --- !u!1001 &701728385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2262,8 +2264,8 @@ MonoBehaviour:
   actualCoins: 9999
   upgradeCost: 100
   costMult: 2.5
+  tekLevel: 0
   playerModel: {fileID: 1564258750}
-  towerModel: {fileID: 1753364773}
 --- !u!4 &1066993181
 Transform:
   m_ObjectHideFlags: 0
@@ -3692,6 +3694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b181e889f5dc34dbe18cf0881f4fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeTowers: []
 --- !u!4 &1753364774
 Transform:
   m_ObjectHideFlags: 0
