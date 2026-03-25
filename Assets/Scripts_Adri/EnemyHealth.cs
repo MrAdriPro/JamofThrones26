@@ -23,6 +23,11 @@ public class EnemyHealth : MonoBehaviour
     {
         if(isDead) return;
         currentHealth -= amount;
+        VisualEnemyFeedback enemyFeedback = GetComponentInChildren<VisualEnemyFeedback>();
+        if (enemyFeedback != null) 
+        { 
+            enemyFeedback.PlayDamageFeedBack();
+        }
         //feedbackenemigo
         print("Enemy took damage, current health: " + currentHealth);
         if (currentHealth <= 0f) Die();
