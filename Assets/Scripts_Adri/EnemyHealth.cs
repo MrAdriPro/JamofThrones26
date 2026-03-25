@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public Enemy_SO data;
+    [SerializeField] GameObject coinObject;
     float currentHealth;
 
     void Awake()
@@ -24,6 +25,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
+        Instantiate(coinObject);
         Destroy(gameObject);
     }
 }

@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a26d268019b83244abf217e81962e517, type: 3}
-  m_Name: Cat
+  m_Name: boss
   m_EditorClassIdentifier: 
-  enemyName: Cat
+  enemyName: Fox
   enemyPrefab: {fileID: 1789427915326921529, guid: f206b30e6c2b6bc40aa622875d4a1bd7, type: 3}
   health: 5
-  speed: 2
+  speed: 50
   damage: 1
   attackRate: 1
-  flying: 1
+  flying: 0
   attackRange: 1.06
   coins: 5
+  isBoss: 1
