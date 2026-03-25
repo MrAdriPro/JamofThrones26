@@ -161,6 +161,7 @@ public class EnemyController : MonoBehaviour
         }
 
         _animator.SetBool("Attacking", true);
+        
 
         if (Time.time >= timeNextAttack)
         {
