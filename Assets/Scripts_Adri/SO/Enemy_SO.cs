@@ -12,7 +12,6 @@ public class Enemy_SO : ScriptableObject
     public bool flying;
     public float attackRange;
     public int coins;
-    public bool isBoss;
 
 
 }

@@ -35,8 +35,6 @@ public class PlayerController : MonoBehaviour
     public float _reparacionCantidad = 0;
     float time = 10f;
     float timer = 0;
-    public bool _aguantandoLaPuerta;
-    public float stamina = 100;
     #endregion
 
 
@@ -56,12 +54,26 @@ public class PlayerController : MonoBehaviour
         Movimiento();
 
         Rotacion();
+<<<<<<< HEAD
+<<<<<<< HEAD
+        //if (repairTimer >= 0)
+        //{
+        //    repairTimer -= Time.deltaTime;
+        //}
+=======
         if (timer >= 0)
         {
             timer -= Time.deltaTime;
             _reparacionCantidad = 0;
         }
-        StaminaRecuperacion();
+>>>>>>> parent of 4d340af (poniendo cosas)
+=======
+        if (repairTimer >= 0)
+        {
+            repairTimer -= Time.deltaTime;
+            _reparacionCantidad = 0;
+        }
+>>>>>>> parent of 273ea54 (i dont know)
     }
 
     void OnDrawGizmos()
@@ -102,22 +114,40 @@ public class PlayerController : MonoBehaviour
     }
     public void OnRepair(InputAction.CallbackContext context)
     {
-        if (timer > 0 || _aguantandoLaPuerta) return;
+<<<<<<< HEAD
+<<<<<<< HEAD
+        //if (repairTimer > 0) return;
+        if (context.performed)
+        {
+            _reparacionCantidad = 1f;
+            
+            //repairTimer = time;
+        }
+        else if (context.canceled)
+        {
+            _reparacionCantidad = 0f;
+=======
+        if (timer > 0) return;
         if (context.started)
         {
             _reparacionCantidad = 10f;
             timer = time;
+>>>>>>> parent of 4d340af (poniendo cosas)
+=======
+        if (repairTimer > 0) return;
+        if (context.started)
+        {
+            _reparacionCantidad = 1f;
+            
+            repairTimer = time;
+>>>>>>> parent of 273ea54 (i dont know)
         }
     }
-    public void OnHoldingDoor(InputAction.CallbackContext context)
+    public void OnShoot(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            _aguantandoLaPuerta = true;
-        }
-        else if (context.canceled)
-        {
-            _aguantandoLaPuerta = false;
+            Disparo();
         }
     }
     #endregion
@@ -181,12 +211,13 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-    private void StaminaRecuperacion()
+    private void Disparo()
     {
-        if (stamina >= 100 || _aguantandoLaPuerta) return;
-        else stamina += Time.deltaTime;
+        PoolManager.Instance.Pull("Bullet", _disparo.position, _disparo.rotation);
     }
-        
+
+
+
 
 
     #endregion

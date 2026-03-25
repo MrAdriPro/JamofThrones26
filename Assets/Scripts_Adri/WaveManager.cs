@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
-using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour
 {
@@ -16,17 +14,15 @@ public class WaveManager : MonoBehaviour
     private int actualRound = 0;
     private bool spawning = false;
 
-    [Header("UI")]
-    public EraUIController eraUIController;
-    public List<string> eras = new List<string>() { "Prehistoria", "Medievo", "SteamPunk", "Futurista" };
+<<<<<<< HEAD
 
     private void Start()
     {
-        if (eraUIController != null)
-        {
-            eraUIController.SetupEras(eras, waves.Count);
-            eraUIController.UpdateForRound(actualRound);
-        }
+        
+=======
+    private void Start()
+    {
+>>>>>>> parent of 7417b80 (intento interfaz wave)
         if (autoStart) StartCoroutine(DelayedStart(autoStartDelay));
     }
     /// <summary>
@@ -58,18 +54,18 @@ public class WaveManager : MonoBehaviour
         Wave_SO dataWave = waves[actualRound];
         print($"Iniciando Ronda: {actualRound + 1}");
 
-        if (spawnPoints == null || spawnPoints.Length == 0)
-        {
-            Debug.LogError("No spawn points assigned.");
-            spawning = false;
-            yield break;
-        }
-
-        List<GameObject> spawnedThisRound = new List<GameObject>();
-
         foreach (var entry in dataWave.enemiesInWave)
         {
-            if (entry.initialDelay > 0f) yield return new WaitForSeconds(entry.initialDelay);
+            if (entry.initialDelay > 0f)
+            {
+                float d = entry.initialDelay;
+                float t = 0f;
+                while (t < 1f)
+                {
+                    t += Time.deltaTime / d;
+                    yield return null;
+                }
+            }
 
             for (int i = 0; i < entry.count; i++)
             {
@@ -102,10 +98,10 @@ public class WaveManager : MonoBehaviour
         if (dataWave.timeAfterWave > 0f) yield return new WaitForSeconds(dataWave.timeAfterWave);
 
         actualRound++;
-        if (eraUIController != null)
-        {
-            eraUIController.UpdateForRound(actualRound);
-        }
+<<<<<<< HEAD
+        
+=======
+>>>>>>> parent of 7417b80 (intento interfaz wave)
         spawning = false;
         if(actualRound < waves.Count)
         {

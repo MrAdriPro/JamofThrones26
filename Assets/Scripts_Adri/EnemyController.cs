@@ -3,6 +3,8 @@ using UnityEngine;
 public class EnemyController : PoolEntity
 {
     public Enemy_SO data;
+    // index of the round this enemy was spawned in (set by WaveManager)
+    public int spawnRound = -1;
     public float rotationSpeed = 720f;
 
 
