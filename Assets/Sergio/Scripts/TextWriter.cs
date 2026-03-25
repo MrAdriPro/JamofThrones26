@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class TextWriter : MonoBehaviour
 {
     [Header("Configuración")]
-    public Canvas tutorialCanvas;
+    public Canvas canvas;
     public float delay = 0.05f;
     public string[] dialogLines; // Arreglo de líneas de diálogo
 
@@ -66,7 +66,7 @@ public class TextWriter : MonoBehaviour
 
     void OnDialogFinished()
     {
-        tutorialCanvas.enabled = false;
+        canvas.enabled = false;
         Debug.Log("Diálogo terminado");
     }
 }
