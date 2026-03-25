@@ -2,10 +2,13 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
-public class TowerController : MonoBehaviour
+public class ShootingTower : MonoBehaviour
 {
     [SerializeField] public List<Transform> enemiesInRange = new List<Transform>();
+
+    [Tooltip("Index 0 = base model, index 1 = upgrade 1, etc. All must be children of this GameObject.")]
     public GameObject[] towerModels;
+
     public Transform target;
 
     [Header("Atributos de la Torre")]
@@ -14,17 +17,49 @@ public class TowerController : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
 
+
+    void Start()
+    {
+        UpdateTowerModel();
+    }
+
+    public void ApplyUpgradeLevel(int level)
+    {
+        if (towerModels == null || towerModels.Length == 0)
+        {
+            Debug.LogWarning($"[ShootingTower] No towerModels assigned on {gameObject.name}.");
+            return;
+        }
+
+        int clamped = Mathf.Clamp(level, 0, towerModels.Length - 1);
+
+        for (int i = 0; i < towerModels.Length; i++)
+        {
+            if (towerModels[i] != null)
+                towerModels[i].SetActive(i == clamped);
+        }
+    }
+
     void Update()
     {
+
+        Transform body = transform.Find("Body");
+    
+        towerModels = new GameObject[body.childCount];
+    
+        for (int i = 0; i < body.childCount; i++)
+        {
+            towerModels[i] = body.GetChild(i).gameObject;
+        } 
+
+        UpdateTowerModel();
         enemiesInRange.RemoveAll(e => e == null);
-        // Se ordena la lista para que los enemigos con la propiedad de flying en true estén siempre los primeros.
+
         enemiesInRange = enemiesInRange
-        .OrderByDescending(e => e.GetComponent<EnemyController>()?.data?.flying ?? false)
-        .ToList();
+            .OrderByDescending(e => e.GetComponent<EnemyController>()?.data?.flying ?? false)
+            .ToList();
 
-
-        if (enemiesInRange.Count > 0) target = enemiesInRange[0];
-        else target = null;
+        target = enemiesInRange.Count > 0 ? enemiesInRange[0] : null;
 
         if (target != null)
         {
@@ -50,9 +85,7 @@ public class TowerController : MonoBehaviour
     void Shoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        
         BulletController bulletController = bullet.GetComponent<BulletController>();
-
         bulletController.bulletTarget = target;
     }
 
@@ -66,23 +99,12 @@ public class TowerController : MonoBehaviour
         if (other.CompareTag("Enemy")) enemiesInRange.Remove(other.transform);
     }
 
-
-    private int currentLevel = 0;
-
-    public void Upgrade()
+    void UpdateTowerModel()
     {
-        if (currentLevel < towerModels.Length - 1)
-        {
-            currentLevel++;
-            UpdateModel();
-        }
-    }
-
-    public void UpdateModel()
-    {
+        int level = ShopManager.shopInstance.tekLevel;
         for (int i = 0; i < towerModels.Length; i++)
         {
-            towerModels[i].SetActive(i == currentLevel);
+            towerModels[i].SetActive(i == level);
         }
     }
 }
