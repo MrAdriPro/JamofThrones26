@@ -17,7 +17,7 @@ public class PlayerModelController : MonoBehaviour
     private void Awake()
     {
         _spriteRenderer = playerModel.GetComponent<SpriteRenderer>();
-        _animator = playerModel.GetComponentInChildren<Animator>();
+        _animator = playerModel.GetComponent<Animator>();
 
     }
 
