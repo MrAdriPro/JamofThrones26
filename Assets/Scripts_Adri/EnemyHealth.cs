@@ -5,27 +5,38 @@ public class EnemyHealth : MonoBehaviour
     public Enemy_SO data;
     [SerializeField] GameObject coinObject;
     float currentHealth;
+    private Animator animator;
+    private EnemyController enemyController;
+    private bool isDead;
 
     void Awake()
     {
         currentHealth = data.health;
+        enemyController = GetComponent<EnemyController>();
     }
     private void Start()
     {
-        
+        animator = GetComponentInChildren<Animator>();
     }
 
     public void TakeDamage(float amount)
     {
-        if (currentHealth <= 0f) return;
+        if(isDead) return;
         currentHealth -= amount;
+        //feedbackenemigo
         print("Enemy took damage, current health: " + currentHealth);
         if (currentHealth <= 0f) Die();
     }
 
     void Die()
     {
+        isDead = true;
         Instantiate(coinObject);
-        Destroy(gameObject);
+        if(enemyController != null) enemyController.enabled = false;
+        if (GetComponent<Collider>()) GetComponent<Collider>().enabled = false;
+            
+
+        animator.SetTrigger("isDead");
+        Destroy(gameObject, 1);
     }
 }

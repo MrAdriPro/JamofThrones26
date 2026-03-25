@@ -48,6 +48,8 @@ public class EnemyController : MonoBehaviour
 
         void Update()
         {
+            if (!this.enabled) return;
+            
             if (actualDoor != null)
             {
                 AttackDoor();
@@ -160,7 +162,6 @@ public class EnemyController : MonoBehaviour
 
         _animator.SetBool("Attacking", true);
 
-        // Lógica de daño por tiempo
         if (Time.time >= timeNextAttack)
         {
             actualDoor.TakeDamage(data.damage);
