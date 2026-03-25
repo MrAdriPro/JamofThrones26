@@ -2,7 +2,11 @@ fileFormatVersion: 2
 guid: 9dc98dde5a5b1b440ba69f9e3fa348bd
 NativeFormatImporter:
   externalObjects: {}
+<<<<<<< HEAD
+  mainObjectFileID: 0
+=======
   mainObjectFileID: 11400000
+>>>>>>> parent of b2b8bd1 (Merge branch 'Adrian_DEV' into Sergio)
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -89,6 +89,7 @@ MonoBehaviour:
   - {fileID: 426882192317800881}
   - {fileID: 4910791044498672522}
   target: {fileID: 0}
+  towerModel: {fileID: 0}
   fireRate: 1
   firePoint: {fileID: 343828468388260147}
   bulletPrefab: {fileID: 3111212151778295405, guid: 7cf428128d1df8842b9bac9f781a467c, type: 3}
