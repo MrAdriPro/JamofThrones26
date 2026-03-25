@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform _playerTransform;
     [SerializeField] Camera _mainCamera;
     [SerializeField] CharacterController _cC;
+    [SerializeField] Transform _disparo;
 
     [Header("Grounded")]
     [SerializeField] Vector3 _groundCheckSize;
@@ -36,13 +37,10 @@ public class PlayerController : MonoBehaviour
     float timer = 0;
     public bool _aguantandoLaPuerta;
     public float stamina = 100;
-    public bool abrirPuerta = false;
 
-    [Header("Cambio de Modelo")]
-    [SerializeField] GameObject playerModel;
-    [SerializeField] Sprite[] sprites;
-    [SerializeField] Animator[] animatorList;
-    public int currentSpriteIndex = 0;
+    private Animator _animator;
+
+   
     #endregion
 
 
@@ -52,6 +50,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _mainCamera = Camera.main;
+        _animator = GetComponentInChildren<Animator>();
     }
     void Update()
     {
@@ -65,7 +64,7 @@ public class PlayerController : MonoBehaviour
         //    timer -= Time.deltaTime;
             //_reparacionCantidad = 0;
         //}
-        RecuperacionEstamina();
+        StaminaRecuperacion();
     }
 
     // void OnDrawGizmos()
@@ -128,18 +127,6 @@ public class PlayerController : MonoBehaviour
             _aguantandoLaPuerta = false;
         }
     }
-    public void OnOpeninDoor(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            abrirPuerta = true;
-            Debug.Log("tecla");
-        }
-        else if (context.canceled)
-        {
-            abrirPuerta =false;
-        }
-    }
     #endregion
 
 
@@ -155,17 +142,44 @@ public class PlayerController : MonoBehaviour
         //Actualitzamos el estado de _grounded
         _grounded = colliderBuffer[0] != null;
     }
+    public void RefreshAnimator(Animator newAnimator)
+    {
+        _animator = newAnimator;
+        _animator.SetFloat("VerticalMove", 0);
+    }
     private void Movimiento()
     {
-        //Calcula la direccion a la que se esta dirigiendo el player
         Vector3 direccion = new Vector3(_horizontal, 0, _vertical);
-        //Aplicamos gravedad si no estamos tocando el suelo
-        if (!_grounded)
-        {
-            vectorGravity = Vector3.down * 9.81f;
-        }
-        //Aplicamos la direccion multiplicada por la velocidad a la que no movemos en el tiempo
+        if (!_grounded) vectorGravity = Vector3.down * 9.81f;
+
         _cC.Move((direccion + vectorGravity) * _velocidadMovimiento * Time.deltaTime);
+
+        if (_animator != null)
+        {
+            float verticalLimpio = Mathf.Abs(_vertical) < 0.1f ? 0f : _vertical;
+
+            if (Mathf.Abs(_horizontal) > 0.1f && Mathf.Abs(_vertical) < 0.1f)
+            {
+                _animator.SetFloat("VerticalMove", -1f); 
+            }
+            else
+            {
+                _animator.SetFloat("VerticalMove", verticalLimpio);
+            }
+
+            SpriteRenderer SpriteRendeerer = _animator.GetComponent<SpriteRenderer>();
+            if (SpriteRendeerer != null)
+            {
+                if (_horizontal < -0.1f) 
+                {
+                    SpriteRendeerer.flipX = true;
+                }
+                else if (_horizontal > 0.1f) 
+                {
+                    SpriteRendeerer.flipX = false;
+                }
+            }
+        }
     }
     private void Rotacion()
     {
@@ -201,26 +215,13 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-    private void RecuperacionEstamina()
+    private void StaminaRecuperacion()
     {
         if (stamina >= 100 || _aguantandoLaPuerta) return;
         else stamina += Time.deltaTime;
     }
-    public void SwapModel()
-    {
-        if (currentSpriteIndex < sprites.Length - 1)
-        {
-            currentSpriteIndex += 1;
 
-            // Adquiere 
-            SpriteRenderer spriteRenderer = playerModel.GetComponent<SpriteRenderer>();
-            //Animator animator = playerModel.GetComponent<Animator>();
-
-            spriteRenderer.sprite = sprites[currentSpriteIndex];
-            //animator = animatorList[currentSpriteIndex];
-        }
-    }
-
+    
 
     #endregion
 }
