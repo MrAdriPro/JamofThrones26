@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class ShopManager : MonoBehaviour
 {
@@ -7,6 +8,13 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI coinText;
     [SerializeField] private TextMeshProUGUI costText;
 
+    [Header("Carga del Botón")]
+    [SerializeField] private Image fillImage; 
+    [SerializeField] private float upgradeDuration = 2.0f; 
+    private float currentFillTimer = 0f;
+    private bool isPressing = false;
+
+    [Header("Economía")]
     public float actualCoins = 0f;
     public float upgradeCost = 100f;
     public float costMult = 2.5f;
@@ -14,25 +22,66 @@ public class ShopManager : MonoBehaviour
     [SerializeField] PlayerModelController playerModel;
     [SerializeField] TowerEvolutionController towerModel;
 
-
     private void Awake()
     {
-        if (shopInstance == null)
-        {
-            shopInstance = this;
-        }
+        if (shopInstance == null) shopInstance = this;
         else Destroy(gameObject);
     }
 
     void Start()
     {
         UpdateText();
+        if (fillImage != null) fillImage.fillAmount = 0;
     }
 
-    public void GetCoin(float coins)
+    void Update()
     {
-        actualCoins += coins;
+        if (isPressing && playerModel.CanEvolve && actualCoins >= upgradeCost)
+        {
+            currentFillTimer += Time.deltaTime;
+            fillImage.fillAmount = currentFillTimer / upgradeDuration;
+
+            if (currentFillTimer >= upgradeDuration)
+            {
+                BuyUpgrade();
+                ResetFill(); 
+            }
+        }
+        else
+        {
+            if (currentFillTimer > 0)
+            {
+                currentFillTimer -= Time.deltaTime * 2; 
+                fillImage.fillAmount = currentFillTimer / upgradeDuration;
+            }
+        }
+    }
+
+    public void OnPointerDown() { isPressing = true; }
+    public void OnPointerUp() { isPressing = false; }
+
+    private void ResetFill()
+    {
+        isPressing = false;
+        currentFillTimer = 0f;
+        fillImage.fillAmount = 0f;
+    }
+
+    public void BuyUpgrade()
+    {
+        playerModel.SwapModel();
+        towerModel.UpgradeModels();
+
+        actualCoins -= upgradeCost;
+        upgradeCost *= costMult;
+
         UpdateText();
+
+        if (!playerModel.CanEvolve)
+        {
+            costText.text = "MAX";
+            fillImage.fillAmount = 0; 
+        }
     }
 
     void UpdateText()
@@ -41,28 +90,9 @@ public class ShopManager : MonoBehaviour
         costText.text = upgradeCost.ToString("F0");
     }
 
-    public void BuyUpgrade()
+    public void GetCoin(float coins)
     {
-        if (!playerModel.CanEvolve)
-        {
-            costText.text = "MAX"; 
-            return;
-        }
-
-        if (actualCoins >= upgradeCost)
-        {
-            playerModel.SwapModel();
-            towerModel.UpgradeModels();
-
-            actualCoins -= upgradeCost;
-            upgradeCost *= costMult;
-
-            UpdateText();
-
-            if (!playerModel.CanEvolve)
-            {
-                costText.text = "MAX";
-            }
-        }
+        actualCoins += coins;
+        UpdateText();
     }
 }
