@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c8f260a8fa91870419befea0e2a7a976
+guid: b25b582de08521c4aaec1263ee3dd65d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,92 +8,92 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Base_Alpha
-    second: {fileID: 2800000, guid: cafe164503fb51a418008e671c835899, type: 3}
+    second: {fileID: 2800000, guid: afbbbbd417b631f43bc97855bd45f4e2, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Base_BaseColor
-    second: {fileID: 2800000, guid: f554cc8a1f6962040b3d1005f58774d8, type: 3}
+    second: {fileID: 2800000, guid: ec8c56cd8901fa8488d9c9b40fe65d16, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Base_Emission
-    second: {fileID: 2800000, guid: 6e0183b319eee7a4c90f750fb51d4f1d, type: 3}
+    second: {fileID: 2800000, guid: eb8656094d029c74d848c4b069d34f19, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Base_Metallic
-    second: {fileID: 2800000, guid: 38edfd9d9904f0049ad20351f1f90c8f, type: 3}
+    second: {fileID: 2800000, guid: 74b319c875de8af449bd59aff4fcf942, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Base_Normal
-    second: {fileID: 2800000, guid: 3ca5978b70f5c434995c565893efabb9, type: 3}
+    second: {fileID: 2800000, guid: 6468277a6de9e4d4284be851c322d3da, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Base_Roughness
-    second: {fileID: 2800000, guid: 08e206d75a657e44299f9c97638ae595, type: 3}
+    second: {fileID: 2800000, guid: b432e81278536dd429b03a5b140499ac, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: CubeIn_Alpha
-    second: {fileID: 2800000, guid: 9ad232afc09f94d4cb78af472d2d5301, type: 3}
+    second: {fileID: 2800000, guid: df08947b85677a14eb6f7451dc0126ec, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: CubeIn_BaseColor
-    second: {fileID: 2800000, guid: 2dd06c2699524174c9e3b7b30990e92f, type: 3}
+    second: {fileID: 2800000, guid: 9fcdd62cb5a623341ad42e1206f6ab67, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: CubeIn_Emission
-    second: {fileID: 2800000, guid: ac31671e70c619b4c824c17adb6bad08, type: 3}
+    second: {fileID: 2800000, guid: 46de80dbab6821745b093172a0d97450, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: CubeIn_Metallic
-    second: {fileID: 2800000, guid: 67d42400734443d4da955ac3493eaaed, type: 3}
+    second: {fileID: 2800000, guid: b20f1da60eb08124eac1bdeb494e3ed9, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: CubeIn_Normal
-    second: {fileID: 2800000, guid: de629331e2e159a4886d3378691404cc, type: 3}
+    second: {fileID: 2800000, guid: 9ce1e515ce748b747b55ff25005c7fb9, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: CubeIn_Roughness
-    second: {fileID: 2800000, guid: 856b467db6843cc4bb6032952415293a, type: 3}
+    second: {fileID: 2800000, guid: 9e7101e9bb716674a8b3b92bee4ebc8c, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: CubeOut_Alpha
-    second: {fileID: 2800000, guid: 3b8d7ecc83f0eeb49a451ad7cda9e432, type: 3}
+    second: {fileID: 2800000, guid: 84fb4208194fd444db04c98f7d8b76ce, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: CubeOut_BaseColor
-    second: {fileID: 2800000, guid: b084202cd77a3f84b820290b27135e92, type: 3}
+    second: {fileID: 2800000, guid: 85d7636ed515e8743a8e1391a6354a71, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: CubeOut_Emission
-    second: {fileID: 2800000, guid: b507aad4b9b95824493631ed31207163, type: 3}
+    second: {fileID: 2800000, guid: 0442d457b51cfc9438c078ff84e0e5ee, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: CubeOut_Metallic
-    second: {fileID: 2800000, guid: 29d4c32b716ba67429fe29035fa92052, type: 3}
+    second: {fileID: 2800000, guid: c2957258bab78554284619dd541a4033, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: CubeOut_Normal
-    second: {fileID: 2800000, guid: 0d5b4701fd89bed4e8b73496b1c00532, type: 3}
+    second: {fileID: 2800000, guid: fef027587fb0a9a43aaea1f5edeb8b3b, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: CubeOut_Roughness
-    second: {fileID: 2800000, guid: 976f248e6a012894584a225c37c74260, type: 3}
+    second: {fileID: 2800000, guid: ba7964bf120e749418802b2329173810, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -119,7 +119,65 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|CubeOut.001
+      takeName: Armature|CubeOut.001
+      internalID: 3056120236662608251
+      firstFrame: 0
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Base|CubeOut.001
+      takeName: Base|CubeOut.001
+      internalID: 2783580239866522793
+      firstFrame: 0
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
