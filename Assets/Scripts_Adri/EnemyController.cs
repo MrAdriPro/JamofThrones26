@@ -21,6 +21,11 @@ public class EnemyController : PoolEntity
     private Vector3 currentTargetPos;
     private float swayTimer;
 
+    //references
+    private SpriteRenderer _spriteRenderer;
+    [SerializeField] RandoSoundEffecs _randoSoundEffecs;
+
+
     void Start()
     {
         path = PathManager.instance.pathPoints;
@@ -149,6 +154,7 @@ public class EnemyController : PoolEntity
 
         if (Time.time >= timeNextAttack)
         {
+            _randoSoundEffecs.PlayRandomAttackClip();
             actualDoor.TakeDamage(data.damage);
             timeNextAttack = Time.time + data.attackRate;
 

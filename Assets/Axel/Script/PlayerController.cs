@@ -122,10 +122,7 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-
-
-
-    #region Funciones
+    #region Funciones de Logica
     private void GroundCheck()
     {
         //Solo vamos a comprobar si es mayor que 0, asi que no necesitamos mas capacida de buffer

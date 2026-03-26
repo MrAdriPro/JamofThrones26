@@ -8,6 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< Updated upstream:Assets/Prefabs_Adri/Enemies/Fox.prefab
   - component: {fileID: 1000019702734941936}
   - component: {fileID: 2533904310865343385}
   - component: {fileID: 3231952618323134285}
@@ -15,6 +16,19 @@ GameObject:
   m_Layer: 6
   m_Name: Fox
   m_TagString: Untagged
+=======
+  - component: {fileID: 1457598540938491709}
+  - component: {fileID: 8662622052907640249}
+  - component: {fileID: 615437485231557330}
+  - component: {fileID: 1610126115837298164}
+  - component: {fileID: 3573583101290368863}
+  - component: {fileID: 3815126259971902386}
+  - component: {fileID: 2986530189880879434}
+  - component: {fileID: 7289373675515395521}
+  m_Layer: 0
+  m_Name: Boss Steampunk
+  m_TagString: Enemy
+>>>>>>> Stashed changes:Assets/Prefabs/Steampunk/Boss Steampunk.prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +117,152 @@ MonoBehaviour:
   arrivalThreshold: 0.8
   swayAmplitude: 0.5
   swayFrequency: 1
+<<<<<<< Updated upstream:Assets/Prefabs_Adri/Enemies/Fox.prefab
 --- !u!1 &4925153410849697811
+=======
+  _animator: {fileID: 5003090724167285462}
+  timeNextAttack: 0
+  data: {fileID: 11400000, guid: e34b64784799de447ad35b5f362feea1, type: 2}
+--- !u!114 &3573583101290368863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387452794730468431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ac158bae1fa3c145945d49bed822a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: e34b64784799de447ad35b5f362feea1, type: 2}
+  coinObject: {fileID: 8060829633014351544, guid: d25687e50010d8446a9ad9229e02c519, type: 3}
+--- !u!114 &3815126259971902386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387452794730468431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d3e7354800c31841a61728a75bad95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
+--- !u!82 &2986530189880879434
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387452794730468431}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -2256398440406382273, guid: eb710496147811040bec7dbab45043e1, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &7289373675515395521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387452794730468431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc47c3bd8b0be74a89ca90bc0366235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effectClips: []
+  _audioSource: {fileID: 2986530189880879434}
+--- !u!1 &3106923818652605927
+>>>>>>> Stashed changes:Assets/Prefabs/Steampunk/Boss Steampunk.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
