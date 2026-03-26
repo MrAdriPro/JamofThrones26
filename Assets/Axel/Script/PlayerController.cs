@@ -41,7 +41,6 @@ public class PlayerController : MonoBehaviour
     public Animator _animator;
     #endregion
 
-    #region Funciones Unity
     void Start()
     {
         _mainCamera = Camera.main;
@@ -54,9 +53,7 @@ public class PlayerController : MonoBehaviour
         Movimiento();
         RecuperacionEstamina();
     }
-    #endregion
 
-    #region Input System
     public void OnMovement(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -81,15 +78,8 @@ public class PlayerController : MonoBehaviour
     {
         if (_aguantandoLaPuerta) return;
 
-        if (context.performed)
-        {
-            _reparacionCantidad = 2f;
-        }
-        else if (context.canceled)
-        {
-            _reparacionCantidad = 0f;
-
-        }
+        if (context.performed) _reparacionCantidad = 2f;
+        else if (context.canceled) _reparacionCantidad = 0f;
     }
 
     public void OnHoldingDoor(InputAction.CallbackContext context)
@@ -100,19 +90,10 @@ public class PlayerController : MonoBehaviour
 
     public void OnOpeninDoor(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            abrirPuerta = true;
-            Debug.Log("Tecla de abrir puerta pulsada");
-        }
-        else if (context.canceled)
-        {
-            abrirPuerta = false;
-        }
+        if (context.performed) abrirPuerta = true;
+        else if (context.canceled) abrirPuerta = false;
     }
-    #endregion
 
-    #region Funciones de Lógica
     private void GroundCheck()
     {
         Collider[] colliderBuffer = new Collider[1];
@@ -122,35 +103,27 @@ public class PlayerController : MonoBehaviour
 
     private void Movimiento()
     {
-        Vector3 direccion = new Vector3(_horizontal, 0, _vertical);
+        bool isRepairing = _animator != null && _animator.GetBool("Repairing");
+        bool isHolding = _animator != null && _animator.GetBool("Holding");
 
+        if (isRepairing || isHolding)
+        {
+            _horizontal = 0;
+            _vertical = 0;
+            if (_animator != null) _animator.SetFloat("VerticalMove", 0);
+        }
+
+        Vector3 direccion = new Vector3(_horizontal, 0, _vertical);
         if (!_grounded) vectorGravity = Vector3.down * 9.81f;
         else vectorGravity = Vector3.zero;
 
         _cC.Move((direccion + vectorGravity) * _velocidadMovimiento * Time.deltaTime);
 
-        if (_animator != null)
+        if (_animator != null && !isRepairing && !isHolding)
         {
-            bool isRepairing = _animator.GetBool("Repairing");
-
-            if (isRepairing)
-            {
-                _animator.SetFloat("VerticalMove", 0);
-            }
-            else
-            {
-                float verticalLimpio = Mathf.Abs(_vertical) < 0.1f ? 0f : _vertical;
-
-                if (Mathf.Abs(_horizontal) > 0.1f && Mathf.Abs(_vertical) < 0.1f)
-                {
-                    _animator.SetFloat("VerticalMove", -1f);
-                }
-                else
-                {
-                    _animator.SetFloat("VerticalMove", verticalLimpio);
-                }
-            }
-            
+            float verticalLimpio = Mathf.Abs(_vertical) < 0.1f ? 0f : _vertical;
+            if (Mathf.Abs(_horizontal) > 0.1f && Mathf.Abs(_vertical) < 0.1f) _animator.SetFloat("VerticalMove", -1f);
+            else _animator.SetFloat("VerticalMove", verticalLimpio);
 
             SpriteRenderer sR = _animator.GetComponent<SpriteRenderer>();
             if (sR != null)
@@ -164,7 +137,7 @@ public class PlayerController : MonoBehaviour
     private void RecuperacionEstamina()
     {
         if (stamina >= 100 || _aguantandoLaPuerta) return;
-        stamina += Time.deltaTime;
+        stamina += Time.deltaTime * 5f;
     }
 
     public void RefreshAnimator(Animator newAnimator)
@@ -172,5 +145,4 @@ public class PlayerController : MonoBehaviour
         _animator = newAnimator;
         if (_animator != null) _animator.SetFloat("VerticalMove", 0);
     }
-    #endregion
 }

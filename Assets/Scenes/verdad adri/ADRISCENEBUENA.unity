@@ -414,7 +414,7 @@ PrefabInstance:
     - target: {fileID: 6746843156355090554, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
       propertyPath: 'towerModels.Array.data[0]'
       value: 
-      objectReference: {fileID: 251072139}
+      objectReference: {fileID: 0}
     - target: {fileID: 6746843156355090554, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
       propertyPath: 'towerModels.Array.data[1]'
       value: 
@@ -501,11 +501,6 @@ GameObject:
 --- !u!1 &251072138 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8765673425175199189, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
-  m_PrefabInstance: {fileID: 251072134}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &251072139 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6390438585102769484, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
   m_PrefabInstance: {fileID: 251072134}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &251072140 stripped
@@ -908,7 +903,7 @@ PrefabInstance:
     - target: {fileID: 6746843156355090554, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
       propertyPath: 'towerModels.Array.data[0]'
       value: 
-      objectReference: {fileID: 701728390}
+      objectReference: {fileID: 0}
     - target: {fileID: 6746843156355090554, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
       propertyPath: 'towerModels.Array.data[1]'
       value: 
@@ -997,11 +992,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8765673425175199189, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
   m_PrefabInstance: {fileID: 701728385}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &701728390 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6390438585102769484, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
-  m_PrefabInstance: {fileID: 701728385}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &701728391 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6887308325111549373, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
@@ -1049,7 +1039,7 @@ PrefabInstance:
     - target: {fileID: 6746843156355090554, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
       propertyPath: 'towerModels.Array.data[0]'
       value: 
-      objectReference: {fileID: 844639891}
+      objectReference: {fileID: 0}
     - target: {fileID: 6746843156355090554, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
       propertyPath: 'towerModels.Array.data[1]'
       value: 
@@ -1136,11 +1126,6 @@ GameObject:
 --- !u!1 &844639890 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8765673425175199189, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
-  m_PrefabInstance: {fileID: 844639886}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &844639891 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6390438585102769484, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
   m_PrefabInstance: {fileID: 844639886}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &844639892 stripped
@@ -1795,7 +1780,7 @@ PrefabInstance:
     - target: {fileID: 6746843156355090554, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
       propertyPath: 'towerModels.Array.data[0]'
       value: 
-      objectReference: {fileID: 1237306359}
+      objectReference: {fileID: 0}
     - target: {fileID: 6746843156355090554, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
       propertyPath: 'towerModels.Array.data[1]'
       value: 
@@ -1882,11 +1867,6 @@ GameObject:
 --- !u!1 &1237306358 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8765673425175199189, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
-  m_PrefabInstance: {fileID: 1237306354}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1237306359 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6390438585102769484, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
   m_PrefabInstance: {fileID: 1237306354}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1237306360 stripped
@@ -2150,6 +2130,10 @@ PrefabInstance:
       propertyPath: _mainCamera
       value: 
       objectReference: {fileID: 1688740298}
+    - target: {fileID: 6811780184256552153, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 79309e211e8700643b4b39936625ba6d, type: 2}
     - target: {fileID: 7615857159758561904, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.13
@@ -2268,7 +2252,7 @@ PrefabInstance:
     - target: {fileID: 6746843156355090554, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
       propertyPath: 'towerModels.Array.data[0]'
       value: 
-      objectReference: {fileID: 1625063221}
+      objectReference: {fileID: 0}
     - target: {fileID: 6746843156355090554, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
       propertyPath: 'towerModels.Array.data[1]'
       value: 
@@ -2350,11 +2334,6 @@ GameObject:
 --- !u!1 &1625063220 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8765673425175199189, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
-  m_PrefabInstance: {fileID: 1625063217}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1625063221 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6390438585102769484, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
   m_PrefabInstance: {fileID: 1625063217}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1625063222 stripped
@@ -2700,7 +2679,7 @@ PrefabInstance:
     - target: {fileID: 6746843156355090554, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
       propertyPath: 'towerModels.Array.data[0]'
       value: 
-      objectReference: {fileID: 2121317353}
+      objectReference: {fileID: 0}
     - target: {fileID: 6746843156355090554, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
       propertyPath: 'towerModels.Array.data[1]'
       value: 
@@ -2787,11 +2766,6 @@ GameObject:
 --- !u!1 &2121317352 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8765673425175199189, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
-  m_PrefabInstance: {fileID: 2121317348}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2121317353 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6390438585102769484, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
   m_PrefabInstance: {fileID: 2121317348}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2121317354 stripped
@@ -3098,6 +3072,10 @@ PrefabInstance:
     - target: {fileID: 3877116055912754757, guid: 303ff98463cd5b641a6d1f44251a299b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988558856285943603, guid: 303ff98463cd5b641a6d1f44251a299b, type: 3}
+      propertyPath: _multiplicadorDanoImpacto
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8584059106567684824, guid: 303ff98463cd5b641a6d1f44251a299b, type: 3}
       propertyPath: m_Name
