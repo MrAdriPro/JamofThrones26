@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a26d268019b83244abf217e81962e517, type: 3}
-  m_Name: Flying_Prehistoria
+  m_Name: Normal_Futuro
   m_EditorClassIdentifier: 
   enemyName: Dino
-  enemyPrefab: {fileID: 7496573096510094880, guid: b45d6fb601d75df448904236667e2da4, type: 3}
+  enemyPrefab: {fileID: 7496573096510094880, guid: fc7bb7b968ce4b74faad8f3e5f0f8a6b, type: 3}
   health: 5
-  speed: 4
+  speed: 3
   damage: 1
   attackRate: 1
   flying: 0
-  attackRange: 2.7
+  attackRange: 1.8
   coins: 5
   isBoss: 1
   attackInverted: 0

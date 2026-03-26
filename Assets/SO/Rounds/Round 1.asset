@@ -14,12 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Wave_SO
   waveNumber: 1
   enemiesInWave:
-  - enemyType: {fileID: 11400000, guid: ff39c3de98ba6d24ba7c3ad49d5eca5b, type: 2}
+  - enemyType: {fileID: 11400000, guid: ab52dfd0bdd999043bf40cc4dc8140c2, type: 2}
+    count: 0
+    spawnInterval: 1
+    initialDelay: 0
+  - enemyType: {fileID: 11400000, guid: ee7a87396d0598241a26ca23860367a6, type: 2}
     count: 1
     spawnInterval: 1
     initialDelay: 0
-  - enemyType: {fileID: 11400000, guid: bdc6ea03c179d4944a48fa010b7272ed, type: 2}
-    count: 1
+  - enemyType: {fileID: 11400000, guid: d9c31dc00f406324ab10ef30f9c4bd9c, type: 2}
+    count: 0
     spawnInterval: 1
     initialDelay: 0
   timeAfterWave: 2
