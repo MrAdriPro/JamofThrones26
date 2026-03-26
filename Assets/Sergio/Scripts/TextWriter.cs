@@ -7,7 +7,7 @@ public class TextWriter : MonoBehaviour
     [Header("Configuración")]
     public Canvas canvas;
     public float delay = 0.05f;
-    public string[] dialogLines; // Arreglo de líneas de diálogo
+    public string[] dialogLines; 
 
     private Text textComponent;
     private int _currentIndex = 0;
