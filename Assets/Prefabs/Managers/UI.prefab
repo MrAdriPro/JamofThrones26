@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 4783395422613216045}
   - component: {fileID: 4937950465040483384}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: ERAS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 2902269310965456236}
   - component: {fileID: 8251144786418561378}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: ERAS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 8431362741163455601}
   - component: {fileID: 2363923188558648040}
   m_Layer: 5
-  m_Name: Text (TMP) (3)
+  m_Name: ERAS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1196,7 +1196,7 @@ GameObject:
   - component: {fileID: 8331465197346363416}
   - component: {fileID: 2854304879045694368}
   m_Layer: 5
-  m_Name: Text (TMP) (4)
+  m_Name: ERAS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1332,7 +1332,7 @@ GameObject:
   - component: {fileID: 5473450518312743914}
   - component: {fileID: 7085203570715942056}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ERAS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

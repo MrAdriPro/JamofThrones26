@@ -13,6 +13,6 @@ public class Enemy_SO : ScriptableObject
     public float attackRange;
     public int coins;
     public bool isBoss;
-
+    public bool attackInverted;
 
 }

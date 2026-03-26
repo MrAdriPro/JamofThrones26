@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class VisualEnemyFeedback : MonoBehaviour
 {
-    public SpriteRenderer sprite;
+    private SpriteRenderer sprite;
     private Color originalColor;
     [SerializeField] private float duration = 0.2f;
 
     private void Start()
     {
+        sprite = GetComponentInChildren<SpriteRenderer>();
         originalColor = sprite.color;
     }
 
