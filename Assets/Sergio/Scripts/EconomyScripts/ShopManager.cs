@@ -51,6 +51,8 @@ public class ShopManager : MonoBehaviour
 
             actualCoins -= upgradeCost;
             upgradeCost *= costMult;
+
+            tekLevel++;
         }
 
         UpdateText();
