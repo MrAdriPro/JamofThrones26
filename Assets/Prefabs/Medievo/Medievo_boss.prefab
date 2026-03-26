@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7304952410948594275}
   - component: {fileID: -6511497481666329718}
   m_Layer: 0
-  m_Name: normal_futuro
+  m_Name: Medievo_boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,8 +160,8 @@ Transform:
   m_GameObject: {fileID: 7870513717605427678}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.47, z: -0.23}
-  m_LocalScale: {x: 0.269163, y: 0.269163, z: 0.269163}
+  m_LocalPosition: {x: 0.58, y: 0.93, z: -0.23}
+  m_LocalScale: {x: 0.9575947, y: 0.9575947, z: 0.9575947}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7786407298584049087}
@@ -210,7 +210,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1914255149, guid: 73057cef04cff1043a41366520f9a5c7, type: 3}
+  m_Sprite: {fileID: 2000183953, guid: 538f01cce2262ad438beba4c9906e416, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -231,7 +231,7 @@ Animator:
   m_GameObject: {fileID: 7870513717605427678}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 79defd2f6c10d624d88075071e7f29fc, type: 2}
+  m_Controller: {fileID: 9100000, guid: b4bfae333d19086489fe9a786303541c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
