@@ -96,13 +96,13 @@ public class ShopManager : MonoBehaviour
         UpdateText();
     }
     public bool TrySpendMoney(float amount)
+{
+    if (actualCoins >= amount)
     {
-        if (actualCoins >= amount)
-        {
-            actualCoins -= amount;
-            UpdateText();
-            return true;
-        }
-        return false;
+        actualCoins -= amount;
+        UpdateText();
+        return true;
     }
+    return false;
+}
 }

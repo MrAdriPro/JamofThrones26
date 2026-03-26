@@ -131,16 +131,26 @@ public class PlayerController : MonoBehaviour
 
         if (_animator != null)
         {
-            float verticalLimpio = Mathf.Abs(_vertical) < 0.1f ? 0f : _vertical;
+            bool isRepairing = _animator.GetBool("Repairing");
 
-            if (Mathf.Abs(_horizontal) > 0.1f && Mathf.Abs(_vertical) < 0.1f)
+            if (isRepairing)
             {
-                _animator.SetFloat("VerticalMove", -1f);
+                _animator.SetFloat("VerticalMove", 0);
             }
             else
             {
-                _animator.SetFloat("VerticalMove", verticalLimpio);
+                float verticalLimpio = Mathf.Abs(_vertical) < 0.1f ? 0f : _vertical;
+
+                if (Mathf.Abs(_horizontal) > 0.1f && Mathf.Abs(_vertical) < 0.1f)
+                {
+                    _animator.SetFloat("VerticalMove", -1f);
+                }
+                else
+                {
+                    _animator.SetFloat("VerticalMove", verticalLimpio);
+                }
             }
+            
 
             SpriteRenderer sR = _animator.GetComponent<SpriteRenderer>();
             if (sR != null)
