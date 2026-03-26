@@ -106,7 +106,7 @@ public class ShopManager : MonoBehaviour
     /// Útil para otras compras que no sean la evolución principal.
     /// </summary>
     public bool TrySpendMoney(float amount)
-{
+    {
     if (actualCoins >= amount)
     {
         actualCoins -= amount;
