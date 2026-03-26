@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] CharacterController _cC;
     [SerializeField] Camera _mainCamera;
     [SerializeField] Transform _playerTransform;
+    [SerializeField] RandoSoundEffecs _randomSoundEffect;
 
     [Header("Grounded")]
     [SerializeField] Vector3 _groundCheckSize;
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour
     Vector3 vectorGravity;
     Vector2 _posicionRaton;
 
-    [Header("Mec�nicas")]
+    [Header("Mecanicas")]
     public float stamina = 100;
     public bool _aguantandoLaPuerta;
     public bool abrirPuerta = false;
@@ -30,7 +31,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask _interacteables;
     [SerializeField] Vector3 _tamanioCaja;
     [SerializeField] Vector3 _offSet;
-
+    bool _onPause = false;
     [SerializeField] private float _costeDineroPerSecond;
 
     public Animator _animator;
@@ -79,6 +80,7 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             _reparacionCantidad = 2f;
+            _randomSoundEffect.PlayRandomContructionClip();
         }
         else if (context.canceled)
         {
@@ -102,6 +104,21 @@ public class PlayerController : MonoBehaviour
         else if (context.canceled)
         {
             abrirPuerta = false;
+        }
+    }
+    public void OnPauseMenu(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _onPause = !_onPause;
+            if (_onPause)
+            {
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+            }
         }
     }
     #endregion
@@ -144,7 +161,7 @@ public class PlayerController : MonoBehaviour
                     _animator.SetFloat("VerticalMove", verticalLimpio);
                 }
             }
-            
+
 
             SpriteRenderer sR = _animator.GetComponent<SpriteRenderer>();
             if (sR != null)
