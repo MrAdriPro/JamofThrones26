@@ -74,6 +74,7 @@ public class DoorObstacle : MonoBehaviour
     {
         if (destroyed) return;
         currentHealth += repairAmount;
+
         if (currentHealth >= maxHealth)
         {
             currentHealth = maxHealth;
@@ -94,15 +95,12 @@ public class DoorObstacle : MonoBehaviour
     private void Contacto()
     {
         Vector3 centro = transform.TransformPoint(_offSet);
-
         int cantidad = Physics.OverlapBoxNonAlloc(centro, _tamanioCaja / 2, colliders, transform.rotation, _interacteables);
 
-        if (cantidad == 0)
-        {
-            _currentEscudo = 0f;
 
-            return;
-        }
+
+        if (cantidad == 0) return;
+
         for (int i = 0; i < cantidad; i++)
         {
             Collider other = colliders[i];
@@ -110,14 +108,32 @@ public class DoorObstacle : MonoBehaviour
 
             if (other.TryGetComponent(out PlayerController playerController))
             {
-                RepairDoor(playerController._reparacionCantidad);
+                float vidaPorMoneda = 1.5f;
+
+                float monedasPorSegundo = 7f;
+                float costoEsteFrame = monedasPorSegundo * Time.deltaTime;
+
+                if (playerController._reparacionCantidad > 0 && currentHealth < maxHealth)
+                {
+                    if (ShopManager.shopInstance.TrySpendMoney(costoEsteFrame))
+                    {
+                        float curacionEsteFrame = costoEsteFrame * vidaPorMoneda;
+
+                        RepairDoor(curacionEsteFrame);
+                        playerController._animator.SetBool("Repairing", true);
+                    }
+                    else
+                    {
+                        playerController._animator.SetBool("Repairing", false);
+                    }
+                }
+                else
+                {
+                    playerController._animator.SetBool("Repairing", false);
+                }
                 AbrirPuerta(playerController);
                 CerrarPuerta(playerController);
                 ActivarScudo(playerController);
-            }
-            else
-            {
-                _currentEscudo = 0f;
             }
         }
     }

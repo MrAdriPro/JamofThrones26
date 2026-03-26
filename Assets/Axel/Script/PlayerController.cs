@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,9 +6,10 @@ public class PlayerController : MonoBehaviour
     #region Variables
     [Header("Referencias")]
     [SerializeField] PlayerInput _playerInput;
-    [SerializeField] Transform _playerTransform;
-    [SerializeField] Camera _mainCamera;
     [SerializeField] CharacterController _cC;
+    [SerializeField] Camera _mainCamera;
+    [SerializeField] Transform _playerTransform;
+    [SerializeField] Transform _disparo;
 
     [Header("Grounded")]
     [SerializeField] Vector3 _groundCheckSize;
@@ -27,63 +27,34 @@ public class PlayerController : MonoBehaviour
     Vector2 _posicionRaton;
     Vector3 _objetivoRaton;
 
-    [Header("Contacto")]
+    [Header("Mecánicas")]
+    public float stamina = 100;
+    public bool _aguantandoLaPuerta;
+    public bool abrirPuerta = false;
+    public float _reparacionCantidad = 0;
     [SerializeField] LayerMask _interacteables;
     [SerializeField] Vector3 _tamanioCaja;
     [SerializeField] Vector3 _offSet;
-    public float _reparacionCantidad = 0;
-    float time = 10f;
-    float timer = 0;
-    public bool _aguantandoLaPuerta;
-    public float stamina = 100;
-    public bool abrirPuerta = false;
 
-    [Header("Cambio de Modelo")]
-    [SerializeField] GameObject playerModel;
-    [SerializeField] Sprite[] sprites;
-    [SerializeField] Animator[] animatorList;
-    public int currentSpriteIndex = 0;
+    [SerializeField] private float _costeDineroPerSecond;
+
+    public Animator _animator;
     #endregion
-
-
-
 
     #region Funciones Unity
     void Start()
     {
         _mainCamera = Camera.main;
+        _animator = GetComponentInChildren<Animator>();
     }
+
     void Update()
     {
         GroundCheck();
-        //Contacto();
         Movimiento();
-
-        //Rotacion();
-        //if (timer >= 0)
-        //{
-        //    timer -= Time.deltaTime;
-            //_reparacionCantidad = 0;
-        //}
         RecuperacionEstamina();
     }
-
-    // void OnDrawGizmos()
-    // {
-    //     //Gizmos para el Groundcheck
-    //     Gizmos.color = Color.red;
-    //     Gizmos.DrawWireCube(transform.position, _groundCheckSize);
-
-    //     //Gizmos para la caja de contacto
-    //     Gizmos.color = Color.yellow;
-    //     Matrix4x4 rotationMatrix = Matrix4x4.TRS(transform.TransformPoint(_offSet), transform.rotation, _tamanioCaja);
-    //     Gizmos.matrix = rotationMatrix;
-    //     Gizmos.DrawWireCube(Vector3.zero, Vector3.one);
-    // }
     #endregion
-
-
-
 
     #region Input System
     public void OnMovement(InputAction.CallbackContext context)
@@ -100,127 +71,106 @@ public class PlayerController : MonoBehaviour
             _vertical = 0;
         }
     }
+
     public void OnMouse(InputAction.CallbackContext context)
     {
         _posicionRaton = context.ReadValue<Vector2>();
     }
+
     public void OnRepair(InputAction.CallbackContext context)
     {
-        if (/*timer > 0 || */_aguantandoLaPuerta) return;
+        if (_aguantandoLaPuerta) return;
+
         if (context.performed)
         {
-            _reparacionCantidad = 10f;
-            //timer = time;
+            _reparacionCantidad = 2f;
         }
         else if (context.canceled)
         {
             _reparacionCantidad = 0f;
+
         }
     }
+
     public void OnHoldingDoor(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            _aguantandoLaPuerta = true;
-        }
-        else if (context.canceled)
-        {
-            _aguantandoLaPuerta = false;
-        }
+        if (context.performed) _aguantandoLaPuerta = true;
+        else if (context.canceled) _aguantandoLaPuerta = false;
     }
+
     public void OnOpeninDoor(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
             abrirPuerta = true;
-            Debug.Log("tecla");
+            Debug.Log("Tecla de abrir puerta pulsada");
         }
         else if (context.canceled)
         {
-            abrirPuerta =false;
+            abrirPuerta = false;
         }
     }
     #endregion
 
-
-
-
-    #region Funciones
+    #region Funciones de Lógica
     private void GroundCheck()
     {
-        //Solo vamos a comprobar si es mayor que 0, asi que no necesitamos mas capacida de buffer
         Collider[] colliderBuffer = new Collider[1];
-        //Comprobamos si hay contacto con el suelo
         Physics.OverlapBoxNonAlloc(transform.position, _groundCheckSize / 2f, colliderBuffer, transform.rotation, _groundLayer);
-        //Actualitzamos el estado de _grounded
         _grounded = colliderBuffer[0] != null;
     }
+
     private void Movimiento()
     {
-        //Calcula la direccion a la que se esta dirigiendo el player
         Vector3 direccion = new Vector3(_horizontal, 0, _vertical);
-        //Aplicamos gravedad si no estamos tocando el suelo
-        if (!_grounded)
-        {
-            vectorGravity = Vector3.down * 9.81f;
-        }
-        //Aplicamos la direccion multiplicada por la velocidad a la que no movemos en el tiempo
+
+        if (!_grounded) vectorGravity = Vector3.down * 9.81f;
+        else vectorGravity = Vector3.zero;
+
         _cC.Move((direccion + vectorGravity) * _velocidadMovimiento * Time.deltaTime);
-    }
-    private void Rotacion()
-    {
-        //Creamos un plano donde impacta el ray del raton
-        Plane playerPlane = new Plane(Vector3.up, new Vector3(0, transform.position.y, 0));
-        //Desplegamos el Ray desde la camara a la posicion del raton
-        Ray ray = _mainCamera.ScreenPointToRay(_posicionRaton);
-        //Si chocamos con el plano ,sacammos la distancia a la que esta para pasarcela al point para saber la posicion
-        if (playerPlane.Raycast(ray, out float hitDist))
+
+        if (_animator != null)
         {
-            _objetivoRaton = ray.GetPoint(hitDist);
-        }
-        //Calculamos la posicion del raton con respecto al player
-        Vector3 direccionRaton = _objetivoRaton - transform.position;
-        //Eliminar la y para que no gire hacia arriba
-        direccionRaton.y = 0;
-        //Calculamos la dirrecion a la que tiene que mirar el objeto
-        Quaternion targetRot = Quaternion.LookRotation(direccionRaton);
-        //Aplicamos la direcion al transform del player con un pequenio retraso para que quede mas bonito
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, Time.deltaTime * _rotMultiplicador);
-    }
-    private void Contacto()
-    {
-        Vector3 centro = transform.TransformPoint(_offSet);
+            bool isRepairing = _animator.GetBool("Repairing");
 
-        Collider[] colliders = new Collider[1];
+            if (isRepairing)
+            {
+                _animator.SetFloat("VerticalMove", 0);
+            }
+            else
+            {
+                float verticalLimpio = Mathf.Abs(_vertical) < 0.1f ? 0f : _vertical;
 
-        Physics.OverlapBoxNonAlloc(centro, _tamanioCaja / 2, colliders, transform.rotation, _interacteables);
+                if (Mathf.Abs(_horizontal) > 0.1f && Mathf.Abs(_vertical) < 0.1f)
+                {
+                    _animator.SetFloat("VerticalMove", -1f);
+                }
+                else
+                {
+                    _animator.SetFloat("VerticalMove", verticalLimpio);
+                }
+            }
+            
 
-        foreach (var other in colliders)
-        {
-            if (other == null) return;
-
+            SpriteRenderer sR = _animator.GetComponent<SpriteRenderer>();
+            if (sR != null)
+            {
+                if (_horizontal < -0.1f) sR.flipX = true;
+                else if (_horizontal > 0.1f) sR.flipX = false;
+            }
         }
     }
+
     private void RecuperacionEstamina()
     {
         if (stamina >= 100 || _aguantandoLaPuerta) return;
-        else stamina += Time.deltaTime;
+        stamina += Time.deltaTime;
     }
-    public void SwapModel()
+
+    public void RefreshAnimator(Animator newAnimator)
     {
-        if (currentSpriteIndex < sprites.Length - 1)
-        {
-            currentSpriteIndex += 1;
-
-            // Adquiere 
-            SpriteRenderer spriteRenderer = playerModel.GetComponent<SpriteRenderer>();
-            //Animator animator = playerModel.GetComponent<Animator>();
-
-            spriteRenderer.sprite = sprites[currentSpriteIndex];
-            //animator = animatorList[currentSpriteIndex];
-        }
+        _animator = newAnimator;
+        if (_animator != null) _animator.SetFloat("VerticalMove", 0);
     }
-
-
     #endregion
 }

@@ -2,31 +2,41 @@ using UnityEngine;
 
 public class PlayerModelController : MonoBehaviour
 {
-    [SerializeField] GameObject playerModel;
 
-    [SerializeField] Sprite[] sprites;
-    [SerializeField] Animator[] animatorList;
-
+    [Header("Configuración de Eras")]
+    [SerializeField] RuntimeAnimatorController[] controllers;
 
     public int currentSpriteIndex = 0;
 
-    private void Update()
+    private Animator _animator;
+    private PlayerController _playerController;
+
+    public bool CanEvolve => currentSpriteIndex < controllers.Length - 1;
+
+
+    private void Start()
     {
-        //SwapModel(currentSpriteIndex);
+        _animator = GetComponentInChildren<Animator>();
+        _playerController = GetComponent<PlayerController>();
     }
+
 
     public void SwapModel()
     {
-        if(currentSpriteIndex < sprites.Length - 1)
+        if (CanEvolve)
         {
-            currentSpriteIndex += 1;
+            currentSpriteIndex++;
+            _animator.runtimeAnimatorController = controllers[currentSpriteIndex];
 
-            // Adquiere 
-            SpriteRenderer spriteRenderer = playerModel.GetComponent<SpriteRenderer>();
-            //Animator animator = playerModel.GetComponent<Animator>();
-
-            spriteRenderer.sprite = sprites[currentSpriteIndex];
-            //animator = animatorList[currentSpriteIndex];
+            if (_playerController != null)
+            {
+                _playerController.RefreshAnimator(_animator);
+            }
         }
+    }
+
+    public bool IsMaxGrade()
+    {
+        return currentSpriteIndex >= controllers.Length - 1;
     }
 }
