@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class TerreinTextureManager : MonoBehaviour
 {
+    public Vector2 futureTiling = new Vector2(60, 60);
+    public Vector2 originalGrassTiling = new Vector2(12,12);
+
     [SerializeField] TerrainLayer grassLayer;
     [SerializeField] TerrainLayer pathLayer;
 
@@ -18,10 +21,19 @@ public class TerreinTextureManager : MonoBehaviour
 
     void TextureUpdater() 
     {
-        grassLayer.diffuseTexture = baseColorsGrass[ShopManager.shopInstance.tekLevel];
-        //grassLayer.normalMapTexture = normalMapsGrass[ShopManager.shopInstance.tekLevel];
+        if (ShopManager.shopInstance.tekLevel >= 3)
+        {
+            grassLayer.tileSize = futureTiling;
+        }
+        else 
+        {
+            grassLayer.tileSize = originalGrassTiling;
+        }
 
-        //pathLayer.diffuseTexture = baseColorsPath[ShopManager.shopInstance.tekLevel];
-        //pathLayer.normalMapTexture = normalMapsPath[ShopManager.shopInstance.tekLevel];
+        grassLayer.diffuseTexture = baseColorsGrass[ShopManager.shopInstance.tekLevel];
+        grassLayer.normalMapTexture = normalMapsGrass[ShopManager.shopInstance.tekLevel];
+
+        pathLayer.diffuseTexture = baseColorsPath[ShopManager.shopInstance.tekLevel];
+        pathLayer.normalMapTexture = normalMapsPath[ShopManager.shopInstance.tekLevel];
     }
 }
