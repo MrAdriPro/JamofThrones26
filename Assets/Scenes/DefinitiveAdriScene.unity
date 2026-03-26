@@ -1322,7 +1322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5481781407965329976, guid: b375eac9137e623468338f2e3bd6d0c6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5481781407965329976, guid: b375eac9137e623468338f2e3bd6d0c6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -2160,18 +2160,6 @@ PrefabInstance:
       propertyPath: _mainCamera
       value: 
       objectReference: {fileID: 1688740298}
-    - target: {fileID: 4978291114777394804, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
-      propertyPath: _costeDineroPerSecond
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6811780184256552153, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 79309e211e8700643b4b39936625ba6d, type: 2}
-    - target: {fileID: 7228970877254622461, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7615857159758561904, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.13
@@ -2902,7 +2890,7 @@ PrefabInstance:
       objectReference: {fileID: 1753364773}
     - target: {fileID: 5580213310844858706, guid: aae313e9fe13bd345a7a3078908322e2, type: 3}
       propertyPath: actualCoins
-      value: 50
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 5580213310844858706, guid: aae313e9fe13bd345a7a3078908322e2, type: 3}
       propertyPath: playerModel
