@@ -24,7 +24,7 @@ public class ModelSwapper : MonoBehaviour
             {
                 modelList[i].SetActive(false);
             }
-            else modelList[i].SetActive(false);
+            else modelList[i].SetActive(true);
         }
     }
 }
