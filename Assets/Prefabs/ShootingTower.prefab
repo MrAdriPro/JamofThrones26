@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 6887308325111549373}
   - component: {fileID: 4877199371039758225}
   - component: {fileID: 5173850030295393707}
+  - component: {fileID: 3632979953669875766}
   m_Layer: 0
   m_Name: ShootingTower
   m_TagString: Shooting Towers
@@ -111,8 +112,25 @@ MonoBehaviour:
   - {fileID: 4910791044498672522}
   target: {fileID: 0}
   fireRate: 1
-  firePoint: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 343828468388260147}
+  bulletPrefab: {fileID: 3111212151778295405, guid: 7cf428128d1df8842b9bac9f781a467c, type: 3}
+--- !u!114 &3632979953669875766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039915949869096666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c34f1af4f1a1449870092fa39cf314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelList:
+  - {fileID: 5158938539668400008}
+  - {fileID: 8765673425175199189}
+  - {fileID: 243038219641396298}
+  - {fileID: 4910791044498672522}
 --- !u!1 &4910791044498672522
 GameObject:
   m_ObjectHideFlags: 0
