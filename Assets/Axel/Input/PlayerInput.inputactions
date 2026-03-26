@@ -25,7 +25,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Acccion",
+                    "name": "HoldTheDoor",
                     "type": "Button",
                     "id": "06c02d05-1536-4b7b-8b55-30242735663c",
                     "expectedControlType": "",
@@ -37,6 +37,15 @@
                     "name": "Reparar",
                     "type": "Button",
                     "id": "9971834b-9afe-4514-b647-38308ebd53da",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Abrir/Cerrar",
+                    "type": "Button",
+                    "id": "f87eea8f-6257-4b2e-a974-c15cdcf3a923",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -161,7 +170,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Acccion",
+                    "action": "HoldTheDoor",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -173,6 +182,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Reparar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c618a0d6-e421-4e85-adfc-60ea3e283685",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Abrir/Cerrar",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

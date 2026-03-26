@@ -1,29 +1,30 @@
 using UnityEngine;
 
-public class EnemyController : PoolEntity
+public class EnemyController : MonoBehaviour
 {
-    public Enemy_SO data;
     public float rotationSpeed = 720f;
 
 
     [Header("Wander & movement")]
-    
-    public float wanderRadius = 1f;           
-    public float arrivalThreshold = 0.4f;     
-    public float swayAmplitude = 0.2f;       
-    public float swayFrequency = 1f;          
+    public float wanderRadius = 1f;
+    public float arrivalThreshold = 0.4f;
+    public float swayAmplitude = 0.2f;
+    public float swayFrequency = 1f;
 
+    //path following
     private int indexPoint = 0;
     private Transform[] path;
     private DoorObstacle actualDoor;
-    private float timeNextAttack;
-
+    public Animator _animator;
+    [SerializeField] float timeNextAttack;
     private Vector3 currentTargetPos;
     private float swayTimer;
 
     //references
     private SpriteRenderer _spriteRenderer;
     [SerializeField] RandoSoundEffecs _randoSoundEffecs;
+    public Enemy_SO data;
+    private SpriteRenderer _spriteRenderer;
 
 
     void Start()
@@ -33,37 +34,73 @@ public class EnemyController : PoolEntity
         {
             indexPoint = 0;
             SetTargetForCurrentIndex();
-            SetTargetForCurrentIndex();
         }
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void OnValidate()
     {
-        //
+        //just to ensure the values are not negative or too small
         if (wanderRadius < 0f) wanderRadius = 0f;
         if (arrivalThreshold < 0.01f) arrivalThreshold = 0.01f;
         if (swayAmplitude < 0f) swayAmplitude = 0f;
         if (swayFrequency < 0f) swayFrequency = 0f;
     }
 
+
     void Update()
     {
-        if(!IsActive) return;
-        
+        if (!this.enabled) return;
+
+        AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
+        bool estaEnAnimacionDeAtaque = stateInfo.IsName("Attack") || _animator.GetBool("Attacking");
+
         if (actualDoor != null)
         {
+            Vector3 dirToDoor = actualDoor.transform.position - transform.position;
+            ActualizarGiroSprite(dirToDoor.x, estaEnAnimacionDeAtaque);
+
             AttackDoor();
         }
         else
         {
-            Move();
             DettectDoor();
+
+            if (actualDoor == null)
+            {
+                _animator.SetBool("Attacking", false);
+
+                Vector3 direction = currentTargetPos - transform.position;
+                ActualizarGiroSprite(direction.x, false); 
+
+                Move();
+            }
+            else
+            {
+                _animator.SetBool("Attacking", true);
+            }
+        }
+    }
+
+    void ActualizarGiroSprite(float direccionX, bool atacando)
+    {
+        if (Mathf.Abs(direccionX) < 0.1f) return;
+
+        bool mirarIzquierda = direccionX < 0f;
+
+
+        if (data.attackInverted && atacando)
+        {
+            _spriteRenderer.flipX = !mirarIzquierda;
+        }
+        else
+        {
+            _spriteRenderer.flipX = mirarIzquierda;
         }
     }
     /// <summary>
     /// this method calculates a random target position around the current path point. It takes the position of the current path point and adds a random offset within
-    /// a circle defined by the wanderRadius. If the enemy is a flier, it also adds a random vertical offset to allow for flying behavior.
-    /// This creates a more natural and less predictable movement pattern as the enemy wanders around the path points.
+    /// a circle defined by the wanderRadius.
     /// </summary>
     void SetTargetForCurrentIndex()
     {
@@ -73,11 +110,7 @@ public class EnemyController : PoolEntity
         Vector2 rnd = Random.insideUnitCircle * wanderRadius;
         Vector3 offset = new Vector3(rnd.x, 0f, rnd.y);
 
-        if (data != null && data.flier)
-        {
-            float yOffset = Random.Range(-wanderRadius * 0.5f, wanderRadius * 0.5f);
-            offset.y = yOffset;
-        }
+
 
         currentTargetPos = basePos + offset;
     }
@@ -91,7 +124,12 @@ public class EnemyController : PoolEntity
         Vector3 destine = currentTargetPos;
         Vector3 direction = destine - transform.position;
 
-        Vector3 lookDirection = (data != null && data.flier) ? direction : new Vector3(direction.x, 0f, direction.z);
+        if (Mathf.Abs(direction.normalized.x) > 0.10f)
+        {
+            _spriteRenderer.flipX = direction.x < 0f;
+        }
+
+        Vector3 lookDirection = (data != null) ? direction : new Vector3(direction.x, 0f, direction.z);
 
         if (lookDirection.sqrMagnitude > 0.0001f)
         {
@@ -104,7 +142,7 @@ public class EnemyController : PoolEntity
 
         swayTimer += Time.deltaTime * swayFrequency;
         Vector3 lateral = transform.right * Mathf.Sin(swayTimer) * swayAmplitude;
-        if (data == null || !data.flier)
+        if (data == null || !data.flying)
         {
             lateral.y = 0f;
         }
@@ -144,24 +182,21 @@ public class EnemyController : PoolEntity
     /// </summary>
     void AttackDoor()
     {
-        if (actualDoor == null) return;
-
-        if (actualDoor.destroyed)
+        if (actualDoor == null || actualDoor.destroyed)
         {
             actualDoor = null;
+            _animator.SetBool("Attacking", false);
             return;
         }
+
+        _animator.SetBool("Attacking", true);
+        
 
         if (Time.time >= timeNextAttack)
         {
             _randoSoundEffecs.PlayRandomAttackClip();
             actualDoor.TakeDamage(data.damage);
             timeNextAttack = Time.time + data.attackRate;
-
-            if (actualDoor.destroyed)
-            {
-                actualDoor = null;
-            }
         }
     }
 
@@ -179,19 +214,11 @@ public class EnemyController : PoolEntity
             Gizmos.DrawSphere(currentTargetPos, 0.1f);
 
             Gizmos.color = Color.red;
-            Gizmos.DrawCube(path[indexPoint].position, Vector3.one * 0.01f); 
+            Gizmos.DrawCube(path[indexPoint].position, Vector3.one * 0.01f);
             Gizmos.DrawWireSphere(path[indexPoint].position, wanderRadius);
         }
     }
     //Enemy died Fuction
- #region Pool Entity
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
-    public override void Deactivate()
-    {
-        base.Deactivate();
-    }
+    #region Pool Entity
     #endregion
 }
