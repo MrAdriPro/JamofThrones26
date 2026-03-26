@@ -42,6 +42,6 @@ public class EnemyHealth : MonoBehaviour
             
 
         animator.SetTrigger("isDead");
-        Destroy(gameObject, 1);
+        Destroy(gameObject, 1.4f);
     }
 }

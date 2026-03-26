@@ -22,3 +22,4 @@ MonoBehaviour:
   attackRange: 1.06
   coins: 5
   isBoss: 0
+  attackInverted: 1

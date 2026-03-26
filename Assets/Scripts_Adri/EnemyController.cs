@@ -46,29 +46,56 @@ public class EnemyController : MonoBehaviour
     }
 
 
-        void Update()
+    void Update()
+    {
+        if (!this.enabled) return;
+
+        AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
+        bool estaEnAnimacionDeAtaque = stateInfo.IsName("Attack") || _animator.GetBool("Attacking");
+
+        if (actualDoor != null)
         {
-            if (!this.enabled) return;
-            
-            if (actualDoor != null)
+            Vector3 dirToDoor = actualDoor.transform.position - transform.position;
+            ActualizarGiroSprite(dirToDoor.x, estaEnAnimacionDeAtaque);
+
+            AttackDoor();
+        }
+        else
+        {
+            DettectDoor();
+
+            if (actualDoor == null)
             {
-                AttackDoor();
+                _animator.SetBool("Attacking", false);
+
+                Vector3 direction = currentTargetPos - transform.position;
+                ActualizarGiroSprite(direction.x, false); 
+
+                Move();
             }
             else
             {
-                DettectDoor();
-
-                if (actualDoor == null)
-                {
-                    _animator.SetBool("Attacking", false); 
-                    Move();
-                }
-                else
-                {
-                    _animator.SetBool("Attacking", true);
-                }
+                _animator.SetBool("Attacking", true);
             }
         }
+    }
+
+    void ActualizarGiroSprite(float direccionX, bool atacando)
+    {
+        if (Mathf.Abs(direccionX) < 0.1f) return;
+
+        bool mirarIzquierda = direccionX < 0f;
+
+
+        if (data.attackInverted && atacando)
+        {
+            _spriteRenderer.flipX = !mirarIzquierda;
+        }
+        else
+        {
+            _spriteRenderer.flipX = mirarIzquierda;
+        }
+    }
     /// <summary>
     /// this method calculates a random target position around the current path point. It takes the position of the current path point and adds a random offset within
     /// a circle defined by the wanderRadius.

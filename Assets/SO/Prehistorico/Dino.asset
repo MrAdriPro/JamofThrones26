@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dino
   m_EditorClassIdentifier: 
   enemyName: Dino
-  enemyPrefab: {fileID: 1537829161276467367, guid: e5e76a5a0cac5a5468e3ec6b6abce139, type: 3}
+  enemyPrefab: {fileID: 7496573096510094880, guid: c871cc01389296548b118db05901962f, type: 3}
   health: 5
   speed: 10
   damage: 100
@@ -22,3 +22,4 @@ MonoBehaviour:
   attackRange: 0.7
   coins: 5
   isBoss: 1
+  spriteOriginalLookLeft: 0
