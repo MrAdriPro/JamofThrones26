@@ -5,24 +5,20 @@ using System.Linq;
 public class ShootingTower : MonoBehaviour
 {
     [SerializeField] public List<Transform> enemiesInRange = new List<Transform>();
-
+    
     [Tooltip("Index 0 = base model, index 1 = upgrade 1, etc. All must be children of this GameObject.")]
     public GameObject[] towerModels;
-
+    [SerializeField] RandoSoundEffecs _randomSoundEffects;
     public Transform target;
-
     [Header("Atributos de la Torre")]
     public float fireRate = 1f;
     private float fireCountdown = 0f;
     public Transform firePoint;
     public GameObject bulletPrefab;
-
-
     void Start()
     {
         UpdateTowerModel();
     }
-
     public void ApplyUpgradeLevel(int level)
     {
         if (towerModels == null || towerModels.Length == 0)
@@ -39,7 +35,6 @@ public class ShootingTower : MonoBehaviour
                 towerModels[i].SetActive(i == clamped);
         }
     }
-
     void Update()
     {
 
@@ -73,7 +68,6 @@ public class ShootingTower : MonoBehaviour
 
         fireCountdown -= Time.deltaTime;
     }
-
     void LockOnTarget()
     {
         Vector3 dir = target.position - transform.position;
@@ -81,24 +75,21 @@ public class ShootingTower : MonoBehaviour
         Vector3 rotation = lookRotation.eulerAngles;
         transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
-
     void Shoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        _randomSoundEffects.PlayRandomAttackClip();
         BulletController bulletController = bullet.GetComponent<BulletController>();
         bulletController.bulletTarget = target;
     }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy")) enemiesInRange.Add(other.transform);
     }
-
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Enemy")) enemiesInRange.Remove(other.transform);
     }
-
     void UpdateTowerModel()
     {
         int level = ShopManager.shopInstance.tekLevel;
@@ -108,3 +99,14 @@ public class ShootingTower : MonoBehaviour
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+

@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 2843643063271011288}
   - component: {fileID: 6777610687667085205}
   - component: {fileID: 2265102240274488225}
+  - component: {fileID: 5111336397618434023}
+  - component: {fileID: 1339906819370393435}
   m_Layer: 0
   m_Name: Gato Steampunk
   m_TagString: Enemy
@@ -104,6 +106,7 @@ MonoBehaviour:
   swayFrequency: 1
   _animator: {fileID: 7365853121901888310}
   timeNextAttack: 0
+  _randoSoundEffecs: {fileID: 5111336397618434023}
   data: {fileID: 11400000, guid: 343f763044ec8a94f84b5eac2b4e03bd, type: 2}
 --- !u!114 &6777610687667085205
 MonoBehaviour:
@@ -131,6 +134,120 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3e7354800c31841a61728a75bad95d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  duration: 0.2
+--- !u!114 &5111336397618434023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4235468650806712108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc47c3bd8b0be74a89ca90bc0366235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackClips: []
+  _dieClips: []
+  _contructionClip: []
+  _audioSource: {fileID: 1339906819370393435}
+--- !u!82 &1339906819370393435
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4235468650806712108}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -2256398440406382273, guid: eb710496147811040bec7dbab45043e1, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5340994376142665726
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] CharacterController _cC;
     [SerializeField] Camera _mainCamera;
     [SerializeField] Transform _playerTransform;
-    [SerializeField] Transform _disparo;
 
     [Header("Grounded")]
     [SerializeField] Vector3 _groundCheckSize;
@@ -21,11 +20,7 @@ public class PlayerController : MonoBehaviour
     float _horizontal;
     float _vertical;
     Vector3 vectorGravity;
-
-    [Header("Rotacion")]
-    [SerializeField] float _rotMultiplicador;
     Vector2 _posicionRaton;
-    Vector3 _objetivoRaton;
 
     [Header("Mec�nicas")]
     public float stamina = 100;
@@ -103,7 +98,6 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             abrirPuerta = true;
-            Debug.Log("Tecla de abrir puerta pulsada");
         }
         else if (context.canceled)
         {
@@ -112,7 +106,7 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    #region Funciones de L�gica
+    #region Funciones de Logica
     private void GroundCheck()
     {
         Collider[] colliderBuffer = new Collider[1];

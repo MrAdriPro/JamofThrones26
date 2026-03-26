@@ -21,7 +21,6 @@ public class EnemyController : MonoBehaviour
     private float swayTimer;
 
     //references
-    private SpriteRenderer _spriteRenderer;
     [SerializeField] RandoSoundEffecs _randoSoundEffecs;
     public Enemy_SO data;
     private SpriteRenderer _spriteRenderer;
