@@ -74,6 +74,7 @@ public class DoorObstacle : MonoBehaviour
     {
         if (destroyed) return;
         currentHealth += repairAmount;
+
         if (currentHealth >= maxHealth)
         {
             currentHealth = maxHealth;
@@ -94,15 +95,14 @@ public class DoorObstacle : MonoBehaviour
     private void Contacto()
     {
         Vector3 centro = transform.TransformPoint(_offSet);
-
         int cantidad = Physics.OverlapBoxNonAlloc(centro, _tamanioCaja / 2, colliders, transform.rotation, _interacteables);
 
         if (cantidad == 0)
         {
             _currentEscudo = 0f;
-
             return;
         }
+
         for (int i = 0; i < cantidad; i++)
         {
             Collider other = colliders[i];
@@ -110,14 +110,25 @@ public class DoorObstacle : MonoBehaviour
 
             if (other.TryGetComponent(out PlayerController playerController))
             {
-                RepairDoor(playerController._reparacionCantidad);
+                if (playerController._reparacionCantidad > 0 && currentHealth < maxHealth)
+                {
+                    float costoFrame = 5f * Time.deltaTime;
+
+                    if (ShopManager.shopInstance.TrySpendMoney(costoFrame))
+                    {
+                        RepairDoor(playerController._reparacionCantidad * Time.fixedDeltaTime);
+                        playerController._animator.SetBool("Repairing", true);
+
+                    }
+
+                    else playerController._animator.SetBool("Repairing", false);
+
+
+                }
+
                 AbrirPuerta(playerController);
                 CerrarPuerta(playerController);
                 ActivarScudo(playerController);
-            }
-            else
-            {
-                _currentEscudo = 0f;
             }
         }
     }

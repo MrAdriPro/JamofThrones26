@@ -95,4 +95,14 @@ public class ShopManager : MonoBehaviour
         actualCoins += coins;
         UpdateText();
     }
+    public bool TrySpendMoney(float amount)
+    {
+        if (actualCoins >= amount)
+        {
+            actualCoins -= amount;
+            UpdateText();
+            return true;
+        }
+        return false;
+    }
 }

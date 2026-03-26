@@ -36,7 +36,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Vector3 _tamanioCaja;
     [SerializeField] Vector3 _offSet;
 
-    private Animator _animator;
+    [SerializeField] private float _costeDineroPerSecond;
+
+    public Animator _animator;
     #endregion
 
     #region Funciones Unity
@@ -78,8 +80,16 @@ public class PlayerController : MonoBehaviour
     public void OnRepair(InputAction.CallbackContext context)
     {
         if (_aguantandoLaPuerta) return;
-        if (context.performed) _reparacionCantidad = 10f;
-        else if (context.canceled) _reparacionCantidad = 0f;
+
+        if (context.performed)
+        {
+            _reparacionCantidad = 2f;
+        }
+        else if (context.canceled)
+        {
+            _reparacionCantidad = 0f;
+
+        }
     }
 
     public void OnHoldingDoor(InputAction.CallbackContext context)

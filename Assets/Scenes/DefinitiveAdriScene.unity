@@ -251,6 +251,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1812928919666156026, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
   m_PrefabInstance: {fileID: 8533194}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &37591865 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8230164222773870312, guid: 303ff98463cd5b641a6d1f44251a299b, type: 3}
+  m_PrefabInstance: {fileID: 6932335416628407824}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &227849555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -512,6 +517,11 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6887308325111549373, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
   m_PrefabInstance: {fileID: 251072134}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &313857379 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 4308319326076233582, guid: 303ff98463cd5b641a6d1f44251a299b, type: 3}
+  m_PrefabInstance: {fileID: 6932335416628407824}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &363961342
 GameObject:
@@ -2150,6 +2160,10 @@ PrefabInstance:
       propertyPath: _mainCamera
       value: 
       objectReference: {fileID: 1688740298}
+    - target: {fileID: 4978291114777394804, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+      propertyPath: _costeDineroPerSecond
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6811780184256552153, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
       propertyPath: m_Controller
       value: 
@@ -2646,6 +2660,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1936570471 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5981461574038230757, guid: 303ff98463cd5b641a6d1f44251a299b, type: 3}
+  m_PrefabInstance: {fileID: 6932335416628407824}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1990864561
 GameObject:
   m_ObjectHideFlags: 0
@@ -2875,6 +2900,10 @@ PrefabInstance:
       propertyPath: towerModel
       value: 
       objectReference: {fileID: 1753364773}
+    - target: {fileID: 5580213310844858706, guid: aae313e9fe13bd345a7a3078908322e2, type: 3}
+      propertyPath: actualCoins
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5580213310844858706, guid: aae313e9fe13bd345a7a3078908322e2, type: 3}
       propertyPath: playerModel
       value: 
@@ -3107,6 +3136,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3988558856285943603, guid: 303ff98463cd5b641a6d1f44251a299b, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 37591865}
+    - target: {fileID: 3988558856285943603, guid: 303ff98463cd5b641a6d1f44251a299b, type: 3}
+      propertyPath: _temporizadorPuerta
+      value: 
+      objectReference: {fileID: 1936570471}
+    - target: {fileID: 3988558856285943603, guid: 303ff98463cd5b641a6d1f44251a299b, type: 3}
+      propertyPath: _canvasGroupTemporizadorPuerta
+      value: 
+      objectReference: {fileID: 313857379}
     - target: {fileID: 8584059106567684824, guid: 303ff98463cd5b641a6d1f44251a299b, type: 3}
       propertyPath: m_Name
       value: Door
