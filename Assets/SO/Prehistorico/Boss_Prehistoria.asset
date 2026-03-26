@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a26d268019b83244abf217e81962e517, type: 3}
+  m_Name: Boss_Prehistoria
+  m_EditorClassIdentifier: 
+  enemyName: Dino
+  enemyPrefab: {fileID: 7496573096510094880, guid: 7c864cb8bb0ce204f86387e8f2933942, type: 3}
+  health: 5
+  speed: 4
+  damage: 1
+  attackRate: 1
+  flying: 0
+  attackRange: 1.2
+  coins: 5
+  isBoss: 1
+  attackInverted: 0
