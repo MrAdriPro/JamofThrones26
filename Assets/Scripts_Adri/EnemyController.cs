@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
     private int indexPoint = 0;
     private Transform[] path;
     private DoorObstacle actualDoor;
-    [SerializeField] Animator _animator;
+    public Animator _animator;
     [SerializeField] float timeNextAttack;
     private Vector3 currentTargetPos;
     private float swayTimer;
