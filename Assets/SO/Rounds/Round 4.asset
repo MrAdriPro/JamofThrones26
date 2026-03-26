@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fb7889c3d6a52438d19be65d6fec3d, type: 3}
   m_Name: Round 4
   m_EditorClassIdentifier: Assembly-CSharp::Wave_SO
-  waveNumber: 0
+  waveNumber: 4
   enemiesInWave:
   - enemyType: {fileID: 11400000, guid: ddb7d8299f7009749913e05485f740a9, type: 2}
     count: 1

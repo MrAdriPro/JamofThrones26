@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fb7889c3d6a52438d19be65d6fec3d, type: 3}
   m_Name: Round 3
   m_EditorClassIdentifier: Assembly-CSharp::Wave_SO
-  waveNumber: 0
+  waveNumber: 3
   enemiesInWave:
   - enemyType: {fileID: 11400000, guid: 82805edabf852d4489d9c9ad621a039f, type: 2}
     count: 5
     spawnInterval: 1
     initialDelay: 0
-  timeAfterWave: 15
+  timeAfterWave: 25
