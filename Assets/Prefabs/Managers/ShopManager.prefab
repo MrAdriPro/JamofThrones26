@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinText: {fileID: 0}
   costText: {fileID: 0}
+  fillImage: {fileID: 0}
+  upgradeDuration: 2
   actualCoins: 9999
   upgradeCost: 100
   costMult: 2.5

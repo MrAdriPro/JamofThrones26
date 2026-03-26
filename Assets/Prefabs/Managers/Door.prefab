@@ -953,9 +953,9 @@ MonoBehaviour:
   _currentEscudo: 0
   destroyed: 0
   doorPrefab: {fileID: 4810158817464909036}
-  _animator: {fileID: 0}
-  _temporizadorPuerta: {fileID: 0}
-  _canvasGroupTemporizadorPuerta: {fileID: 0}
+  _animator: {fileID: 8230164222773870312}
+  _temporizadorPuerta: {fileID: 5981461574038230757}
+  _canvasGroupTemporizadorPuerta: {fileID: 4308319326076233582}
   _interacteables:
     serializedVersion: 2
     m_Bits: 256
