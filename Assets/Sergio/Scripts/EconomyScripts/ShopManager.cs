@@ -19,7 +19,9 @@ public class ShopManager : MonoBehaviour
     public float actualCoins = 0f;
     public float upgradeCost = 100f;
     public float costMult = 2.5f;
-    public int tekLevel = 0; 
+    public int tekLevel = 0;
+    public int tekLimit = 3;
+
 
     [Header("Referencias de Controladores")]
     [SerializeField] PlayerModelController playerModel;
@@ -54,7 +56,7 @@ public class ShopManager : MonoBehaviour
             if (currentFillTimer > 0)
             {
                 currentFillTimer -= Time.deltaTime * 2;
-                fillImage.fillAmount = Mathf.Max(0, currentFillTimer / upgradeDuration);
+                fillImage.fillAmount = currentFillTimer / upgradeDuration;
             }
         }
     }
@@ -71,28 +73,28 @@ public class ShopManager : MonoBehaviour
 
     public void BuyUpgrade()
     {
-        if (playerModel != null) playerModel.SwapModel();
+         playerModel.SwapModel();
 
         actualCoins -= upgradeCost;
         upgradeCost *= costMult;
-        tekLevel++; 
+        
+        if(tekLevel < tekLimit) tekLevel++;
 
         UpdateText();
 
-        if (playerModel != null && !playerModel.CanEvolve)
+        if (!playerModel.CanEvolve)
         {
             costText.text = "MAX";
-            if (fillImage != null) fillImage.fillAmount = 0;
+            fillImage.fillAmount = 0;
         }
     }
 
     void UpdateText()
     {
-        if (coinText != null) coinText.text = "Coins: " + actualCoins.ToString("F0");
-        if (costText != null && playerModel != null && playerModel.CanEvolve)
-        {
+        coinText.text = "Coins: " + actualCoins.ToString("F0");
+       
             costText.text = upgradeCost.ToString("F0");
-        }
+        
     }
 
     public void GetCoin(float coins)
