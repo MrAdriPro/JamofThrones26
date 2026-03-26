@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
         bool isRepairing = _animator != null && _animator.GetBool("Repairing");
         bool isHolding = _animator != null && _animator.GetBool("Holding");
 
-        if (isRepairing || isHolding)
+        if (isRepairing || isHolding || abrirPuerta)
         {
             _horizontal = 0;
             _vertical = 0;
@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
 
         _cC.Move((direccion + vectorGravity) * _velocidadMovimiento * Time.deltaTime);
 
-        if (_animator != null && !isRepairing && !isHolding)
+        if (_animator != null && !isRepairing && !isHolding && !abrirPuerta)
         {
             float verticalLimpio = Mathf.Abs(_vertical) < 0.1f ? 0f : _vertical;
             if (Mathf.Abs(_horizontal) > 0.1f && Mathf.Abs(_vertical) < 0.1f) _animator.SetFloat("VerticalMove", -1f);
