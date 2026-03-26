@@ -9,13 +9,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: f5fb7889c3d6a52438d19be65d6fec3d, type: 3}
   m_Name: Round 4
   m_EditorClassIdentifier: Assembly-CSharp::Wave_SO
-  waveNumber: 3
+  waveNumber: 0
   enemiesInWave:
   - enemyType: {fileID: 11400000, guid: ddb7d8299f7009749913e05485f740a9, type: 2}
     count: 1
-    spawnInterval: 0.6
+    spawnInterval: 1
     initialDelay: 0
-  timeAfterWave: 2
+  - enemyType: {fileID: 11400000, guid: 82805edabf852d4489d9c9ad621a039f, type: 2}
+    count: 2
+    spawnInterval: 1
+    initialDelay: 0
+  - enemyType: {fileID: 11400000, guid: 343f763044ec8a94f84b5eac2b4e03bd, type: 2}
+    count: 2
+    spawnInterval: 1
+    initialDelay: 0
+  - enemyType: {fileID: 11400000, guid: 6d0457430253d884f9c8ac4130be1570, type: 2}
+    count: 2
+    spawnInterval: 1
+    initialDelay: 0
+  timeAfterWave: 15
