@@ -8,11 +8,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2509659976742037045}
-  - component: {fileID: 2319266769794374467}
-  m_Layer: 0
-  m_Name: Circle
+<<<<<<< Updated upstream:Assets/Prefabs_Adri/Enemies/Fox.prefab
+  - component: {fileID: 1000019702734941936}
+  - component: {fileID: 2533904310865343385}
+  - component: {fileID: 3231952618323134285}
+  - component: {fileID: 1204679790868885783}
+  m_Layer: 6
+  m_Name: Fox
   m_TagString: Untagged
+=======
+  - component: {fileID: 1457598540938491709}
+  - component: {fileID: 8662622052907640249}
+  - component: {fileID: 615437485231557330}
+  - component: {fileID: 1610126115837298164}
+  - component: {fileID: 3573583101290368863}
+  - component: {fileID: 3815126259971902386}
+  - component: {fileID: 2986530189880879434}
+  - component: {fileID: 7289373675515395521}
+  m_Layer: 0
+  m_Name: Boss Steampunk
+  m_TagString: Enemy
+>>>>>>> Stashed changes:Assets/Prefabs/Steampunk/Boss Steampunk.prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

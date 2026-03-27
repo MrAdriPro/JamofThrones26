@@ -10,6 +10,7 @@ public class AreaDamageTower : MonoBehaviour
     public GameObject[] towerModels;
 
     public Transform target;
+    [SerializeField] RandoSoundEffecs _randomSoundEffect;
 
     [Header("Atributos de la Torre")]
     public float towerDamage;
@@ -67,6 +68,7 @@ public class AreaDamageTower : MonoBehaviour
             if (fireCountdown <= 0f)
             {
                 Attack();
+                _randomSoundEffect.PlayRandomAttackClip();
                 fireCountdown = 1f / fireRate;
             }
         }
@@ -92,6 +94,8 @@ public class AreaDamageTower : MonoBehaviour
             if (enemyHealth == null) continue;
 
             enemyHealth.TakeDamage(towerDamage);
+            
+
         }
     }
 
