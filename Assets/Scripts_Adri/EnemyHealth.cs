@@ -4,7 +4,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public Enemy_SO data;
     [SerializeField] GameObject coinObject;
-    float currentHealth;
+    public float currentHealth;
     private EnemyController enemyController;
     [SerializeField] RandoSoundEffecs _randomSoundEffects;
     public bool isDead;

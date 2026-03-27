@@ -91,7 +91,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2
+  m_Radius: 3.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-3327301036083946059
 MonoBehaviour:
@@ -113,7 +113,6 @@ MonoBehaviour:
   - {fileID: 858537577797361995}
   target: {fileID: 0}
   _randomSoundEffect: {fileID: 8920058426244771909}
-  dustEffect: {fileID: 0}
   towerDamage: 4
   fireRate: 0.5
 --- !u!114 &8920058426244771909
@@ -351,10 +350,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 633999505406463079}
     m_Modifications:
-    - target: {fileID: 919132149155446097, guid: 011372fb7bf55634887eaabef7c73e0f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 03a2256a5e80f0e4f9f42885a87d06a1, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.0013993052
@@ -414,6 +409,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 03a2256a5e80f0e4f9f42885a87d06a1, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 011372fb7bf55634887eaabef7c73e0f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

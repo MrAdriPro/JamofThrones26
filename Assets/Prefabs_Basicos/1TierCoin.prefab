@@ -195,7 +195,7 @@ MonoBehaviour:
   _rb: {fileID: 2570176917054802805}
   maxDistance: 1
   minDistance: -1
-  moneyValue: 6
+  moneyValue: 8
   dropForce: 2
 --- !u!54 &2570176917054802805
 Rigidbody:

@@ -107,7 +107,7 @@ MonoBehaviour:
   _animator: {fileID: 3629326637887165474}
   timeNextAttack: 0
   _randoSoundEffecs: {fileID: 2695794285294132766}
-  data: {fileID: 11400000, guid: ddb7d8299f7009749913e05485f740a9, type: 2}
+  data: {fileID: 11400000, guid: ff39c3de98ba6d24ba7c3ad49d5eca5b, type: 2}
 --- !u!114 &7304952410948594275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,9 +120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac158bae1fa3c145945d49bed822a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: ddb7d8299f7009749913e05485f740a9, type: 2}
+  data: {fileID: 11400000, guid: ff39c3de98ba6d24ba7c3ad49d5eca5b, type: 2}
   coinObject: {fileID: 8060829633014351544, guid: 98b3a38acfa5aba41971ad98ae8bebee, type: 3}
+  currentHealth: 0
   _randomSoundEffects: {fileID: 2695794285294132766}
+  isDead: 0
 --- !u!114 &-6511497481666329718
 MonoBehaviour:
   m_ObjectHideFlags: 0

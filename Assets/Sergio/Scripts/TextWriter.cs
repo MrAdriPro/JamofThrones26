@@ -1,14 +1,15 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class TextWriter : MonoBehaviour
 {
-    [Header("Configuración")]
+    [Header("Configuracion")]
     public Text textComponent;
     public Canvas canvas;
     public float delay = 0.05f;
-    public string[] dialogLines; 
+    public string[] dialogLines;
     public Collider coll;
     public string detectObjective;
 
@@ -18,51 +19,71 @@ public class TextWriter : MonoBehaviour
     private bool shown = false;
     private Coroutine _typingCoroutine;
 
-
+    private bool _isActiveInstance = false;
+    private static bool _isAnyDialogActive = false;
+    private static Queue<TextWriter> _dialogQueue = new Queue<TextWriter>();
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag(detectObjective) && !shown)
+        if (other.CompareTag(detectObjective) && !shown)
         {
-            canvas.gameObject.SetActive(true);
-
-            if (dialogLines.Length > 0)
-                StartCoroutine(ShowCurrentLine());
-
             shown = true;
+
+            if (_isAnyDialogActive)
+            {
+                _dialogQueue.Enqueue(this);
+            }
+            else
+            {
+                StartDialog();
+            }
         }
     }
 
-    void Start()
+    public void StartDialog()
     {
-        // textComponent = GetComponent<Text>();
+        _isAnyDialogActive = true;
+        _isActiveInstance = true;
+        canvas.gameObject.SetActive(true);
+        _currentIndex = 0;
 
-        // if (dialogLines.Length > 0)
-        //     StartCoroutine(ShowCurrentLine());
+        if (dialogLines.Length > 0)
+        {
+            _typingCoroutine = StartCoroutine(ShowCurrentLine());
+        }
+        else
+        {
+            OnDialogFinished();
+        }
     }
 
     void Update()
     {
+        if (!_isActiveInstance) return;
+
         if (!Input.GetMouseButtonDown(0)) return;
 
         if (_isTyping)
         {
-            // Mostrar linea entera si se hace click mientras esta escribiendo
-            StopCoroutine(_typingCoroutine);
+            if (_typingCoroutine != null) StopCoroutine(_typingCoroutine);
+
             _isTyping = false;
             textComponent.text = dialogLines[_currentIndex];
             _waitingForClick = true;
         }
         else if (_waitingForClick)
         {
-            // Siguiente linea al hacer click cuando ha terminado de escribir
             _waitingForClick = false;
             _currentIndex++;
 
             if (_currentIndex < dialogLines.Length)
+            {
                 _typingCoroutine = StartCoroutine(ShowCurrentLine());
+            }
             else
+            {
                 OnDialogFinished();
+            }
         }
     }
 
@@ -85,6 +106,17 @@ public class TextWriter : MonoBehaviour
     void OnDialogFinished()
     {
         canvas.gameObject.SetActive(false);
-        Debug.Log("Diálogo terminado");
+        _isActiveInstance = false;
+        _isAnyDialogActive = false;
+
+        while (_dialogQueue.Count > 0)
+        {
+            TextWriter nextDialog = _dialogQueue.Dequeue();
+            if (nextDialog != null)
+            {
+                nextDialog.StartDialog();
+                break;
+            }
+        }
     }
 }

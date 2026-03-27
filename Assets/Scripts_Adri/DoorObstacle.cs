@@ -62,7 +62,26 @@ public class DoorObstacle : MonoBehaviour
         {
             bool esActivo = (i == _ultimoIndiceModelo);
             doorPrefab[i].SetActive(esActivo);
-            if (esActivo) _animatorActual = doorPrefab[i].GetComponent<Animator>();
+
+            if (esActivo)
+            {
+                _animatorActual = doorPrefab[i].GetComponent<Animator>();
+
+                if (_animatorActual != null)
+                {
+                    _animatorActual.SetBool("Abrir", estaAbierta);
+
+                    if (estaAbierta)
+                    {
+                        _animatorActual.Play("Abrir", 0, 1f);
+                    }
+                }
+
+                if (_mainCollider != null)
+                {
+                    _mainCollider.enabled = !estaAbierta;
+                }
+            }
         }
     }
 

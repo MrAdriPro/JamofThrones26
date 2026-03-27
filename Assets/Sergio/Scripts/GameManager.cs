@@ -7,42 +7,50 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        PauseGame();
-    }
-
-    void PauseGame()
-    {
-        if(Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            gameIsPaused = !gameIsPaused;
-            Time.timeScale = gameIsPaused ? 1 : 0;
-            if (gameIsPaused)
-            {
-                panel.SetActive(true);
-            }
-            else panel.SetActive(false);
+            TogglePause();
         }
     }
 
-    void GameFinished()
+    public void TogglePause()
     {
-        // Acciones al terminar el juego
-    }
+        gameIsPaused = !gameIsPaused;
 
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Enemy"))
+        if (gameIsPaused)
         {
-            GameFinished();
+            Time.timeScale = 0f; 
+            panel.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1f; 
+            panel.SetActive(false);
         }
     }
-    public void ResumeGame() 
-    { 
-        Time.timeScale = 1;
+
+    public void ResumeGame()
+    {
         gameIsPaused = false;
+        Time.timeScale = 1f;
+        panel.SetActive(false);
     }
+
     public void Exit()
     {
         Application.Quit();
     }
+
+    //void GameFinished()
+    //{
+    //    Time.timeScale = 0f; 
+    //}
+
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Enemy"))
+    //    {
+    //        GameFinished();
+    //    }
+    //}
 }
