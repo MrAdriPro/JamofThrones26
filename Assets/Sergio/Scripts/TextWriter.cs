@@ -10,6 +10,7 @@ public class TextWriter : MonoBehaviour
     public float delay = 0.05f;
     public string[] dialogLines; 
     public Collider coll;
+    public string detectObjective;
 
     private int _currentIndex = 0;
     private bool _isTyping = false;
@@ -21,7 +22,7 @@ public class TextWriter : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player") && !shown)
+        if(other.CompareTag(detectObjective) && !shown)
         {
             canvas.gameObject.SetActive(true);
 
