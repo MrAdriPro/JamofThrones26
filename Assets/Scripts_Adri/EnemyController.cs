@@ -193,7 +193,6 @@ public class EnemyController : MonoBehaviour
 
         if (Time.time >= timeNextAttack)
         {
-            _randoSoundEffecs.PlayRandomAttackClip();
             actualDoor.TakeDamage(data.damage);
             timeNextAttack = Time.time + data.attackRate;
         }

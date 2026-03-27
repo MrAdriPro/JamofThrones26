@@ -76,7 +76,7 @@ public class DoorObstacle : MonoBehaviour
     {
         if (destroyed) return;
         currentHealth += repairAmount;
-
+        _randomSoundEffect.PlayRandomReparacionClip();
         if (currentHealth >= maxHealth)
         {
             currentHealth = maxHealth;
@@ -109,11 +109,11 @@ public class DoorObstacle : MonoBehaviour
             else
             {
                 doorPrefab[i].SetActive(false);
-            } 
+            }
         }
     }
-            
-                
+
+
 
     private void Contacto()
     {

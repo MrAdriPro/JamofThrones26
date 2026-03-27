@@ -1222,6 +1222,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4662197270274676708, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+      propertyPath: _contructionClip.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4866269010793412649, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
       propertyPath: m_Name
       value: PlayerController
@@ -1230,6 +1234,10 @@ PrefabInstance:
       propertyPath: _mainCamera
       value: 
       objectReference: {fileID: 199163607}
+    - target: {fileID: 4978291114777394804, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+      propertyPath: _randomSoundEffect
+      value: 
+      objectReference: {fileID: 6613931364533648997}
     - target: {fileID: 7615857159758561904, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1275,6 +1283,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+--- !u!114 &6613931364533648997 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4662197270274676708, guid: 1d3e9f9eee2d0f842a9bcb38b81f8fad, type: 3}
+  m_PrefabInstance: {fileID: 6613931364533648996}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc47c3bd8b0be74a89ca90bc0366235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8752865470318306579
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class RandoSoundEffecs : MonoBehaviour
     [SerializeField] AudioClip[] _attackClips;
     [SerializeField] AudioClip[] _dieClips;
     [SerializeField] AudioClip[] _contructionClip;
+    [SerializeField] AudioClip[] _reparacionClip;
     [SerializeField] AudioSource _audioSource;
     float minPitch = 0.85f;
     float maxPith = 1.15f;
@@ -53,6 +54,21 @@ public class RandoSoundEffecs : MonoBehaviour
         int randomIndex = Random.Range(0, _contructionClip.Length);
         float randomPitch = Random.Range(minPitch, maxPith);
         AudioClip randomClip = _contructionClip[randomIndex];
+        _audioSource.pitch = randomPitch;
+        _audioSource.PlayOneShot(randomClip);
+    }
+    public void PlayRandomReparacionClip()
+    {
+        // Seguro de que si algo falta, salte el mensaje para colocarlo
+        if (_reparacionClip.Length == 0 || _audioSource == null)
+        {
+            Debug.LogWarning("No audio clips or audio source assigned.");
+            return;
+        }
+        //Elige un sonido aleatorio dentro de la lista y lo reproduce, cambiando el Pith para quitar sensacion de monoteidad
+        int randomIndex = Random.Range(0, _reparacionClip.Length);
+        float randomPitch = Random.Range(minPitch, maxPith);
+        AudioClip randomClip = _reparacionClip[randomIndex];
         _audioSource.pitch = randomPitch;
         _audioSource.PlayOneShot(randomClip);
     }
