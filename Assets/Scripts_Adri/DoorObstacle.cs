@@ -3,17 +3,17 @@ using UnityEngine.UI;
 
 public class DoorObstacle : MonoBehaviour
 {
+    #region Variables
     public float maxHealth = 100f;
     public float currentHealth;
-    public float _currentEscudo;
+    [SerializeField] float _currentEscudo;
     float _damageEscudo;
     public bool destroyed = false;
-
-    [Header("Referencias Modelos")]
     public GameObject[] doorPrefab;
     [SerializeField] Animator _animatorActual;
     [SerializeField] RandoSoundEffecs _randomSoundEffect;
     [SerializeField] ModelSwapper _modelSwapper;
+    int _modeloActual;
 
     [Header("Abrir/Cerrar")]
     [SerializeField] Image _temporizadorPuerta;
@@ -25,157 +25,225 @@ public class DoorObstacle : MonoBehaviour
     [SerializeField] LayerMask _interacteables;
     [SerializeField] Vector3 _tamanioCaja;
     [SerializeField] Vector3 _offSet;
-    Collider[] colliders = new Collider[5];
-    private Collider _mainCollider;
+    Collider[] colliders = new Collider[1];
 
+    #endregion
+
+
+
+
+    #region Funciones de Unity
     private void Start()
     {
         currentHealth = maxHealth;
-        _mainCollider = GetComponent<Collider>();
-        ActualizarAnimator();
     }
-
     private void Update()
     {
         Contacto();
+        ActualizarPuerta(_modelSwapper.currentTek);
+        //TakeDamage(0.001f);
     }
+    void OnDrawGizmos()
+    {
+        //Gizmos para la caja de contacto
+        Gizmos.color = Color.yellow;
+        Matrix4x4 rotationMatrix = Matrix4x4.TRS(transform.TransformPoint(_offSet), transform.rotation, _tamanioCaja);
+        Gizmos.matrix = rotationMatrix;
+        Gizmos.DrawWireCube(Vector3.zero, Vector3.one);
+    }
+    #endregion
 
+
+
+
+    #region Funciones
+    //this is for the enemies to call when they attack the door
     public void TakeDamage(float damage)
     {
-        if (destroyed) return;
         _damageEscudo = damage;
-        if (_randomSoundEffect != null) _randomSoundEffect.PlayRandomAttackClip();
-    }
+        _randomSoundEffect.PlayRandomAttackClip();
+        if (destroyed || _currentEscudo > 0) return;
 
+        currentHealth -= damage;
+        //print("Door took damage: " + damage + ", current health: " + currentHealth);
+        if (currentHealth <= 0)
+        {
+            DestroyDoor();
+        }
+    }
+    //this is for the player to call when they want to repair the door
     public void RepairDoor(float repairAmount)
     {
         if (destroyed) return;
         currentHealth += repairAmount;
-        currentHealth = Mathf.Min(currentHealth, maxHealth);
-    }
 
+        if (currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        print("Door repaired: " + repairAmount + ", current health: " + currentHealth);
+    }
+    //this is called when the door is destroyed
     void DestroyDoor()
     {
         destroyed = true;
         currentHealth = 0;
-        if (_mainCollider != null) _mainCollider.enabled = false;
-        if (_animatorActual != null) _animatorActual.gameObject.SetActive(false);
+        //doorPrefab.SetActive(false);
+        print("Door destroyed");
+        GetComponent<Collider>().enabled = false;
+
     }
+    private void ActualizarAnimator()
+    {
+        _animatorActual = GetComponentInChildren<Animator>();
+    }
+    private void ActualizarPuerta(float indice)
+    {
+        for (int i = 0; i < doorPrefab.Length; i++)
+        {
+            if (i == _modelSwapper.currentTek)
+            {
+                doorPrefab[i].SetActive(true);
+                _animatorActual = doorPrefab[i].GetComponent<Animator>();
+            }
+            else
+            {
+                doorPrefab[i].SetActive(false);
+            } 
+        }
+    }
+            
+                
 
     private void Contacto()
     {
         Vector3 centro = transform.TransformPoint(_offSet);
         int cantidad = Physics.OverlapBoxNonAlloc(centro, _tamanioCaja / 2, colliders, transform.rotation, _interacteables);
 
-        bool playerEncontrado = false;
+
+
+        if (cantidad == 0) return;
 
         for (int i = 0; i < cantidad; i++)
         {
-            if (colliders[i] != null && colliders[i].TryGetComponent(out PlayerController player))
+            Collider other = colliders[i];
+            if (other == null) continue;
+
+            if (other.TryGetComponent(out PlayerController playerController))
             {
-                playerEncontrado = true;
-                ManejarAccionesPlayer(player);
-                break;
+                float vidaPorMoneda = 1.5f;
+
+                float monedasPorSegundo = 7f;
+                float costoEsteFrame = monedasPorSegundo * Time.deltaTime;
+
+                if (playerController._reparacionCantidad > 0 && currentHealth < maxHealth)
+                {
+                    if (ShopManager.shopInstance.TrySpendMoney(costoEsteFrame))
+                    {
+                        float curacionEsteFrame = costoEsteFrame * vidaPorMoneda;
+
+                        RepairDoor(curacionEsteFrame);
+                        playerController._animator.SetBool("Repairing", true);
+                    }
+                    else
+                    {
+                        playerController._animator.SetBool("Repairing", false);
+                    }
+                }
+                else
+                {
+                    playerController._animator.SetBool("Repairing", false);
+                }
+                AbrirPuerta(playerController);
+                CerrarPuerta(playerController);
+                ActivarScudo(playerController);
             }
         }
-
-        if (!playerEncontrado) ResetBarra();
     }
-
-    private void ManejarAccionesPlayer(PlayerController player)
+    private void ActivarScudo(PlayerController _playerController)
     {
-        if (player._reparacionCantidad > 0 && currentHealth < maxHealth)
+        if (!_playerController._aguantandoLaPuerta)
         {
-            float costo = 7f * Time.deltaTime;
-            if (ShopManager.shopInstance.TrySpendMoney(costo))
-            {
-                RepairDoor(costo * 1.5f);
-                player._animator.SetBool("Repairing", true);
-            }
-            else player._animator.SetBool("Repairing", false);
-        }
-        else player._animator.SetBool("Repairing", false);
-
-        if (player._aguantandoLaPuerta && player.stamina > 0)
-        {
-            float desgastePasivo = 5f * Time.deltaTime;
-            player.stamina -= (desgastePasivo + _damageEscudo);
-            player.stamina = Mathf.Max(player.stamina, 0);
-            _currentEscudo = player.stamina;
-            if (player._animator != null) player._animator.SetBool("Holding", true);
-            _damageEscudo = 0;
-        }
-        else
-        {
-            if (_damageEscudo > 0)
-            {
-                currentHealth -= _damageEscudo;
-                if (currentHealth <= 0) DestroyDoor();
-                _damageEscudo = 0;
-            }
             _currentEscudo = 0;
-            if (player._animator != null) player._animator.SetBool("Holding", false);
+            return;
         }
+        _playerController.stamina -= _damageEscudo;
+        _currentEscudo = _playerController.stamina;
+    }
+    private void AbrirPuerta(PlayerController _playerController)
+    {
+        if (_animatorActual.GetBool("Abrir") == true) return;
 
-        if (player.abrirPuerta)
+        if (_playerController.abrirPuerta && _temporizadorAbrir > 0f)
         {
-            bool estaAbierta = _animatorActual.GetBool("Abrir");
-            if (!estaAbierta) AbrirLogica();
-            else CerrarLogica();
+            _canvasGroupTemporizadorPuerta.alpha = 1;
+            _temporizadorAbrir -= Time.deltaTime;
+            _temporizadorPuerta.fillAmount = 1 - (_temporizadorAbrir / 3f);
+        }
+        else if (_temporizadorAbrir <= 0f)
+        {
+            _canvasGroupTemporizadorPuerta.alpha = 0;
+            _animatorActual.SetBool("Abrir", true);
+            _randomSoundEffect.PlayRandomContructionClip();
+            _temporizadorAbrir = 3f;
         }
         else
         {
-            ResetBarra();
+            _temporizadorAbrir = 3f; ;
+            _canvasGroupTemporizadorPuerta.alpha = 0;
         }
     }
-
-    private void AbrirLogica()
+    private void CerrarPuerta(PlayerController _playerController)
     {
-        _canvasGroupTemporizadorPuerta.alpha = 1;
-        _temporizadorAbrir -= Time.deltaTime;
-        _temporizadorPuerta.fillAmount = 1 - (_temporizadorAbrir / 3f);
+        if (_animatorActual.GetBool("Abrir") == false) return;
 
-        if (_temporizadorAbrir <= 0f)
+        if (_playerController.abrirPuerta && _temporizadorCerrar > 0f)
         {
-            _animatorActual.SetBool("Abrir", true);
-            if (_mainCollider != null) _mainCollider.enabled = false;
-            if (_randomSoundEffect != null) _randomSoundEffect.PlayRandomContructionClip();
-            ResetBarra();
+            _canvasGroupTemporizadorPuerta.alpha = 1;
+            _temporizadorCerrar -= Time.deltaTime;
+            _temporizadorPuerta.fillAmount = 1 - _temporizadorCerrar;
         }
-    }
-
-    private void CerrarLogica()
-    {
-        _canvasGroupTemporizadorPuerta.alpha = 1;
-        _temporizadorCerrar -= Time.deltaTime;
-        _temporizadorPuerta.fillAmount = 1 - _temporizadorCerrar;
-
-        if (_temporizadorCerrar <= 0f)
+        else if (_temporizadorCerrar <= 0f)
         {
+            _canvasGroupTemporizadorPuerta.alpha = 0;
             _animatorActual.SetBool("Abrir", false);
-            if (_mainCollider != null) _mainCollider.enabled = true;
-            if (_randomSoundEffect != null) _randomSoundEffect.PlayRandomDieClip();
-            ResetBarra();
+            _randomSoundEffect.PlayRandomDieClip();
+            _temporizadorCerrar = 1f;
+        }
+        else
+        {
+            _temporizadorCerrar = 1f; ;
+            _canvasGroupTemporizadorPuerta.alpha = 0;
         }
     }
+    #endregion
 
-    private void ResetBarra()
-    {
-        _temporizadorAbrir = 3f;
-        _temporizadorCerrar = 1f;
-        if (_canvasGroupTemporizadorPuerta != null) _canvasGroupTemporizadorPuerta.alpha = 0;
-    }
 
-    private void ActualizarAnimator()
-    {
-        _animatorActual = GetComponentInChildren<Animator>();
-    }
 
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Matrix4x4 rotationMatrix = Matrix4x4.TRS(transform.TransformPoint(_offSet), transform.rotation, Vector3.one);
-        Gizmos.matrix = rotationMatrix;
-        Gizmos.DrawWireCube(Vector3.zero, _tamanioCaja);
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
