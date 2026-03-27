@@ -20,8 +20,6 @@ public class TowerBuilder : MonoBehaviour
     [SerializeField] Button _buttonTorre1;
     [SerializeField] int _dineroTorreta2;
     [SerializeField] Button _buttonTorre2;
-    [SerializeField] int _dineroTorreta3;
-    [SerializeField] Button _buttonTorre3;
     int _nTorreta;
     bool _isActive = false;
     #endregion
@@ -83,7 +81,6 @@ public class TowerBuilder : MonoBehaviour
             _selecciondeTorretas.interactable = true;
             Torreta1();
             Torreta2();
-            Torreta3();
         }
         else
         {
@@ -140,18 +137,7 @@ public class TowerBuilder : MonoBehaviour
             _buttonTorre2.interactable = true;
         }
     }
-    private void Torreta3()
-    {
-        if (_shopManager.actualCoins < _dineroTorreta3)
-        {
-            _buttonTorre3.interactable = false;
-            return;
-        }
-        else
-        {
-            _buttonTorre3.interactable = true;
-        }
-    }
+   
     #endregion
 
 
