@@ -4,7 +4,7 @@ public class ModelSwapper : MonoBehaviour
 {
     public GameObject[] modelList;
 
-    public float currentTek = 0;
+    public int currentTek = 0;
 
     void Update()
     {

@@ -3,12 +3,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    #region Variables
     [Header("Referencias")]
     [SerializeField] PlayerInput _playerInput;
     [SerializeField] CharacterController _cC;
     [SerializeField] Camera _mainCamera;
-    [SerializeField] Transform _playerTransform;
     [SerializeField] RandoSoundEffecs _randomSoundEffect;
 
     [Header("Grounded")]
@@ -23,21 +21,15 @@ public class PlayerController : MonoBehaviour
     Vector3 vectorGravity;
     Vector2 _posicionRaton;
 
-    [Header("Mecanicas")]
+    [Header("Mec�nicas")]
     public float stamina = 100;
     public bool _aguantandoLaPuerta;
     public bool abrirPuerta = false;
     public float _reparacionCantidad = 0;
-    [SerializeField] LayerMask _interacteables;
-    [SerializeField] Vector3 _tamanioCaja;
-    [SerializeField] Vector3 _offSet;
     bool _onPause = false;
-    [SerializeField] private float _costeDineroPerSecond;
 
     public Animator _animator;
-    #endregion
 
-    #region Funciones Unity
     void Start()
     {
         _mainCamera = Camera.main;
@@ -50,9 +42,7 @@ public class PlayerController : MonoBehaviour
         Movimiento();
         RecuperacionEstamina();
     }
-    #endregion
 
-    #region Input System
     public void OnMovement(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -80,6 +70,7 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             _reparacionCantidad = 2f;
+            if (_randomSoundEffect != null) _randomSoundEffect.PlayRandomContructionClip();
         }
         else if (context.canceled)
         {
@@ -96,33 +87,19 @@ public class PlayerController : MonoBehaviour
 
     public void OnOpeninDoor(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            abrirPuerta = true;
-        }
-        else if (context.canceled)
-        {
-            abrirPuerta = false;
-        }
+        if (context.performed) abrirPuerta = true;
+        else if (context.canceled) abrirPuerta = false;
     }
+
     public void OnPauseMenu(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
             _onPause = !_onPause;
-            if (_onPause)
-            {
-                Time.timeScale = 0f;
-            }
-            else
-            {
-                Time.timeScale = 1f;
-            }
+            Time.timeScale = _onPause ? 0f : 1f;
         }
     }
-    #endregion
 
-    #region Funciones de Logica
     private void GroundCheck()
     {
         Collider[] colliderBuffer = new Collider[1];
@@ -132,35 +109,28 @@ public class PlayerController : MonoBehaviour
 
     private void Movimiento()
     {
-        Vector3 direccion = new Vector3(_horizontal, 0, _vertical);
+        bool isRepairing = _animator != null && _animator.GetBool("Repairing");
+        bool isHolding = _animator != null && _animator.GetBool("Holding");
 
-        if (!_grounded) vectorGravity = Vector3.down * 9.81f;
-        else vectorGravity = Vector3.zero;
+        if (isRepairing || isHolding || abrirPuerta)
+        {
+            _horizontal = 0;
+            _vertical = 0;
+            if (_animator != null) _animator.SetFloat("VerticalMove", 0);
+        }
+
+        Vector3 direccion = new Vector3(_horizontal, 0, _vertical);
+        vectorGravity = _grounded ? Vector3.zero : Vector3.down * 9.81f;
 
         _cC.Move((direccion + vectorGravity) * _velocidadMovimiento * Time.deltaTime);
 
-        if (_animator != null)
+        if (_animator != null && !isRepairing && !isHolding && !abrirPuerta)
         {
-            bool isRepairing = _animator.GetBool("Repairing");
-
-            if (isRepairing)
-            {
-                _animator.SetFloat("VerticalMove", 0);
-            }
-            else
-            {
-                float verticalLimpio = Mathf.Abs(_vertical) < 0.1f ? 0f : _vertical;
-
-                if (Mathf.Abs(_horizontal) > 0.1f && Mathf.Abs(_vertical) < 0.1f)
-                {
-                    _animator.SetFloat("VerticalMove", -1f);
-                }
-                else
-                {
-                    _animator.SetFloat("VerticalMove", verticalLimpio);
-                }
-            }
-
+            float verticalLimpio = Mathf.Abs(_vertical) < 0.1f ? 0f : _vertical;
+            if (Mathf.Abs(_horizontal) > 0.1f && Mathf.Abs(_vertical) < 0.1f) 
+                _animator.SetFloat("VerticalMove", -1f);
+            else 
+                _animator.SetFloat("VerticalMove", verticalLimpio);
 
             SpriteRenderer sR = _animator.GetComponent<SpriteRenderer>();
             if (sR != null)
@@ -174,7 +144,7 @@ public class PlayerController : MonoBehaviour
     private void RecuperacionEstamina()
     {
         if (stamina >= 100 || _aguantandoLaPuerta) return;
-        stamina += Time.deltaTime;
+        stamina += Time.deltaTime * 5f;
     }
 
     public void RefreshAnimator(Animator newAnimator)
@@ -182,5 +152,4 @@ public class PlayerController : MonoBehaviour
         _animator = newAnimator;
         if (_animator != null) _animator.SetFloat("VerticalMove", 0);
     }
-    #endregion
 }

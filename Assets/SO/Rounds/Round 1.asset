@@ -9,21 +9,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: f5fb7889c3d6a52438d19be65d6fec3d, type: 3}
   m_Name: Round 1
   m_EditorClassIdentifier: Assembly-CSharp::Wave_SO
   waveNumber: 1
   enemiesInWave:
-  - enemyType: {fileID: 11400000, guid: 87d098a688765c84091831287cce5f15, type: 2}
+  - enemyType: {fileID: 11400000, guid: 82805edabf852d4489d9c9ad621a039f, type: 2}
+    count: 3
+    spawnInterval: 4
+    initialDelay: 0
+  - enemyType: {fileID: 11400000, guid: 82805edabf852d4489d9c9ad621a039f, type: 2}
+    count: 5
+    spawnInterval: 1.5
+    initialDelay: 10
+  - enemyType: {fileID: 11400000, guid: 82805edabf852d4489d9c9ad621a039f, type: 2}
+    count: 4
+    spawnInterval: 1
+    initialDelay: 10
+  - enemyType: {fileID: 11400000, guid: bdc6ea03c179d4944a48fa010b7272ed, type: 2}
     count: 1
     spawnInterval: 1
     initialDelay: 0
-  - enemyType: {fileID: 11400000, guid: 42a91f7afb62b214584b575385dd220d, type: 2}
+  - enemyType: {fileID: 11400000, guid: bdc6ea03c179d4944a48fa010b7272ed, type: 2}
+    count: 3
+    spawnInterval: 1
+    initialDelay: 10
+  - enemyType: {fileID: 11400000, guid: 82805edabf852d4489d9c9ad621a039f, type: 2}
+    count: 4
+    spawnInterval: 1.5
+    initialDelay: 0
+  - enemyType: {fileID: 11400000, guid: ff39c3de98ba6d24ba7c3ad49d5eca5b, type: 2}
     count: 1
     spawnInterval: 1
-    initialDelay: 0
-  - enemyType: {fileID: 11400000, guid: 2bf26bfb43808fd4c835366faa8aaee3, type: 2}
-    count: 1
-    spawnInterval: 1
-    initialDelay: 0
-  timeAfterWave: 2
+    initialDelay: 15
+  timeAfterWave: 25

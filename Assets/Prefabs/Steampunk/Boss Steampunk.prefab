@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: e34b64784799de447ad35b5f362feea1, type: 2}
-  coinObject: {fileID: 8060829633014351544, guid: d25687e50010d8446a9ad9229e02c519, type: 3}
+  coinObject: {fileID: 8060829633014351544, guid: bdeee0c6c43ef4a44a842b5f0856d058, type: 3}
   _randomSoundEffects: {fileID: 871968196000384288}
 --- !u!114 &3815126259971902386
 MonoBehaviour:
@@ -143,7 +143,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387452794730468431}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2256398440406382273, guid: eb710496147811040bec7dbab45043e1, type: 2}
   m_audioClip: {fileID: 0}
@@ -240,15 +240,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387452794730468431}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afc47c3bd8b0be74a89ca90bc0366235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackClips:
-  - {fileID: 8300000, guid: 3afa90d0d0755bf4292f1738adb7e7d3, type: 3}
-  _dieClips:
-  - {fileID: 8300000, guid: 5f8e198dac31d0b488a8371d12fd1653, type: 3}
+  _attackClips: []
+  _dieClips: []
   _contructionClip: []
   _audioSource: {fileID: 5076021398531910601}
 --- !u!1 &3106923818652605927

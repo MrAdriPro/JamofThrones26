@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Dino
   enemyPrefab: {fileID: 7496573096510094880, guid: f338dd163525b864f9f1a55b9da67ace, type: 3}
-  health: 5
-  speed: 15
-  damage: 1
+  health: 100
+  speed: 6
+  damage: 10
   attackRate: 1
   flying: 0
-  attackRange: 2.5
+  attackRange: 2.2
   coins: 5
   isBoss: 1
   attackInverted: 0

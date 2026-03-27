@@ -15,6 +15,8 @@ public class WaveManager : MonoBehaviour
     private int totalEnemiesInCurrentEra = 0;
     private int enemiesSpawnedInCurrentEra = 0;
 
+    public DefeatCondition defeatCondition;
+
     private void Start()
     {
         actualRound = 0;
@@ -129,7 +131,7 @@ public class WaveManager : MonoBehaviour
                 Debug.Log("nigger");
                 eraUI.SetEraCompleted(currentEraIndex);
 
-                //win
+                defeatCondition.Win();
                 yield break; 
             }
 

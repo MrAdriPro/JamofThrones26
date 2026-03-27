@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 4877199371039758225}
   - component: {fileID: 5173850030295393707}
   m_Layer: 0
-  m_Name: ShootingTower
+  m_Name: TorreBase
   m_TagString: Shooting Towers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 4039915949869096666}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.6, y: 0.5, z: -30.5}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -109,6 +109,7 @@ MonoBehaviour:
   - {fileID: 8765673425175199189}
   - {fileID: 243038219641396298}
   - {fileID: 4910791044498672522}
+  _randomSoundEffects: {fileID: 0}
   target: {fileID: 0}
   fireRate: 1
   firePoint: {fileID: 0}

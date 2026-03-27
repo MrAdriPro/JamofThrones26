@@ -46,7 +46,7 @@ public class MainMenuManager : MonoBehaviour
     {
         if(play)
         {
-            SceneManager.LoadScene("DefinitiveAdriScene");
+            SceneManager.LoadScene("Comic");
         }
         else
         {

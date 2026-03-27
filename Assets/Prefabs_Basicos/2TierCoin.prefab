@@ -10,22 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2509659976742037045}
   - component: {fileID: 2319266769794374467}
+  - component: {fileID: 6559393689700373135}
+  - component: {fileID: 5843328337198167125}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
-=======
-  - component: {fileID: 7496847812605737275}
-  - component: {fileID: 3765918849427573099}
-  - component: {fileID: 1161334809725574722}
-  - component: {fileID: 1390011890286746656}
-  - component: {fileID: 7304952410948594275}
-  - component: {fileID: -6511497481666329718}
-  - component: {fileID: 4245750544925510463}
-  - component: {fileID: 3229191623912779950}
-  m_Layer: 0
-  m_Name: Dino Prehistorico
-  m_TagString: Enemy
->>>>>>> Stashed changes:Assets/Prefabs/Prehistoricos/Dino Prehistorico.prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 77602704336955014}
   serializedVersion: 2
   m_LocalRotation: {x: 0.25881892, y: -0, z: -0, w: 0.9659259}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.69948, y: 0.69948, z: 0.69948}
+  m_LocalPosition: {x: 0.22, y: 0, z: 0}
+  m_LocalScale: {x: 0.11380251, y: 0.11380251, z: 0.11380251}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7771529724386292631}
@@ -89,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 7db87732e3b6bf041aede9e787f152d5, type: 3}
+  m_Color: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,6 +89,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6559393689700373135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77602704336955014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d865ab2af864f8243aea6620a6c743b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5843328337198167125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77602704336955014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d865ab2af864f8243aea6620a6c743b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &210717844177572744
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +195,7 @@ MonoBehaviour:
   _rb: {fileID: 2570176917054802805}
   maxDistance: 1
   minDistance: -1
-  moneyValue: 4
+  moneyValue: 8
   dropForce: 2
 --- !u!54 &2570176917054802805
 Rigidbody:
