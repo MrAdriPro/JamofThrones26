@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class ModelSwapper : MonoBehaviour
 {
-    [SerializeField] private GameObject[] modelList;
+    public GameObject[] modelList;
 
-    private float currentTek = 0;
+    public float currentTek = 0;
 
     void Update()
     {

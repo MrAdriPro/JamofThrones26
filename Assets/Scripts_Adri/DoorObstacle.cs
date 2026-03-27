@@ -9,9 +9,11 @@ public class DoorObstacle : MonoBehaviour
     [SerializeField] float _currentEscudo;
     float _damageEscudo;
     public bool destroyed = false;
-    public GameObject doorPrefab;
-    [SerializeField] Animator _animator;
+    public GameObject[] doorPrefab;
+    [SerializeField] Animator _animatorActual;
     [SerializeField] RandoSoundEffecs _randomSoundEffect;
+    [SerializeField] ModelSwapper _modelSwapper;
+    int _modeloActual;
 
     [Header("Abrir/Cerrar")]
     [SerializeField] Image _temporizadorPuerta;
@@ -85,11 +87,32 @@ public class DoorObstacle : MonoBehaviour
     {
         destroyed = true;
         currentHealth = 0;
-        doorPrefab.SetActive(false);
+        //doorPrefab.SetActive(false);
         print("Door destroyed");
         GetComponent<Collider>().enabled = false;
 
     }
+    private void ActualizarAnimator()
+    {
+        _animatorActual = GetComponentInChildren<Animator>();
+    }
+    private void ActualizarPuerta(float indice)
+    {
+        for (int i = 0; i < _modelSwapper.currentTek; i++)
+        {
+            if (doorPrefab[i] != null && i != _modelSwapper.currentTek)
+            {
+                doorPrefab[i].SetActive(false);
+            }
+            else
+            {
+                doorPrefab[i].SetActive(true);
+                ActualizarAnimator();
+            } 
+        }
+    }
+            
+
     private void Contacto()
     {
         Vector3 centro = transform.TransformPoint(_offSet);
@@ -147,7 +170,7 @@ public class DoorObstacle : MonoBehaviour
     }
     private void AbrirPuerta(PlayerController _playerController)
     {
-        if (_animator.GetBool("Abrir") == true) return;
+        if (_animatorActual.GetBool("Abrir") == true) return;
 
         if (_playerController.abrirPuerta && _temporizadorAbrir > 0f)
         {
@@ -158,7 +181,7 @@ public class DoorObstacle : MonoBehaviour
         else if (_temporizadorAbrir <= 0f)
         {
             _canvasGroupTemporizadorPuerta.alpha = 0;
-            _animator.SetBool("Abrir", true);
+            _animatorActual.SetBool("Abrir", true);
             _randomSoundEffect.PlayRandomContructionClip();
             _temporizadorAbrir = 3f;
         }
@@ -170,7 +193,7 @@ public class DoorObstacle : MonoBehaviour
     }
     private void CerrarPuerta(PlayerController _playerController)
     {
-        if (_animator.GetBool("Abrir") == false) return;
+        if (_animatorActual.GetBool("Abrir") == false) return;
 
         if (_playerController.abrirPuerta && _temporizadorCerrar > 0f)
         {
@@ -181,7 +204,7 @@ public class DoorObstacle : MonoBehaviour
         else if (_temporizadorCerrar <= 0f)
         {
             _canvasGroupTemporizadorPuerta.alpha = 0;
-            _animator.SetBool("Abrir", false);
+            _animatorActual.SetBool("Abrir", false);
             _randomSoundEffect.PlayRandomDieClip();
             _temporizadorCerrar = 1f;
         }
