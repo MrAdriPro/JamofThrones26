@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: 
   enemyPrefab: {fileID: 529039503429582445, guid: 9ac3687fbdcca3f43af5135eb6591fd6, type: 3}
-  health: 5
-  speed: 6
-  damage: 1
+  health: 18
+  speed: 10
+  damage: 15
   attackRate: 1
-  flying: 0
-  attackRange: 1
+  flying: 1
+  attackRange: 2.7
   coins: 0
   isBoss: 0
   attackInverted: 0

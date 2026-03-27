@@ -209,6 +209,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2603527274063127850, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603527274063127850, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603527274063127850, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603527274063127850, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4451116772273428977, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.01
@@ -253,6 +269,22 @@ PrefabInstance:
       propertyPath: _shopManager
       value: 
       objectReference: {fileID: 1535836798}
+    - target: {fileID: 6629694382607961633, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629694382607961633, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629694382607961633, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629694382607961633, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8662509682059345090, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
       propertyPath: m_Name
       value: ConstruccionTorreta
@@ -10000,6 +10032,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2603527274063127850, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603527274063127850, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603527274063127850, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603527274063127850, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4451116772273428977, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 32.64
@@ -10044,6 +10092,22 @@ PrefabInstance:
       propertyPath: _shopManager
       value: 
       objectReference: {fileID: 1535836798}
+    - target: {fileID: 6629694382607961633, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629694382607961633, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629694382607961633, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629694382607961633, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8662509682059345090, guid: 1241a54585bed41438a63621ae734c8c, type: 3}
       propertyPath: m_Name
       value: ConstruccionTorreta (4)
@@ -18119,7 +18183,7 @@ PrefabInstance:
       objectReference: {fileID: 1171175697}
     - target: {fileID: 7517007446113926911, guid: e5cd4a7f9300e5c40816f2a0015bd931, type: 3}
       propertyPath: waves.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7517007446113926911, guid: e5cd4a7f9300e5c40816f2a0015bd931, type: 3}
       propertyPath: 'waves.Array.data[1]'

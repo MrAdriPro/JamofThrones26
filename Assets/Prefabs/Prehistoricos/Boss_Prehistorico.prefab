@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: ddb7d8299f7009749913e05485f740a9, type: 2}
-  coinObject: {fileID: 8060829633014351544, guid: d25687e50010d8446a9ad9229e02c519, type: 3}
+  coinObject: {fileID: 8060829633014351544, guid: 98b3a38acfa5aba41971ad98ae8bebee, type: 3}
   _randomSoundEffects: {fileID: 2695794285294132766}
 --- !u!114 &-6511497481666329718
 MonoBehaviour:

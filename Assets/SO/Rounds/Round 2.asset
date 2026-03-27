@@ -14,12 +14,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Wave_SO
   waveNumber: 2
   enemiesInWave:
-  - enemyType: {fileID: 11400000, guid: bdc6ea03c179d4944a48fa010b7272ed, type: 2}
-    count: 1
+  - enemyType: {fileID: 11400000, guid: 2bf26bfb43808fd4c835366faa8aaee3, type: 2}
+    count: 6
     spawnInterval: 1
     initialDelay: 0
-  - enemyType: {fileID: 11400000, guid: 82805edabf852d4489d9c9ad621a039f, type: 2}
+  - enemyType: {fileID: 11400000, guid: 42a91f7afb62b214584b575385dd220d, type: 2}
+    count: 2
+    spawnInterval: 1
+    initialDelay: 10
+  - enemyType: {fileID: 11400000, guid: 2bf26bfb43808fd4c835366faa8aaee3, type: 2}
     count: 4
-    spawnInterval: 1.5
+    spawnInterval: 1
     initialDelay: 0
+  - enemyType: {fileID: 11400000, guid: 2bf26bfb43808fd4c835366faa8aaee3, type: 2}
+    count: 6
+    spawnInterval: 1
+    initialDelay: 10
+  - enemyType: {fileID: 11400000, guid: 42a91f7afb62b214584b575385dd220d, type: 2}
+    count: 3
+    spawnInterval: 1
+    initialDelay: 0
+  - enemyType: {fileID: 11400000, guid: 42a91f7afb62b214584b575385dd220d, type: 2}
+    count: 3
+    spawnInterval: 1
+    initialDelay: 10
+  - enemyType: {fileID: 11400000, guid: 2bf26bfb43808fd4c835366faa8aaee3, type: 2}
+    count: 3
+    spawnInterval: 1
+    initialDelay: 0
+  - enemyType: {fileID: 11400000, guid: 42a91f7afb62b214584b575385dd220d, type: 2}
+    count: 2
+    spawnInterval: 1
+    initialDelay: 0
+  - enemyType: {fileID: 11400000, guid: 87d098a688765c84091831287cce5f15, type: 2}
+    count: 1
+    spawnInterval: 1
+    initialDelay: 15
   timeAfterWave: 25
