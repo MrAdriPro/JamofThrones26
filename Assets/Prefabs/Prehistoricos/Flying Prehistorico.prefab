@@ -148,10 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc47c3bd8b0be74a89ca90bc0366235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackClips:
-  - {fileID: 8300000, guid: fe409a049ef28244a96ae842125cade1, type: 3}
-  _dieClips:
-  - {fileID: 8300000, guid: 16b8aaa97431f05468290a9e574a1387, type: 3}
+  _attackClips: []
+  _dieClips: []
   _contructionClip: []
   _audioSource: {fileID: 245189110741882191}
 --- !u!82 &245189110741882191
@@ -161,7 +159,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7496573096510094880}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2256398440406382273, guid: eb710496147811040bec7dbab45043e1, type: 2}
   m_audioClip: {fileID: 0}

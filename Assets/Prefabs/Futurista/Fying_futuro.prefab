@@ -245,10 +245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc47c3bd8b0be74a89ca90bc0366235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackClips:
-  - {fileID: 8300000, guid: 99fd160c623886c4b9a798fd0fbe6445, type: 3}
-  _dieClips:
-  - {fileID: 8300000, guid: 78ba05bab21828641924a9281977263a, type: 3}
+  _attackClips: []
+  _dieClips: []
   _contructionClip: []
   _audioSource: {fileID: 2195676496509540501}
 --- !u!1 &7870513717605427678

@@ -107,8 +107,8 @@ MonoBehaviour:
   _interacteables:
     serializedVersion: 2
     m_Bits: 256
-  _tamanioCaja: {x: 5, y: 2, z: 1}
-  _offSet: {x: -0.63, y: 1.41, z: -1.07}
+  _tamanioCaja: {x: 6.42, y: 4.46, z: 1}
+  _offSet: {x: -0.68, y: 2.88, z: 0.48}
 --- !u!114 &5684227214329266870
 MonoBehaviour:
   m_ObjectHideFlags: 0
