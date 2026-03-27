@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4702599430788070844}
   - component: {fileID: 7946254597045233723}
+  - component: {fileID: 5024640406976342097}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -53,6 +54,28 @@ MonoBehaviour:
   - {fileID: 9042678535653759488}
   - {fileID: 2600687013335722232}
   - {fileID: 6987777189052797887}
+  currentTek: 0
+--- !u!65 &5024640406976342097
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925828145540606895}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 13.306984, y: 6.851906, z: 0.9999999}
+  m_Center: {x: 0.22217523, y: 3.354141, z: -0.0000016280221}
 --- !u!1001 &810787831075699536
 PrefabInstance:
   m_ObjectHideFlags: 0
