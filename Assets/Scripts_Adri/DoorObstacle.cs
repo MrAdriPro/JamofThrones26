@@ -9,6 +9,7 @@ public class DoorObstacle : MonoBehaviour
     public float _currentEscudo;
     float _damageEscudo;
     public bool destroyed = false;
+    public bool estaAbierta = false;
 
     [Header("Referencias Modelos")]
     public GameObject[] doorPrefab;
@@ -36,10 +37,8 @@ public class DoorObstacle : MonoBehaviour
     {
         currentHealth = maxHealth;
         _mainCollider = GetComponent<Collider>();
-
         if (_randomSoundEffect != null)
             _audioSourceReparar = _randomSoundEffect.GetComponent<AudioSource>();
-
         ActualizarPuertaVisual();
     }
 
@@ -65,7 +64,7 @@ public class DoorObstacle : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (destroyed) return;
+        if (destroyed || estaAbierta) return;
         _damageEscudo = damage;
         if (_randomSoundEffect != null) _randomSoundEffect.PlayRandomAttackClip();
 
@@ -78,7 +77,7 @@ public class DoorObstacle : MonoBehaviour
 
     public void RepairDoor(float repairAmount)
     {
-        if (destroyed) return;
+        if (destroyed || estaAbierta) return;
         currentHealth += repairAmount;
         currentHealth = Mathf.Min(currentHealth, maxHealth);
     }
@@ -86,6 +85,7 @@ public class DoorObstacle : MonoBehaviour
     void DestroyDoor()
     {
         destroyed = true;
+        estaAbierta = true;
         currentHealth = 0;
         DetenerSonidoReparacion();
         if (_mainCollider != null) _mainCollider.enabled = false;
@@ -117,32 +117,21 @@ public class DoorObstacle : MonoBehaviour
 
     private void ManejarAccionesPlayer(PlayerController player)
     {
-        if (player._reparacionCantidad > 0 && currentHealth < maxHealth)
+        if (player._reparacionCantidad > 0 && currentHealth < maxHealth && !estaAbierta)
         {
             float costo = 7f * Time.deltaTime;
             if (ShopManager.shopInstance.TrySpendMoney(costo))
             {
                 RepairDoor(costo * 1.5f);
                 player._animator.SetBool("Repairing", true);
-
                 if (_audioSourceReparar != null && !_audioSourceReparar.isPlaying)
-                {
                     _randomSoundEffect.PlayRandomContructionClip();
-                }
             }
-            else
-            {
-                player._animator.SetBool("Repairing", false);
-                DetenerSonidoReparacion();
-            }
+            else DetenerReparacionAnim(player);
         }
-        else
-        {
-            if (player._animator != null) player._animator.SetBool("Repairing", false);
-            DetenerSonidoReparacion();
-        }
+        else DetenerReparacionAnim(player);
 
-        if (player._aguantandoLaPuerta && player.stamina > 0)
+        if (player._aguantandoLaPuerta && player.stamina > 0 && !estaAbierta)
         {
             float desgastePasivo = 5f * Time.deltaTime;
             player.stamina -= (desgastePasivo + _damageEscudo);
@@ -168,12 +157,16 @@ public class DoorObstacle : MonoBehaviour
         else ResetBarra();
     }
 
+    private void DetenerReparacionAnim(PlayerController player)
+    {
+        if (player._animator != null) player._animator.SetBool("Repairing", false);
+        DetenerSonidoReparacion();
+    }
+
     private void DetenerSonidoReparacion()
     {
         if (_audioSourceReparar != null && _audioSourceReparar.isPlaying)
-        {
             _audioSourceReparar.Stop();
-        }
     }
 
     private void AbrirPuertaLogica()
@@ -183,6 +176,7 @@ public class DoorObstacle : MonoBehaviour
         _temporizadorPuerta.fillAmount = 1 - (_temporizadorAbrir / 3f);
         if (_temporizadorAbrir <= 0f)
         {
+            estaAbierta = true;
             _animatorActual.SetBool("Abrir", true);
             if (_mainCollider != null) _mainCollider.enabled = false;
             _randomSoundEffect.PlayRandomContructionClip();
@@ -197,6 +191,7 @@ public class DoorObstacle : MonoBehaviour
         _temporizadorPuerta.fillAmount = 1 - _temporizadorCerrar;
         if (_temporizadorCerrar <= 0f)
         {
+            estaAbierta = false;
             _animatorActual.SetBool("Abrir", false);
             if (_mainCollider != null) _mainCollider.enabled = true;
             _randomSoundEffect.PlayRandomDieClip();

@@ -6,6 +6,7 @@ public class BulletController : MonoBehaviour
     public EnemyHealth enemyHealth;
     public Transform bulletTarget;
     public float bulletSpeed;
+    public float damage;
 
     void Start()
     {
@@ -26,7 +27,7 @@ public class BulletController : MonoBehaviour
 
         if (Vector3.Distance(transform.position, bulletTarget.position) < 0.2f)
         {
-            enemyHealth.TakeDamage(1);
+            enemyHealth.TakeDamage(damage);
             Destroy(gameObject);
         }
     }
