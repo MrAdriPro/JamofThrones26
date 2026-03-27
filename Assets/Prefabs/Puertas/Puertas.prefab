@@ -127,11 +127,10 @@ MonoBehaviour:
   _contructionClip:
   - {fileID: 8300000, guid: 06c1140b7971d3b4590e51a40f68fac5, type: 3}
   _reparacionClip:
-  - {fileID: 8300000, guid: 0ab68cf64a1bf934085f0d73f4dabe68, type: 3}
-  - {fileID: 8300000, guid: 28c0b38872e2a7c4bb36dd1836212280, type: 3}
   - {fileID: 8300000, guid: e4a53034d6c2e5d408c5e5dbb0365dc4, type: 3}
   - {fileID: 8300000, guid: b5e163ac7d9706f4794cbf6c12c60d82, type: 3}
   _audioSource: {fileID: 8731298765757210135}
+  _tiempoEntreSonidos: 0.18
 --- !u!82 &8731298765757210135
 AudioSource:
   m_ObjectHideFlags: 0
@@ -586,6 +585,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7708878877554261604, guid: 1f8d5909c99aac349861bbc863b8a2e4, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -762,7 +765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aa3186822653a6e45a281ed129d604d5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

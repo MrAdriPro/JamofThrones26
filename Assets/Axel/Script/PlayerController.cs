@@ -80,14 +80,13 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             _reparacionCantidad = 2f;
-            _randomSoundEffect.PlayRandomContructionClip();
         }
         else if (context.canceled)
         {
             _reparacionCantidad = 0f;
-
         }
     }
+
 
     public void OnHoldingDoor(InputAction.CallbackContext context)
     {
