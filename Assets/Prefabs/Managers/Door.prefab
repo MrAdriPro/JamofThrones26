@@ -635,9 +635,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -974,7 +974,7 @@ MonoBehaviour:
   m_FillMethod: 0
   m_FillAmount: 0
   m_FillClockwise: 1
-  m_FillOrigin: 1
+  m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8584059106567684824
@@ -1031,8 +1031,9 @@ MonoBehaviour:
   destroyed: 0
   doorPrefab: {fileID: 4810158817464909036}
   _animator: {fileID: 8230164222773870312}
-  _multiplicadorDanoEstamina: 2
-  _temporizadorPuerta: {fileID: 5981461574038230757}
+  _consumoPasivoEstamina: 5
+  _multiplicadorDanoImpacto: 2
+  _temporizadorPuerta: {fileID: 2544521349101497081}
   _canvasGroupTemporizadorPuerta: {fileID: 4308319326076233582}
   _interacteables:
     serializedVersion: 2
