@@ -119,16 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &60186941 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 822157868210396543, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
-  m_PrefabInstance: {fileID: 2050947322}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &208763771 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6390438585102769484, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
-  m_PrefabInstance: {fileID: 2050947322}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +397,7 @@ PrefabInstance:
     - target: {fileID: -3327301036083946059, guid: 50031537a438b1d46b98da57c2f52086, type: 3}
       propertyPath: 'towerModels.Array.data[0]'
       value: 
-      objectReference: {fileID: 1623089318}
+      objectReference: {fileID: 0}
     - target: {fileID: -3327301036083946059, guid: 50031537a438b1d46b98da57c2f52086, type: 3}
       propertyPath: 'towerModels.Array.data[1]'
       value: 
@@ -415,7 +405,7 @@ PrefabInstance:
     - target: {fileID: -3327301036083946059, guid: 50031537a438b1d46b98da57c2f52086, type: 3}
       propertyPath: 'towerModels.Array.data[2]'
       value: 
-      objectReference: {fileID: 1942633075}
+      objectReference: {fileID: 0}
     - target: {fileID: -3327301036083946059, guid: 50031537a438b1d46b98da57c2f52086, type: 3}
       propertyPath: 'towerModels.Array.data[3]'
       value: 
@@ -931,12 +921,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1651354817}
-  delay: 0.05
+  delay: 1
   dialogLines:
-  - Hola, Izan
-  - Deja de robarme los materiales
-  - pedazo de...
-  - desgraciao
+  - Prueba1
+  - Prueba2
+  - Prueba3
+  - Prueba4
 --- !u!114 &1595928497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -979,11 +969,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595928494}
   m_CullTransparentMesh: 1
---- !u!1 &1623089318 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6390438585102769484, guid: 50031537a438b1d46b98da57c2f52086, type: 3}
-  m_PrefabInstance: {fileID: 450013352}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1651354814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,11 +1150,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1942633075 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 822157868210396543, guid: 50031537a438b1d46b98da57c2f52086, type: 3}
-  m_PrefabInstance: {fileID: 450013352}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1985647730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,7 +1420,7 @@ PrefabInstance:
     - target: {fileID: 5173850030295393707, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
       propertyPath: 'towerModels.Array.data[0]'
       value: 
-      objectReference: {fileID: 208763771}
+      objectReference: {fileID: 0}
     - target: {fileID: 5173850030295393707, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
       propertyPath: 'towerModels.Array.data[1]'
       value: 
@@ -1448,7 +1428,7 @@ PrefabInstance:
     - target: {fileID: 5173850030295393707, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
       propertyPath: 'towerModels.Array.data[2]'
       value: 
-      objectReference: {fileID: 60186941}
+      objectReference: {fileID: 0}
     - target: {fileID: 5173850030295393707, guid: d3422464f47ec454b9f4f5a16cca5808, type: 3}
       propertyPath: 'towerModels.Array.data[3]'
       value: 

@@ -21,6 +21,7 @@ public class EnemyController : MonoBehaviour
     private float swayTimer;
 
     //references
+    [SerializeField] RandoSoundEffecs _randoSoundEffecs;
     public Enemy_SO data;
     private SpriteRenderer _spriteRenderer;
 
@@ -192,6 +193,7 @@ public class EnemyController : MonoBehaviour
 
         if (Time.time >= timeNextAttack)
         {
+            _randoSoundEffecs.PlayRandomAttackClip();
             actualDoor.TakeDamage(data.damage);
             timeNextAttack = Time.time + data.attackRate;
         }

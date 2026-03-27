@@ -47,6 +47,19 @@ GameObject:
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
+=======
+  - component: {fileID: 7496847812605737275}
+  - component: {fileID: 3765918849427573099}
+  - component: {fileID: 1161334809725574722}
+  - component: {fileID: 1390011890286746656}
+  - component: {fileID: 7304952410948594275}
+  - component: {fileID: -6511497481666329718}
+  - component: {fileID: 4245750544925510463}
+  - component: {fileID: 3229191623912779950}
+  m_Layer: 0
+  m_Name: Dino Prehistorico
+  m_TagString: Enemy
+>>>>>>> Stashed changes:Assets/Prefabs/Prehistoricos/Dino Prehistorico.prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -1,10 +1,13 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TowerBuilder : MonoBehaviour
 {
     #region Variables
     [SerializeField] GameObject[] _towers;
+    [SerializeField] ShopManager _shopManager;
+    [SerializeField] RandoSoundEffecs _randomSoundEffect;
     [SerializeField] LayerMask _interacteables;
     [SerializeField] Vector3 _tamanioCaja;
     [SerializeField] Vector3 _offSet;
@@ -13,6 +16,12 @@ public class TowerBuilder : MonoBehaviour
     [SerializeField] float _velocidadCrecimiento;
     [SerializeField] bool _torretaActivada = false;
     [SerializeField] Vector3 _localScale;
+    [SerializeField] int _dineroTorreta1;
+    [SerializeField] Button _buttonTorre1;
+    [SerializeField] int _dineroTorreta2;
+    [SerializeField] Button _buttonTorre2;
+    [SerializeField] int _dineroTorreta3;
+    [SerializeField] Button _buttonTorre3;
     int _nTorreta;
     bool _isActive = false;
     #endregion
@@ -72,6 +81,9 @@ public class TowerBuilder : MonoBehaviour
             _selecciondeTorretas.alpha = 1;
             _selecciondeTorretas.blocksRaycasts = true;
             _selecciondeTorretas.interactable = true;
+            Torreta1();
+            Torreta2();
+            Torreta3();
         }
         else
         {
@@ -80,26 +92,66 @@ public class TowerBuilder : MonoBehaviour
             _selecciondeTorretas.interactable = false;
         }
     }
-
     public void DesplegarTorre1()
     {
-        if (_towers[0] == null) return;
         _nTorreta = 0;
         _torretaActivada = true;
+        _randomSoundEffect.PlayRandomContructionClip();
     }
     public void DesplegarTorre2()
     {
-        if (_towers[1] == null) return;
         _nTorreta = 1;
         _torretaActivada = true;
+        _randomSoundEffect.PlayRandomContructionClip();
     }
     public void DesplegarTorre3()
     {
-        if (_towers[2] == null) return;
         _nTorreta = 2;
         _torretaActivada = true;
+        _randomSoundEffect.PlayRandomContructionClip();
     }
+    #endregion
 
+
+
+
+    #region Funciones Funcionales
+    private void Torreta1()
+    {
+        if (_shopManager.actualCoins < _dineroTorreta1)
+        {
+            _buttonTorre1.interactable = false;
+            return;
+        }
+        else
+        {
+            _buttonTorre1.interactable = true;
+        }
+    }
+    private void Torreta2()
+    {
+        if (_shopManager.actualCoins < _dineroTorreta2)
+        {
+            _buttonTorre2.interactable = false;
+            return;
+        }
+        else
+        {
+            _buttonTorre2.interactable = true;
+        }
+    }
+    private void Torreta3()
+    {
+        if (_shopManager.actualCoins < _dineroTorreta3)
+        {
+            _buttonTorre3.interactable = false;
+            return;
+        }
+        else
+        {
+            _buttonTorre3.interactable = true;
+        }
+    }
     #endregion
 
 
