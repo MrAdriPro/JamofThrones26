@@ -13,4 +13,8 @@ public class DefeatCondition : MonoBehaviour
             SceneManager.LoadScene(destinyName);
         }
     }
+    public void Win()
+    {
+        SceneManager.LoadScene("WinScreen");
+    }
 }
