@@ -116,7 +116,7 @@ MonoBehaviour:
   target: {fileID: 0}
   fireRate: 1
   firePoint: {fileID: 343828468388260147}
-  bulletPrefab: {fileID: 3111212151778295405, guid: 7cf428128d1df8842b9bac9f781a467c, type: 3}
+  bulletPrefab: {fileID: 3111212151778295405, guid: 05ceb8bdcba54af44bfbd404573a0416, type: 3}
 --- !u!114 &3632979953669875766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +134,7 @@ MonoBehaviour:
   - {fileID: 8765673425175199189}
   - {fileID: 243038219641396298}
   - {fileID: 4910791044498672522}
+  currentTek: 0
 --- !u!82 &1111034197818400217
 AudioSource:
   m_ObjectHideFlags: 0

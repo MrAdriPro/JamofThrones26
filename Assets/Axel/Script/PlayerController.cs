@@ -126,9 +126,9 @@ public class PlayerController : MonoBehaviour
         if (_animator != null && !isRepairing && !isHolding && !abrirPuerta)
         {
             float verticalLimpio = Mathf.Abs(_vertical) < 0.1f ? 0f : _vertical;
-            if (Mathf.Abs(_horizontal) > 0.1f && Mathf.Abs(_vertical) < 0.1f)
+            if (Mathf.Abs(_horizontal) > 0.1f && Mathf.Abs(_vertical) < 0.1f) 
                 _animator.SetFloat("VerticalMove", -1f);
-            else
+            else 
                 _animator.SetFloat("VerticalMove", verticalLimpio);
 
             SpriteRenderer sR = _animator.GetComponent<SpriteRenderer>();
