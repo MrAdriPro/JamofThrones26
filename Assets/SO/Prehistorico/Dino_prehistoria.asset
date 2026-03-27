@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Dino
   enemyPrefab: {fileID: 7496573096510094880, guid: c871cc01389296548b118db05901962f, type: 3}
-  health: 5
+  health: 7
   speed: 10
   damage: 1
   attackRate: 1
