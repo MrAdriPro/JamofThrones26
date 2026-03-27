@@ -1,0 +1,312 @@
+fileFormatVersion: 2
+guid: 7d6f1359659514547a2cd605f1ab5195
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Barrel_Alpha
+    second: {fileID: 2800000, guid: 75ec41b5f68e941459591f927f851abe, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Barrel_BaseColor
+    second: {fileID: 2800000, guid: ebc2327c27d23254e9a8beda1c3cce4c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Barrel_Emission
+    second: {fileID: 2800000, guid: c3de2d7b12f13b04ba347aa35cd831f8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Barrel_Metallic
+    second: {fileID: 2800000, guid: b27e7a4b318102b4389e765f2369b6cc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Barrel_Normal
+    second: {fileID: 2800000, guid: 66990ebc5bc6c5547a60eb26d1854501, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Barrel_Roughness
+    second: {fileID: 2800000, guid: c4b966bd5a08d2f44ae9aede641130c0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chimenea2_Alpha
+    second: {fileID: 2800000, guid: d6ffa1782d711894fbb11f57cac95709, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chimenea2_BaseColor
+    second: {fileID: 2800000, guid: 7c1b2754a65e757478c7d942f2ef7bf3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chimenea2_Emission
+    second: {fileID: 2800000, guid: b2a88bf25b405bc4ab2cdf1bee70245a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chimenea2_Metallic
+    second: {fileID: 2800000, guid: 1570c46b70addfc45bf267c6fa93a78d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chimenea2_Normal
+    second: {fileID: 2800000, guid: 63eeb2a318388e94ea882a8eda72f235, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chimenea2_Roughness
+    second: {fileID: 2800000, guid: 1a10fd9778e64da4f91488dee930c7d9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chimenie_Alpha
+    second: {fileID: 2800000, guid: 40b3f76643c24384a89ba34c6bd20638, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chimenie_BaseColor
+    second: {fileID: 2800000, guid: 69e76d8e31f64d448806a2f7bcd30746, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chimenie_Emission
+    second: {fileID: 2800000, guid: e0712bc7edbff144fb29c0594cfbed5d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chimenie_Metallic
+    second: {fileID: 2800000, guid: 79c97e4ba79241449a37739358e2c31c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chimenie_Normal
+    second: {fileID: 2800000, guid: efcb48b52904c1848b667cc837764673, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chimenie_Roughness
+    second: {fileID: 2800000, guid: 6149e52b5cd418a4ca65c429e5109cbd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Color Atlas
+    second: {fileID: 2800000, guid: 123f858f31689714996565f3728cf738, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: RockMat_Alpha
+    second: {fileID: 2800000, guid: 31026eec56fcb774b9c426e717fa6e38, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: RockMat_BaseColor
+    second: {fileID: 2800000, guid: 5ab30f7673d683a47a0e54126ab13939, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: RockMat_Emission
+    second: {fileID: 2800000, guid: 61457efac535de147b8c2d4299d72f5a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: RockMat_Metallic
+    second: {fileID: 2800000, guid: c55b1d9c0c95c5f429d3ee9626b244a9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: RockMat_Normal
+    second: {fileID: 2800000, guid: 6dbf7def20142aa4ca9d3fb938d8fb2c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: RockMat_Roughness
+    second: {fileID: 2800000, guid: d8d4f6395562f5a46bb98208b517e7dc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Steampunk Wall_Base_color
+    second: {fileID: 2800000, guid: 3dc34c35cdd56a34f9375630c5ecbeec, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Steampunk Wall_Metallic
+    second: {fileID: 2800000, guid: 1c760dafb459a384fa552c0dacf80de5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Steampunk Wall_Normal
+    second: {fileID: 2800000, guid: 0ed90c7ae2e3926409353697ce5b7c61, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Steampunk Wall_Roughness
+    second: {fileID: 2800000, guid: b75a30a51a162b046a11809f096b1527, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tesla_Alpha
+    second: {fileID: 2800000, guid: 58e0f9c492a464c4eab6b8712f12b850, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tesla_BaseColor
+    second: {fileID: 2800000, guid: cfefddbb50e208c439363d4840c215d0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tesla_Emission
+    second: {fileID: 2800000, guid: 5985ccb8d6685204cb7bc4ee4e40a185, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tesla_Metallic
+    second: {fileID: 2800000, guid: 62809b896077095428e02d89a7e163bb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tesla_Normal
+    second: {fileID: 2800000, guid: 6eef22e445489f14198604c784be797d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tesla_Roughness
+    second: {fileID: 2800000, guid: 88dde91a8bb02924fa3a249d28f72c70, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: WoodWall_Alpha
+    second: {fileID: 2800000, guid: 3cb5558a4eb76694fb3d76902bacf1d1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: WoodWall_BaseColor
+    second: {fileID: 2800000, guid: 7aa9b51d2dec11b44b7355caec73c1ea, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: WoodWall_Emission
+    second: {fileID: 2800000, guid: c67c2d939c4e1a340933cade56a9f568, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: WoodWall_Metallic
+    second: {fileID: 2800000, guid: a37b196a91a49104d9eee60c0559c91b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: WoodWall_Normal
+    second: {fileID: 2800000, guid: bd38f7d577ba2fc41ab6ed6cc5c5b3d9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: WoodWall_Roughness
+    second: {fileID: 2800000, guid: 4917ab9a12ceedd4ba25475f4e157c35, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
