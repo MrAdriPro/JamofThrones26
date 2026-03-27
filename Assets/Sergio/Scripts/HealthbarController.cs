@@ -12,8 +12,8 @@ public class HealthbarController : MonoBehaviour
         healthbarImage.fillAmount = doorObstacle.currentHealth / doorObstacle.maxHealth;
         if (shieldBarImage != null)
         {
-            shieldBarImage.fillAmount = doorObstacle.currentEscudo / 100f;
-            shieldBarImage.gameObject.SetActive(doorObstacle.currentEscudo > 0);
+            shieldBarImage.fillAmount = doorObstacle._currentEscudo / 100f;
+            shieldBarImage.gameObject.SetActive(doorObstacle._currentEscudo > 0);
         }
        
     }

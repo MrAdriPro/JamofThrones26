@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4059519340039945668}
   - component: {fileID: -8910192844566555595}
   - component: {fileID: 5436047723488879388}
-  - component: {fileID: 2643434313927073702}
+  - component: {fileID: 7494959915316719250}
+  - component: {fileID: 8736347665381168713}
   m_Layer: 0
-  m_Name: BulletPrefab
+  m_Name: Tirachinas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +99,29 @@ MonoBehaviour:
   enemyHealth: {fileID: 0}
   bulletTarget: {fileID: 0}
   bulletSpeed: 2
---- !u!212 &2643434313927073702
+--- !u!95 &7494959915316719250
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3111212151778295405}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cabdc8c6444c0844ea5e7c494c3df361, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!212 &8736347665381168713
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,14 +165,14 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1387097988, guid: c87c7446182c5cf48acb698676afe090, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.2738376, y: 4.4700003}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
