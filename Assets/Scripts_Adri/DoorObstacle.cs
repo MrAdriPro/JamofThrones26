@@ -6,7 +6,7 @@ public class DoorObstacle : MonoBehaviour
     #region Variables
     public float maxHealth = 100f;
     public float currentHealth;
-    [SerializeField] float _currentEscudo;
+    public float _currentEscudo;
     float _damageEscudo;
     public bool destroyed = false;
     public GameObject[] doorPrefab;
