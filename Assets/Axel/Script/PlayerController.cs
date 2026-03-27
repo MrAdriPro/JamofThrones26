@@ -3,13 +3,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    #region Variables
     [Header("Referencias")]
     [SerializeField] PlayerInput _playerInput;
     [SerializeField] CharacterController _cC;
     [SerializeField] Camera _mainCamera;
-    [SerializeField] Transform _playerTransform;
-    [SerializeField] Transform _disparo;
+    [SerializeField] RandoSoundEffecs _randomSoundEffect;
 
     [Header("Grounded")]
     [SerializeField] Vector3 _groundCheckSize;
@@ -21,25 +19,16 @@ public class PlayerController : MonoBehaviour
     float _horizontal;
     float _vertical;
     Vector3 vectorGravity;
-
-    [Header("Rotacion")]
-    [SerializeField] float _rotMultiplicador;
     Vector2 _posicionRaton;
-    Vector3 _objetivoRaton;
 
     [Header("Mecánicas")]
     public float stamina = 100;
     public bool _aguantandoLaPuerta;
     public bool abrirPuerta = false;
     public float _reparacionCantidad = 0;
-    [SerializeField] LayerMask _interacteables;
-    [SerializeField] Vector3 _tamanioCaja;
-    [SerializeField] Vector3 _offSet;
-
-    [SerializeField] private float _costeDineroPerSecond;
+    bool _onPause = false;
 
     public Animator _animator;
-    #endregion
 
     void Start()
     {
@@ -78,8 +67,15 @@ public class PlayerController : MonoBehaviour
     {
         if (_aguantandoLaPuerta) return;
 
-        if (context.performed) _reparacionCantidad = 2f;
-        else if (context.canceled) _reparacionCantidad = 0f;
+        if (context.performed)
+        {
+            _reparacionCantidad = 2f;
+            if (_randomSoundEffect != null) _randomSoundEffect.PlayRandomContructionClip();
+        }
+        else if (context.canceled)
+        {
+            _reparacionCantidad = 0f;
+        }
     }
 
     public void OnHoldingDoor(InputAction.CallbackContext context)
@@ -92,6 +88,15 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed) abrirPuerta = true;
         else if (context.canceled) abrirPuerta = false;
+    }
+
+    public void OnPauseMenu(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _onPause = !_onPause;
+            Time.timeScale = _onPause ? 0f : 1f;
+        }
     }
 
     private void GroundCheck()
@@ -114,16 +119,17 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 direccion = new Vector3(_horizontal, 0, _vertical);
-        if (!_grounded) vectorGravity = Vector3.down * 9.81f;
-        else vectorGravity = Vector3.zero;
+        vectorGravity = _grounded ? Vector3.zero : Vector3.down * 9.81f;
 
         _cC.Move((direccion + vectorGravity) * _velocidadMovimiento * Time.deltaTime);
 
         if (_animator != null && !isRepairing && !isHolding && !abrirPuerta)
         {
             float verticalLimpio = Mathf.Abs(_vertical) < 0.1f ? 0f : _vertical;
-            if (Mathf.Abs(_horizontal) > 0.1f && Mathf.Abs(_vertical) < 0.1f) _animator.SetFloat("VerticalMove", -1f);
-            else _animator.SetFloat("VerticalMove", verticalLimpio);
+            if (Mathf.Abs(_horizontal) > 0.1f && Mathf.Abs(_vertical) < 0.1f)
+                _animator.SetFloat("VerticalMove", -1f);
+            else
+                _animator.SetFloat("VerticalMove", verticalLimpio);
 
             SpriteRenderer sR = _animator.GetComponent<SpriteRenderer>();
             if (sR != null)
