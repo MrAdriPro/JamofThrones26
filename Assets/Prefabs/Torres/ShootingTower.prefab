@@ -116,7 +116,11 @@ MonoBehaviour:
   target: {fileID: 0}
   fireRate: 1
   firePoint: {fileID: 343828468388260147}
-  bulletPrefab: {fileID: 3111212151778295405, guid: 05ceb8bdcba54af44bfbd404573a0416, type: 3}
+  bulletPrefabs:
+  - {fileID: 3111212151778295405, guid: e54a276ab88ffb04485c4b5c3308b5c1, type: 3}
+  - {fileID: 3111212151778295405, guid: 1a1fb9410a95cba4f9b6e466a173e643, type: 3}
+  - {fileID: 3111212151778295405, guid: d8719bb87c49ab741a01284e5e5d5bec, type: 3}
+  - {fileID: 3111212151778295405, guid: 8f45e7bd62a460e4790bd5bf1baea6f6, type: 3}
 --- !u!114 &3632979953669875766
 MonoBehaviour:
   m_ObjectHideFlags: 0

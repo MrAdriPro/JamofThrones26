@@ -113,8 +113,8 @@ MonoBehaviour:
   - {fileID: 4910791044498672522}
   target: {fileID: 0}
   _randomSoundEffect: {fileID: 8920058426244771909}
-  towerDamage: 0
-  fireRate: 1
+  towerDamage: 4
+  fireRate: 0.5
 --- !u!114 &8920058426244771909
 MonoBehaviour:
   m_ObjectHideFlags: 0

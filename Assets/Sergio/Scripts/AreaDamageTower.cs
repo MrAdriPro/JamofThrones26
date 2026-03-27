@@ -91,9 +91,13 @@ public class AreaDamageTower : MonoBehaviour
             if (enemy == null) continue;
 
             EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+            EnemyController enemycontroller = enemy.GetComponent<EnemyController>();
             if (enemyHealth == null) continue;
 
-            enemyHealth.TakeDamage(towerDamage * ShopManager.shopInstance.tekLevel + 1);
+            if (enemycontroller.data.flying == false) 
+            {
+                enemyHealth.TakeDamage(towerDamage * (ShopManager.shopInstance.tekLevel + 1));
+            }
             
 
         }

@@ -40,6 +40,10 @@ public class DoorObstacle : MonoBehaviour
         if (_randomSoundEffect != null)
             _audioSourceReparar = _randomSoundEffect.GetComponent<AudioSource>();
         ActualizarPuertaVisual();
+        if (estaAbierta == true)
+        {
+            _animatorActual.SetBool("Abrir", true);
+        }
     }
 
     private void Update()
