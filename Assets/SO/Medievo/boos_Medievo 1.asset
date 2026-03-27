@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: Dino
   enemyPrefab: {fileID: 7496573096510094880, guid: f338dd163525b864f9f1a55b9da67ace, type: 3}
   health: 100
-  speed: 6
+  speed: 5
   damage: 10
   attackRate: 1
   flying: 0

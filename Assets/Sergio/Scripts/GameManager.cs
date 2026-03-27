@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public bool gameIsPaused;
+    public GameObject panel;
 
     void Update()
     {
@@ -15,6 +16,11 @@ public class GameManager : MonoBehaviour
         {
             gameIsPaused = !gameIsPaused;
             Time.timeScale = gameIsPaused ? 1 : 0;
+            if (gameIsPaused)
+            {
+                panel.SetActive(true);
+            }
+            else panel.SetActive(false);
         }
     }
 
@@ -29,5 +35,14 @@ public class GameManager : MonoBehaviour
         {
             GameFinished();
         }
+    }
+    public void ResumeGame() 
+    { 
+        Time.timeScale = 1;
+        gameIsPaused = false;
+    }
+    public void Exit()
+    {
+        Application.Quit();
     }
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: Gato Steampunk
   enemyPrefab: {fileID: 4235468650806712108, guid: 988e42a1a16505e4eb5b2e11c0abdb03, type: 3}
   health: 21
-  speed: 5
+  speed: 4
   damage: 9
   attackRate: 1
   flying: 0

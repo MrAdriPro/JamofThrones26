@@ -89,7 +89,7 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    void UpdateText()
+    public void UpdateText()
     {
         coinText.text = actualCoins.ToString("F0");
        

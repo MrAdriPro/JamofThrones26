@@ -1,4 +1,3 @@
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -7,8 +6,8 @@ using UnityEngine.UI;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] EventSystem eventSystem;
-    [SerializeField] UnityEngine.UI.Image playImage;
-    [SerializeField] UnityEngine.UI.Image exitImage;
+    [SerializeField] Image playImage;
+    [SerializeField] Image exitImage;
     [SerializeField] Color offColor;
 
     private GameObject lastSelectedButton; 

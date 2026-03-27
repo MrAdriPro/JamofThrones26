@@ -17,11 +17,11 @@ MonoBehaviour:
   - enemyType: {fileID: 11400000, guid: 82805edabf852d4489d9c9ad621a039f, type: 2}
     count: 3
     spawnInterval: 4
-    initialDelay: 0
+    initialDelay: 25
   - enemyType: {fileID: 11400000, guid: 82805edabf852d4489d9c9ad621a039f, type: 2}
     count: 5
     spawnInterval: 1.5
-    initialDelay: 10
+    initialDelay: 15
   - enemyType: {fileID: 11400000, guid: 82805edabf852d4489d9c9ad621a039f, type: 2}
     count: 4
     spawnInterval: 1

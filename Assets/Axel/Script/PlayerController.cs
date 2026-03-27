@@ -92,11 +92,11 @@ public class PlayerController : MonoBehaviour
 
     public void OnPauseMenu(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            _onPause = !_onPause;
-            Time.timeScale = _onPause ? 0f : 1f;
-        }
+        //if (context.performed)
+        //{
+        //    _onPause = !_onPause;
+        //    Time.timeScale = _onPause ? 0f : 1f;
+        //}
     }
 
     private void GroundCheck()

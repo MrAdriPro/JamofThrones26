@@ -77,6 +77,10 @@ public class ShootingTower : MonoBehaviour
 
     void Shoot()
     {
+        EnemyHealth enemyHealth = target.GetComponent<EnemyHealth>();
+        if (enemyHealth.isDead == true) return;
+            
+
         if (_currentAnimator != null)
         {
             _currentAnimator.SetTrigger("Shoot");

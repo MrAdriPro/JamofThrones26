@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour
     float currentHealth;
     private EnemyController enemyController;
     [SerializeField] RandoSoundEffecs _randomSoundEffects;
-    private bool isDead;
+    public bool isDead;
 
     void Awake()
     {
@@ -36,7 +36,7 @@ public class EnemyHealth : MonoBehaviour
     {
         isDead = true;
         _randomSoundEffects.PlayRandomDieClip();
-        Instantiate(coinObject);
+        Instantiate(coinObject,transform.position,Quaternion.identity);
         if(enemyController != null) enemyController.enabled = false;
         if (GetComponent<Collider>()) GetComponent<Collider>().enabled = false;
 

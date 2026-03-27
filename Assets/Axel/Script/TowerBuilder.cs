@@ -91,22 +91,30 @@ public class TowerBuilder : MonoBehaviour
     }
     public void DesplegarTorre1()
     {
-        _nTorreta = 0;
-        _torretaActivada = true;
-        _randomSoundEffect.PlayRandomContructionClip();
+        
+        if(_shopManager.actualCoins >= _dineroTorreta1)
+        {
+            _nTorreta = 0;
+            _torretaActivada = true;
+            _randomSoundEffect.PlayRandomContructionClip();
+            ShopManager.shopInstance.actualCoins -= _dineroTorreta1;
+            ShopManager.shopInstance.UpdateText();
+
+        }
     }
     public void DesplegarTorre2()
     {
-        _nTorreta = 1;
-        _torretaActivada = true;
-        _randomSoundEffect.PlayRandomContructionClip();
+        if (_shopManager.actualCoins >= _dineroTorreta2)
+        {
+            _nTorreta = 1;
+            _torretaActivada = true;
+            _randomSoundEffect.PlayRandomContructionClip();
+            ShopManager.shopInstance.actualCoins -= _dineroTorreta2;
+            ShopManager.shopInstance.UpdateText();
+
+        }
     }
-    public void DesplegarTorre3()
-    {
-        _nTorreta = 2;
-        _torretaActivada = true;
-        _randomSoundEffect.PlayRandomContructionClip();
-    }
+    
     #endregion
 
 

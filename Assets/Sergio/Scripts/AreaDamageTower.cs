@@ -12,6 +12,7 @@ public class AreaDamageTower : MonoBehaviour
     public Transform target;
     [SerializeField] RandoSoundEffecs _randomSoundEffect;
 
+
     [Header("Atributos de la Torre")]
     public float towerDamage;
     public float fireRate = 1f;
@@ -64,7 +65,6 @@ public class AreaDamageTower : MonoBehaviour
 
         if (target != null)
         {
-            LockOnTarget();
             if (fireCountdown <= 0f)
             {
                 Attack();
@@ -76,29 +76,24 @@ public class AreaDamageTower : MonoBehaviour
         fireCountdown -= Time.deltaTime;
     }
 
-    void LockOnTarget()
-    {
-        Vector3 dir = target.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = lookRotation.eulerAngles;
-        transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-    }
 
     void Attack()
     {
+
         foreach (Transform enemy in enemiesInRange.ToList())
         {
-            if (enemy == null) continue;
-
             EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
             EnemyController enemycontroller = enemy.GetComponent<EnemyController>();
+            if (enemyHealth.isDead == true) return;
+            if (enemy == null) continue;
+
             if (enemyHealth == null) continue;
 
             if (enemycontroller.data.flying == false) 
             {
                 enemyHealth.TakeDamage(towerDamage * (ShopManager.shopInstance.tekLevel + 1));
             }
-            
+
 
         }
     }
