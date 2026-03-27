@@ -91,9 +91,9 @@ public class ShopManager : MonoBehaviour
 
     void UpdateText()
     {
-        coinText.text = "Coins: " + actualCoins.ToString("F0");
+        coinText.text = actualCoins.ToString("F0");
        
-            costText.text = upgradeCost.ToString("F0");
+        costText.text = upgradeCost.ToString("F0");
         
     }
 
