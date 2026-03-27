@@ -40,6 +40,7 @@ public class DoorObstacle : MonoBehaviour
     private void Update()
     {
         Contacto();
+        ActualizarPuerta(_modelSwapper.currentTek);
         //TakeDamage(0.001f);
     }
     void OnDrawGizmos()
@@ -98,20 +99,21 @@ public class DoorObstacle : MonoBehaviour
     }
     private void ActualizarPuerta(float indice)
     {
-        for (int i = 0; i < _modelSwapper.currentTek; i++)
+        for (int i = 0; i < doorPrefab.Length; i++)
         {
-            if (doorPrefab[i] != null && i != _modelSwapper.currentTek)
+            if (i == _modelSwapper.currentTek)
             {
-                doorPrefab[i].SetActive(false);
+                doorPrefab[i].SetActive(true);
+                _animatorActual = doorPrefab[i].GetComponent<Animator>();
             }
             else
             {
-                doorPrefab[i].SetActive(true);
-                ActualizarAnimator();
+                doorPrefab[i].SetActive(false);
             } 
         }
     }
             
+                
 
     private void Contacto()
     {
