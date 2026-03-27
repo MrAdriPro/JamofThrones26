@@ -5,22 +5,39 @@ using UnityEngine.UI;
 public class TextWriter : MonoBehaviour
 {
     [Header("Configuración")]
+    public Text textComponent;
     public Canvas canvas;
     public float delay = 0.05f;
     public string[] dialogLines; 
+    public Collider coll;
 
-    private Text textComponent;
     private int _currentIndex = 0;
     private bool _isTyping = false;
     private bool _waitingForClick = false;
+    private bool shown = false;
     private Coroutine _typingCoroutine;
+
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player") && !shown)
+        {
+            canvas.gameObject.SetActive(true);
+
+            if (dialogLines.Length > 0)
+                StartCoroutine(ShowCurrentLine());
+
+            shown = true;
+        }
+    }
 
     void Start()
     {
-        textComponent = GetComponent<Text>();
+        // textComponent = GetComponent<Text>();
 
-        if (dialogLines.Length > 0)
-            StartCoroutine(ShowCurrentLine());
+        // if (dialogLines.Length > 0)
+        //     StartCoroutine(ShowCurrentLine());
     }
 
     void Update()
@@ -66,7 +83,7 @@ public class TextWriter : MonoBehaviour
 
     void OnDialogFinished()
     {
-        canvas.enabled = false;
+        canvas.gameObject.SetActive(false);
         Debug.Log("Diálogo terminado");
     }
 }
