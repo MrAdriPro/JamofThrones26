@@ -143,7 +143,7 @@ MonoBehaviour:
   _playerInput: {fileID: 1507885340899295356}
   _cC: {fileID: 6595631108667698909}
   _mainCamera: {fileID: 0}
-  _randomSoundEffect: {fileID: 0}
+  _randomSoundEffect: {fileID: 5071534797817990940}
   _groundCheckSize: {x: 1, y: 0, z: 1}
   _groundLayer:
     serializedVersion: 2
