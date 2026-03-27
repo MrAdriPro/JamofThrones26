@@ -15,7 +15,7 @@ public class ShootingTower : MonoBehaviour
     public float fireRate = 1f;
     private float fireCountdown = 0f;
     public Transform firePoint;
-    public GameObject bulletPrefab;
+    public GameObject[] bulletPrefabs;
 
     private Animator _currentAnimator;
     private int _lastLevel = -1;
@@ -82,7 +82,7 @@ public class ShootingTower : MonoBehaviour
             _currentAnimator.SetTrigger("Shoot");
         }
 
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(bulletPrefabs[ShopManager.shopInstance.tekLevel], firePoint.position, firePoint.rotation);
         _randomSoundEffects.PlayRandomAttackClip();
 
         BulletController bulletController = bullet.GetComponent<BulletController>();
